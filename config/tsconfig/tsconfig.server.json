@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2021"
+  },
+  "compileOnSave": false,
+  "ts-node": {
+    "files": true
+  }
+}
