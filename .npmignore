@@ -1,0 +1,14 @@
+.*
+commitlint.config.js
+config/**
+coverage/**
+cspell.json
+dry-run/**
+jest.config.js
+node_modules/**
+prettier.config.js
+renovate.json
+scripts/**
+spec/**
+src/**
+tsconfig.*
