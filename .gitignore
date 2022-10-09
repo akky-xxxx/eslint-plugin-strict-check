@@ -1,0 +1,17 @@
+# general
+.DS_Store
+.cache
+Thumbs.db
+
+# ide 関連
+.idea/
+.vscode/
+
+# develop 関連
+node_modules/
+yarn-error.log*
+*.tsbuildinfo
+**/coverage
+
+# build 関連
+**/out

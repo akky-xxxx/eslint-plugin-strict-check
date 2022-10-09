@@ -1,0 +1,3 @@
+{
+    "Exclude": [".husky", ".yarn", "out", "packages"]
+}

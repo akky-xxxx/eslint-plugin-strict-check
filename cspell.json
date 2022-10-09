@@ -1,0 +1,12 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "dictionaries": ["en", "typescript", "packages"],
+  "dictionaryDefinitions": [
+    {
+      "name": "packages",
+      "path": "./config/cspell/packages.txt"
+    }
+  ],
+  "ignorePaths": ["node_modules/**", "**/libs/**", "**/coverage/**"]
+}
