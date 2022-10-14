@@ -7,6 +7,11 @@
   },
   "homepage": "https://github.com/akky-xxxx/eslint-plugin-strict-check",
   "license": "MIT",
+  "engines": {
+    "node": "16.18.0",
+    "npm": "use \"yarn\" instead \"npm\"",
+    "yarn": "1.22.19"
+  },
   "main": "out/index.js",
   "scripts": {
     "build": "swc \"./src\" -d \"./out\" --config-file .swcrc",
