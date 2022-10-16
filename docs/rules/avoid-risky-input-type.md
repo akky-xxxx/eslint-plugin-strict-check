@@ -16,9 +16,9 @@
 - specify risky input type values
 - value is one of the input type
 
-#### value: `handle`
+#### value: `["number", "tel"]`
 
-example of **invalid** code:
+example of **invalid** code when option value `["number", "tel"]`:
 
 ```tsx
 // "strict-check/avoid-risky-input-type": ["error", { "riskyValues": ["number", "tel"] }]
@@ -26,7 +26,7 @@ const Input1 = () => <input type="number" />
 const Input2 = () => <input type="tel" />
 ```
 
-example of **valid** code:
+example of **valid** code when option value `["number", "tel"]`:
 
 ```tsx
 // "strict-check/avoid-risky-input-type": ["error", { "riskyValues": ["number", "tel"] }]
