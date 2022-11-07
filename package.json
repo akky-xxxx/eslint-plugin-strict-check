@@ -8,7 +8,7 @@
   "homepage": "https://github.com/akky-xxxx/eslint-plugin-strict-check",
   "license": "MIT",
   "engines": {
-    "node": "16.18.0",
+    "node": "16.18.1",
     "npm": "use \"yarn\" instead \"npm\"",
     "yarn": "1.22.19"
   },
