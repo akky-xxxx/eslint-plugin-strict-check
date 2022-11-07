@@ -1,14 +1,20 @@
 {
   "baseBranches": ["develop"],
-  "extends": ["config:base", ":preserveSemverRanges"],
-  "timezone": "Asia/Tokyo",
-  "schedule": ["on friday"],
+  "extends": ["config:base"],
+  "labels": ["01.greenkeeping"],
   "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["before 3am on the first day of the month"]
+    "enabled": true
   },
-  "minor": {
-    "groupName": "all dependencies",
-    "automerge": true
+  "packageRules": [
+    {
+      "automerge": true,
+      "excludePackageNames": ["typescript"],
+      "groupName": "dependencies (non-major)",
+      "matchUpdateTypes": ["minor", "patch"],
+      "rangeStrategy": "pin"
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true
   }
 }
