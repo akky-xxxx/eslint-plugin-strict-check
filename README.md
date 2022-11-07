@@ -1,11 +1,21 @@
 # eslint-plugin-strict-check
 - Niche rules for eslint.
 
-## Install
+## Installation
 
 ```shell
-$ yarn add -D eslint-plug
-in-strick-check
+$ yarn add -D eslint-plugin-strick-check
+```
+
+Enable plugin at `.eslintrc.js`
+
+```js
+module.exports = {
+    plugins: ["strict-check"],
+    rules: {
+        ...
+    },
+}
 ```
 
 ## Rules

@@ -1,12 +1,17 @@
 {
   "name": "eslint-plugin-strict-check",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/akky-xxxx/eslint-plugin-strict-check.git"
   },
   "homepage": "https://github.com/akky-xxxx/eslint-plugin-strict-check",
   "license": "MIT",
+  "engines": {
+    "node": "16.18.1",
+    "npm": "use \"yarn\" instead \"npm\"",
+    "yarn": "1.22.19"
+  },
   "main": "out/index.js",
   "scripts": {
     "build": "swc \"./src\" -d \"./out\" --config-file .swcrc",
@@ -15,13 +20,13 @@
     "check-code": "run-p spell-check lint type-check",
     "dev": "run-s build build:watch",
     "fix": "run-p fix:* -c",
-    "fix-ts-by-eslint": "eslint \"./{src,spec}/**/*.ts\" --fix",
+    "fix-ts-by-eslint": "eslint \"./{src,spec}/**/*.ts\" --fix --max-warnings 0",
     "fix-ts-by-prettier": "prettier \"./{src,spec}/**/*.ts\" --write",
     "fix:config": "prettier \"./*.{js,json}\" \"./**/*.js\" \"!**/.next\" --write",
     "fix:pack": "fixpack",
     "fix:ts": "run-s fix-ts-by-prettier fix-ts-by-eslint",
     "lint": "run-p lint:* -c",
-    "lint-ts-by-eslint": "eslint \"./{src,spec}/**/*.ts\"",
+    "lint-ts-by-eslint": "eslint \"./{src,spec}/**/*.ts\" --max-warnings 0",
     "lint-ts-by-prettier": "prettier \"./{src,spec}/**/*.ts\" --check",
     "lint:configs": "prettier \"./*.{js,json}\" \"./**/*.js\" \"!**/.next\" --check",
     "lint:editorconfig": "editorconfig-checker",
@@ -55,12 +60,12 @@
     "eslint-plugin-jest": "^27.0.4",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-tsdoc": "^0.2.17",
-    "eslint-plugin-unicorn": "^43.0.2",
+    "eslint-plugin-unicorn": "^44.0.0",
     "fixpack": "^4.0.0",
     "husky": "^8.0.1",
     "jest": "^29.0.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
-    "typescript": "4.7.4"
+    "typescript": "4.8.4"
   }
 }
