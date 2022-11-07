@@ -7,6 +7,17 @@
 $ yarn add -D eslint-plugin-strick-check
 ```
 
+Enable plugin at `.eslintrc.js`
+
+```js
+module.exports = {
+    plugins: ["strict-check"],
+    rules: {
+        ...
+    },
+}
+```
+
 ## Rules
 
 | Name                                                                   | Description                   | Configurations                                      |
