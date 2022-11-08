@@ -10,8 +10,7 @@
       "automerge": true,
       "excludePackageNames": ["typescript"],
       "groupName": "dependencies (non-major)",
-      "matchUpdateTypes": ["minor", "patch"],
-      "rangeStrategy": "pin"
+      "matchUpdateTypes": ["minor", "patch"]
     }
   ],
   "vulnerabilityAlerts": {
