@@ -1,4 +1,3 @@
 .husky
-.yarn
 coverage/**
 out/**
