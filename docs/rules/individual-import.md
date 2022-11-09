@@ -16,7 +16,7 @@
 
 #### value: `["react"]`
 
-example of **invalid** code when option value `["react"]`:
+example of **invalid** :x: code when option value `["react"]`:
 
 ```tsx
 // "strict-check/individual-import": ["warn", { "targets": ["react"] }]
@@ -25,7 +25,7 @@ const changeHandler: React.ChangeEventHandler = () => {}
 const Component = () => <React.Fragment>Component</React.Fragment>
 ```
 
-example of **valid** code when option value `["react"]`:
+example of **valid** :o: code when option value `["react"]`:
 
 ```tsx
 // "strict-check/individual-import": ["warn", { "targets": ["react"] }]

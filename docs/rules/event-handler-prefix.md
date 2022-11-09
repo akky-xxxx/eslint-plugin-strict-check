@@ -19,7 +19,7 @@
 
 #### value: `"handle"`
 
-example of **invalid** code when option value `"handle"`:
+example of **invalid** :x: code when option value `"handle"`:
 
 ```tsx
 // "strict-check/event-handler-prefix": ["error", { "forbiddenPrefix": "handle" }]
@@ -32,7 +32,7 @@ const Component = () => {
 }
 ```
 
-example of **valid** code when option value `"handle"`:
+example of **valid** :o: code when option value `"handle"`:
 
 ```tsx
 // "strict-check/event-handler-prefix": ["error", { "forbiddenPrefix": "handle" }]
@@ -47,7 +47,7 @@ const Component = () => {
 
 #### value: `"on"`
 
-example of **invalid** code when option value `"on"`:
+example of **invalid** :x: code when option value `"on"`:
 
 ```tsx
 // "strict-check/event-handler-prefix": ["error", { "forbiddenPrefix": "on" }]
@@ -60,7 +60,7 @@ const Component = () => {
 }
 ```
 
-example of **valid** code when option value `"on"`:
+example of **valid** :o: code when option value `"on"`:
 
 ```tsx
 // "strict-check/event-handler-prefix": ["error", { "forbiddenPrefix": "on" }]
