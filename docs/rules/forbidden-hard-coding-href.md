@@ -16,7 +16,7 @@
 
 #### value: `["/", "/search"]`
 
-example of **invalid** code when option value `["/", "/search"]`:
+example of **invalid** :x: code when option value `["/", "/search"]`:
 
 ```tsx
 // "strict-check/avoid-risky-input-type": ["error", { "forbiddenValues": ["/", "/search"] }]
