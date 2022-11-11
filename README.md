@@ -4,7 +4,11 @@
 ## Installation
 
 ```shell
+# by yarn
 $ yarn add -D eslint-plugin-strick-check
+
+# by npm
+$ npm i --save-dev eslint-plugin-strick-check
 ```
 
 Enable plugin at `.eslintrc.js`
