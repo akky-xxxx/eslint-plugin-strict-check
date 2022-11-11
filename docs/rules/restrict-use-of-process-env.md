@@ -1,5 +1,5 @@
 # restrict-use-of-process-env
-- for the centralized manage the env
+- For the centralized manage the env
 
 ## Rule options
 
@@ -9,7 +9,7 @@
 ...
 ```
 
-example of **invalid** :x: code
+Example of **invalid** :x: code
 
 ```tsx
 // "strict-check/restrict-use-of-process-env": "error"
@@ -17,7 +17,7 @@ const env = process.env
 const { env: variableName } = process
 ```
 
-example of **valid** :o: code
+Example of **valid** :o: code
 
 ```tsx
 // "strict-check/restrict-use-of-process-env": "error"

@@ -22,6 +22,8 @@ export const jsxOpeningElement: JsxOpeningElement = (context) => (node) => {
     return
   }
 
+  if (node.name.type === "JSXIdentifier" && node.name.name !== "input") return
+
   const targetAttribute = node.attributes.find((attribute) => {
     if (attribute.type !== "JSXAttribute") return false
     return attribute.name.name === "type"
