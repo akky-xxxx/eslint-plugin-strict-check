@@ -1,5 +1,5 @@
 # individual-import
-- import them individual
+- Import them individual
 
 ## Rule options
 
@@ -12,11 +12,11 @@
 ```
 
 ### `targets`
-- specify check target modules
+- Specify check target modules
 
 #### value: `["react"]`
 
-example of **invalid** :x: code when option value `["react"]`:
+Example of **invalid** :x: code when option value `["react"]`:
 
 ```tsx
 // "strict-check/individual-import": ["warn", { "targets": ["react"] }]
@@ -25,7 +25,7 @@ const changeHandler: React.ChangeEventHandler = () => {}
 const Component = () => <React.Fragment>Component</React.Fragment>
 ```
 
-example of **valid** :o: code when option value `["react"]`:
+Example of **valid** :o: code when option value `["react"]`:
 
 ```tsx
 // "strict-check/individual-import": ["warn", { "targets": ["react"] }]
