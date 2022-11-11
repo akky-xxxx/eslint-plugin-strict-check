@@ -11,7 +11,7 @@
   "scripts": {
     "build": "swc \"./src\" -d \"./out\" --config-file .swcrc",
     "build:watch": "swc \"./src\" -d \"./out\" --config-file .swcrc --watch",
-    "check-all": "npm-run-all fix -p spell-check type-check -s test",
+    "check-all": "npm-run-all fix lint test",
     "check-code": "run-p spell-check lint type-check",
     "dev": "run-s build build:watch",
     "fix": "run-p fix:* -c",
