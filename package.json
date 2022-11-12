@@ -10,7 +10,6 @@
   "main": "out/index.js",
   "scripts": {
     "build": "swc \"./src\" -d \"./out\" --config-file .swcrc",
-    "build:watch": "swc \"./src\" -d \"./out\" --config-file .swcrc --watch",
     "check-all": "npm-run-all fix lint test",
     "check-code": "run-p spell-check lint type-check",
     "dev": "run-s build build:watch",
