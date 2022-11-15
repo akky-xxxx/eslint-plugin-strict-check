@@ -31,59 +31,11 @@ jobs:
       - name: Run lint
         run: yarn lint
 
-  spell-check:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 16.x, 18.x ]
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-
       - name: Run spell-check
         run: yarn spell-check
 
-  type-check:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 16.x, 18.x ]
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-
       - name: Run type-check
         run: yarn type-check
-
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 16.x, 18.x ]
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
 
       - name: Run test
         run: yarn test
