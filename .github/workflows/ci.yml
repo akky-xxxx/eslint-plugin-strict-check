@@ -12,7 +12,7 @@ on:
       - 'scripts/**'
 
 jobs:
-  lint:
+  check-code:
     runs-on: ubuntu-latest
     strategy:
       matrix:
