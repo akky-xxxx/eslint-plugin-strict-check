@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-strict-check",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "repository": {
     "type": "git",
     "url": "https://github.com/akky-xxxx/eslint-plugin-strict-check.git"
@@ -10,8 +10,7 @@
   "main": "out/index.js",
   "scripts": {
     "build": "swc \"./src\" -d \"./out\" --config-file .swcrc",
-    "build:watch": "swc \"./src\" -d \"./out\" --config-file .swcrc --watch",
-    "check-all": "npm-run-all fix -p spell-check type-check -s test",
+    "check-all": "npm-run-all fix lint test",
     "check-code": "run-p spell-check lint type-check",
     "dev": "run-s build build:watch",
     "fix": "run-p fix:* -c",
@@ -37,13 +36,13 @@
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.3.4",
+    "@swc/core": "^1.3.17",
     "@swc/jest": "^0.2.22",
-    "@types/jest": "^29.0.3",
+    "@types/jest": "^29.2.3",
     "@types/react": "^18.0.21",
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "@typescript-eslint/parser": "^5.38.0",
-    "@typescript-eslint/utils": "^5.38.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "@typescript-eslint/utils": "^5.43.0",
     "chokidar": "^3.5.3",
     "cspell": "^6.10.1",
     "editorconfig-checker": "^4.0.2",

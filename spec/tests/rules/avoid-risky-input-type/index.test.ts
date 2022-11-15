@@ -19,6 +19,10 @@ tester.run<MessageIdList, Option[]>(
         code: "const Valid = () => <input />",
         options: [{ riskyValues: ["number"] }],
       },
+      {
+        code: "const Valid = () => <div type='text' />",
+        options: [{ riskyValues: ["text"] }],
+      },
     ],
     invalid: [
       {

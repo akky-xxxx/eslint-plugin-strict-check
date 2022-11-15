@@ -1,5 +1,5 @@
 # event-handler-prefix
-- for align prefix of event handler
+- For align prefix of event handler
 
 ## Rule options
 
@@ -12,14 +12,14 @@
 ```
 
 ### `forbiddenPrefix`
-- specify forbid prefix
-- value is one of the following
+- Specify forbid prefix
+- Value is one of the following
     - handle
     - on
 
 #### value: `"handle"`
 
-example of **invalid** code when option value `"handle"`:
+Example of **invalid** :x: code when option value `"handle"`:
 
 ```tsx
 // "strict-check/event-handler-prefix": ["error", { "forbiddenPrefix": "handle" }]
@@ -32,7 +32,7 @@ const Component = () => {
 }
 ```
 
-example of **valid** code when option value `"handle"`:
+Example of **valid** :o: code when option value `"handle"`:
 
 ```tsx
 // "strict-check/event-handler-prefix": ["error", { "forbiddenPrefix": "handle" }]
@@ -47,7 +47,7 @@ const Component = () => {
 
 #### value: `"on"`
 
-example of **invalid** code when option value `"on"`:
+Example of **invalid** :x: code when option value `"on"`:
 
 ```tsx
 // "strict-check/event-handler-prefix": ["error", { "forbiddenPrefix": "on" }]
@@ -60,7 +60,7 @@ const Component = () => {
 }
 ```
 
-example of **valid** code when option value `"on"`:
+Example of **valid** :o: code when option value `"on"`:
 
 ```tsx
 // "strict-check/event-handler-prefix": ["error", { "forbiddenPrefix": "on" }]

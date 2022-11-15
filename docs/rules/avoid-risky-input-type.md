@@ -1,5 +1,5 @@
 # avoid-risky-input-type
-- for avoid risky input type
+- For avoid risky input type
     - ex) `type="number"`
 
 ## Rule options
@@ -13,12 +13,12 @@
 ```
 
 ### `riskyValues`
-- specify risky input type values
-- value is one of the input type
+- Specify risky input type values
+- Value is one of the input type
 
 #### value: `["number", "tel"]`
 
-example of **invalid** code when option value `["number", "tel"]`:
+Example of **invalid** :x: code when option value `["number", "tel"]`:
 
 ```tsx
 // "strict-check/avoid-risky-input-type": ["error", { "riskyValues": ["number", "tel"] }]
@@ -26,7 +26,7 @@ const Input1 = () => <input type="number" />
 const Input2 = () => <input type="tel" />
 ```
 
-example of **valid** code when option value `["number", "tel"]`:
+Example of **valid** :o: code when option value `["number", "tel"]`:
 
 ```tsx
 // "strict-check/avoid-risky-input-type": ["error", { "riskyValues": ["number", "tel"] }]

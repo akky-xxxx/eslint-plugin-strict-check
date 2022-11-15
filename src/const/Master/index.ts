@@ -2,6 +2,7 @@ import { avoidRiskyInputType } from "../../rules/avoid-risky-input-type"
 import { eventHandlerPrefix } from "../../rules/event-handler-prefix"
 import { forbiddenHardCodingHref } from "../../rules/forbidden-hard-coding-href"
 import { individualImport } from "../../rules/individual-import"
+import { restrictUseOfProcessEnv } from "../../rules/restrict-use-of-process-env"
 import { Warn } from "../../shared/const"
 
 import type { MasterRecord } from "../../shared/types"
@@ -19,4 +20,5 @@ export const Master: MasterRecord[] = [
   ],
   ["forbidden-hard-coding-href", forbiddenHardCodingHref, []],
   ["individual-import", individualImport, []],
+  ["restrict-use-of-process-env", restrictUseOfProcessEnv, []],
 ]

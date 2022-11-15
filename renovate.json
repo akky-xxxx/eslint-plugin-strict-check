@@ -1,19 +1,28 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":timezone(Asia/Tokyo)"],
   "baseBranches": ["develop"],
-  "extends": ["config:base"],
   "labels": ["01.greenkeeping"],
   "lockFileMaintenance": {
     "enabled": true
   },
+  "rangeStrategy": "pin",
   "packageRules": [
     {
-      "automerge": true,
       "excludePackageNames": ["typescript"],
       "groupName": "dependencies (non-major)",
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "excludePackageNames": ["typescript"],
+      "groupName": "devDependencies",
+      "rangeStrategy": "update-lockfile"
     }
   ],
   "vulnerabilityAlerts": {
     "enabled": true
-  }
+  },
+  "schedule": ["after 10pm and before 5am every weekday", "every weekend"],
+  "automerge": true
 }

@@ -2,10 +2,12 @@ import { avoidRiskyInputType } from "../../rules/avoid-risky-input-type"
 import { eventHandlerPrefix } from "../../rules/event-handler-prefix"
 import { individualImport } from "../../rules/individual-import"
 import { Warn } from "../../shared/const"
+import { VanillaMaster } from "../VanillaMaster"
 
 import type { MasterRecord } from "../../shared/types"
 
 export const ReactMaster: MasterRecord[] = [
+  ...VanillaMaster,
   [
     "event-handler-prefix",
     eventHandlerPrefix,
