@@ -45,7 +45,7 @@
     "@typescript-eslint/utils": "^5.43.0",
     "chokidar": "^3.5.3",
     "cspell": "^6.10.1",
-    "editorconfig-checker": "^4.0.2",
+    "editorconfig-checker": "^5.0.0",
     "eslint": "^8.24.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
