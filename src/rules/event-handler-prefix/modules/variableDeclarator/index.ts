@@ -1,5 +1,5 @@
-import { getMessage } from "../getMessage"
 import { isNotApplicable } from "./modules/isNotApplicable"
+import { getMessage } from "../getMessage"
 
 import type { Context } from "../../types"
 import type { TSESTree } from "@typescript-eslint/utils"
