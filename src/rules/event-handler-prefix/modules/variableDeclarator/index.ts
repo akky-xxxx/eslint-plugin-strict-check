@@ -1,4 +1,5 @@
 import { isNotApplicable } from "./modules/isNotApplicable"
+import { FirstOption } from "../../../../const/FirstOption"
 import { getMessage } from "../getMessage"
 
 import type { Context } from "../../types"
@@ -20,7 +21,7 @@ export const variableDeclarator: VariableDeclarator = (context) => (node) => {
     return
   }
 
-  const { forbiddenPrefix } = options[0]
+  const { forbiddenPrefix } = options[FirstOption]
   if (isNotApplicable(forbiddenPrefix)(node)) return
 
   report({
