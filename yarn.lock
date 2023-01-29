@@ -2782,10 +2782,10 @@ eslint-config-prettier@^8.5.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.6.0.tgz#dec1d29ab728f4fa63061774e1672ac4e363d207"
   integrity sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==
 
-eslint-config-strict-check@^0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/eslint-config-strict-check/-/eslint-config-strict-check-0.0.14.tgz#6c78e9a00b0794e1920dab13c7c53b70bd7f877d"
-  integrity sha512-KtI+nk/Ro0+ShtQlsNRhYukRFXq4RZMDP3JuVUbYupCvtpn4lbDMYRghtZ5Yb8MorV5OLdvmx1AZbBO5b/9fOA==
+eslint-config-strict-check@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/eslint-config-strict-check/-/eslint-config-strict-check-0.0.15.tgz#5a1707bc9ed0d1653025c5f0d603928ba95ffa46"
+  integrity sha512-1EVKWpga1OU00VN7cEVbBxuSMtrCOe89xMayi3tXaVWr5n2LyaNupG6Csq7IGaxIoG/JAfuD4lI1h437QE2KRw==
 
 eslint-import-resolver-node@^0.3.7:
   version "0.3.7"
