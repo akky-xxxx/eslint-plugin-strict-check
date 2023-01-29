@@ -1,3 +1,5 @@
+import { FirstOption } from "../../../../const/FirstOption"
+
 import type { MessageIdList, Option } from "../../types"
 import type {
   RuleContext,
@@ -41,7 +43,7 @@ export const jsxOpeningElement: JsxOpeningElement = (context) => (node) => {
   }
 
   const { value } = parentValue
-  if (!options[0].riskyValues.includes(value)) return
+  if (!options[FirstOption].riskyValues.includes(value)) return
 
   report({
     message: `<input type="${value}" /> is risky. please rethink other type value`,

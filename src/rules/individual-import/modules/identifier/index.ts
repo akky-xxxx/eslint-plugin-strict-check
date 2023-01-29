@@ -1,3 +1,4 @@
+import { FirstOption } from "../../../../const/FirstOption"
 import { getErrorMessage } from "../getErrorMessage"
 import { hasTarget } from "../hasTarget"
 
@@ -31,7 +32,8 @@ export const identifier: Identifier = (context) => (node) => {
   } = node
   const { name: moduleName } = node
 
-  if (!hasTarget(options[0].targets, moduleName) || !propertyName) return
+  if (!hasTarget(options[FirstOption].targets, moduleName) || !propertyName)
+    return
 
   report({
     message: getErrorMessage(moduleName, propertyName),

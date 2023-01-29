@@ -1,3 +1,4 @@
+import { FirstOption } from "../../../../const/FirstOption"
 import { getErrorMessage } from "../getErrorMessage"
 import { hasTarget } from "../hasTarget"
 
@@ -40,7 +41,7 @@ export const callExpression: CallExpression = (context) => (node) => {
     },
   } = node
 
-  if (!hasTarget(options[0].targets, moduleName)) return
+  if (!hasTarget(options[FirstOption].targets, moduleName)) return
 
   report({
     message: getErrorMessage(moduleName, propertyName),

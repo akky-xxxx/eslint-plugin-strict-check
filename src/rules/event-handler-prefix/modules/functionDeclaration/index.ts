@@ -1,3 +1,4 @@
+import { FirstOption } from "../../../../const/FirstOption"
 import { getMessage } from "../getMessage"
 
 import type { Context } from "../../types"
@@ -19,7 +20,7 @@ export const functionDeclaration: FunctionDeclaration = (context) => (node) => {
     return
   }
 
-  const { forbiddenPrefix } = options[0]
+  const { forbiddenPrefix } = options[FirstOption]
   if (!node.id?.name.startsWith(forbiddenPrefix)) return
   report({
     message: getMessage(forbiddenPrefix),
