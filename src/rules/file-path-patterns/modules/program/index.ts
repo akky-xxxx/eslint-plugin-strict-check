@@ -37,9 +37,11 @@ export const program: Program = (context) => (node) => {
   }
 
   const fileName = getFilename()
-  const isAllMatched = allowPatterns.every((pattern) => pattern.test(fileName))
+  const isPartialMatched = allowPatterns.some((pattern) =>
+    pattern.test(fileName),
+  )
 
-  if (isAllMatched) return
+  if (isPartialMatched) return
 
   report({
     message: "Not matched filename to pattern.",
