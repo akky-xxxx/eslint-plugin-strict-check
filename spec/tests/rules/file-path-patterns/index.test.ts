@@ -7,142 +7,95 @@ import type {
 } from "../../../../src/rules/file-path-patterns/types"
 
 const RegularExpressions = {
-  ATOMIC_DESIGN: /\/components\/atoms\/[A-Z][^.]+\./,
-  ONLY_INDEX: /index(?:\.(?:stories|test))?\.tsx?/,
+  ATOMIC_DESIGN:
+    /\/components\/atoms\/[A-Z][^.]+\/index(?:\.(?:stories|test))?\.tsx?/,
+  TYPES: /\/@types\/[^/]+\/[^.]+\.d\.ts/,
 } satisfies Record<Uppercase<string>, RegExp>
+
+const options = [
+  {
+    allowPatterns: [RegularExpressions.ATOMIC_DESIGN, RegularExpressions.TYPES],
+  },
+]
 
 tester.run<MessageIdList, Option[]>("file-path-patterns", filePathPatterns, {
   valid: [
     {
-      code: "",
+      code: 'console.log("valid pattern1")',
       filename: "/components/atoms/Button/index.tsx",
-      options: [
-        {
-          allowPatterns: [
-            RegularExpressions.ATOMIC_DESIGN,
-            RegularExpressions.ONLY_INDEX,
-          ],
-        },
-      ],
+      options,
     },
     {
-      code: "",
-      filename: "index.ts",
-      options: [
-        {
-          allowPatterns: [RegularExpressions.ONLY_INDEX],
-        },
-      ],
+      code: 'console.log("valid pattern2")',
+      filename: "/components/atoms/Button/index.ts",
+      options,
     },
     {
-      code: "",
-      filename: "index.tsx",
-      options: [
-        {
-          allowPatterns: [RegularExpressions.ONLY_INDEX],
-        },
-      ],
+      code: 'console.log("valid pattern3")',
+      filename: "/components/atoms/Button/index.tsx",
+      options,
     },
     {
-      code: "",
-      filename: "index.stories.tsx",
-      options: [
-        {
-          allowPatterns: [RegularExpressions.ONLY_INDEX],
-        },
-      ],
+      code: 'console.log("valid pattern4")',
+      filename: "/components/atoms/Button/index.stories.tsx",
+      options,
     },
     {
-      code: "",
-      filename: "index.test.ts",
-      options: [
-        {
-          allowPatterns: [RegularExpressions.ONLY_INDEX],
-        },
-      ],
+      code: 'console.log("valid pattern5")',
+      filename: "/components/atoms/Button/index.test.ts",
+      options,
     },
     {
-      code: "",
-      filename: "index.test.tsx",
-      options: [
-        {
-          allowPatterns: [RegularExpressions.ONLY_INDEX],
-        },
-      ],
+      code: 'console.log("valid pattern6")',
+      filename: "/components/atoms/Button/index.test.tsx",
+      options,
+    },
+    {
+      code: 'console.log("valid pattern7")',
+      filename: "/@types/type/button.d.ts",
+      options,
     },
   ],
   invalid: [
     {
-      code: "",
+      code: 'console.log("invalid pattern1")',
       filename: "relatedComponents/atoms/button/index.tsx",
       errors: ["Not defined option."],
     },
     {
-      code: "",
+      code: 'console.log("invalid pattern2")',
       filename: "relatedComponents/atoms/button/index.tsx",
       options: [{}],
       errors: ["Not defined option.allowPatterns."],
     },
     {
-      code: "",
+      code: 'console.log("invalid pattern3")',
       filename: "relatedComponents/atoms/button/index.tsx",
-      options: [
-        {
-          allowPatterns: [
-            RegularExpressions.ATOMIC_DESIGN,
-            RegularExpressions.ONLY_INDEX,
-          ],
-        },
-      ],
+      options,
       errors: ["Not matched filename to pattern."],
     },
     {
-      code: "",
+      code: 'console.log("invalid pattern4")',
       filename: "/components/atoms/button/index.tsx",
-      options: [
-        {
-          allowPatterns: [
-            RegularExpressions.ATOMIC_DESIGN,
-            RegularExpressions.ONLY_INDEX,
-          ],
-        },
-      ],
+      options,
       errors: ["Not matched filename to pattern."],
     },
     {
-      code: "",
+      code: 'console.log("invalid pattern5")',
       filename: "/components/Button/index.tsx",
-      options: [
-        {
-          allowPatterns: [
-            RegularExpressions.ATOMIC_DESIGN,
-            RegularExpressions.ONLY_INDEX,
-          ],
-        },
-      ],
+      options,
       errors: ["Not matched filename to pattern."],
     },
     {
-      code: "",
+      code: 'console.log("invalid pattern6")',
       filename: "/components/Button.tsx",
-      options: [
-        {
-          allowPatterns: [
-            RegularExpressions.ATOMIC_DESIGN,
-            RegularExpressions.ONLY_INDEX,
-          ],
-        },
-      ],
+      options,
       errors: ["Not matched filename to pattern."],
     },
     {
-      code: "",
-      filename: "types/Button.ts",
-      options: [
-        {
-          allowPatterns: [RegularExpressions.ONLY_INDEX],
-        },
-      ],
+      code: 'console.log("invalid pattern7")',
+      filename: "/components/types/Button.ts",
+      options,
       errors: ["Not matched filename to pattern."],
     },
   ],
