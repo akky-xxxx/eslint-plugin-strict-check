@@ -43,9 +43,11 @@ export const importSpecifier: ImportSpecifier = (context) => (node) => {
   }
 
   const fileName = getFilename()
-  const isAllMatched = allowPatterns.some((pattern) => pattern.test(fileName))
+  const isPartialMatched = allowPatterns.some((pattern) =>
+    pattern.test(fileName),
+  )
 
-  if (isAllMatched) return
+  if (isPartialMatched) return
 
   const {
     imported: { name },
