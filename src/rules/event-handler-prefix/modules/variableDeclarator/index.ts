@@ -1,5 +1,6 @@
-import { getMessage } from "../getMessage"
 import { isNotApplicable } from "./modules/isNotApplicable"
+import { FirstOption } from "../../../../const/FirstOption"
+import { getMessage } from "../getMessage"
 
 import type { Context } from "../../types"
 import type { TSESTree } from "@typescript-eslint/utils"
@@ -20,7 +21,7 @@ export const variableDeclarator: VariableDeclarator = (context) => (node) => {
     return
   }
 
-  const { forbiddenPrefix } = options[0]
+  const { forbiddenPrefix } = options[FirstOption]
   if (isNotApplicable(forbiddenPrefix)(node)) return
 
   report({
