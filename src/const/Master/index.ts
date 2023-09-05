@@ -5,6 +5,7 @@ import { forbiddenHardCodingHref } from "../../rules/forbidden-hard-coding-href"
 import { forbiddenMultipleNamedExports } from "../../rules/forbidden-multiple-named-exports"
 import { forbiddenUseReactHooks } from "../../rules/forbidden-use-react-hooks"
 import { individualImport } from "../../rules/individual-import"
+import { matchNamesOfFileAndExport } from "../../rules/match-names-of-file-and-export"
 import { restrictUseOfProcessEnv } from "../../rules/restrict-use-of-process-env"
 import { Warn } from "../../shared/const"
 
@@ -26,5 +27,6 @@ export const Master: MasterRecord[] = [
   ["forbidden-multiple-named-exports", forbiddenMultipleNamedExports, []],
   ["forbidden-use-react-hooks", forbiddenUseReactHooks, [Warn]],
   ["individual-import", individualImport, []],
+  ["match-names-of-file-and-export", matchNamesOfFileAndExport, []],
   ["restrict-use-of-process-env", restrictUseOfProcessEnv, []],
 ]
