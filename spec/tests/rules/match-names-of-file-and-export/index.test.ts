@@ -9,7 +9,7 @@ import type {
 const correctOptions: Option[] = [
   {
     captures: [
-      /\/components\/(?:atoms|molecules|organsims|templates)\/([^/]+)\/index.tsx/,
+      /\/components\/(?:atoms|molecules|organisms|templates)\/([^/]+)\/index.tsx/,
       /\/modules\/([^/]+)\/index.ts/,
     ],
   },
