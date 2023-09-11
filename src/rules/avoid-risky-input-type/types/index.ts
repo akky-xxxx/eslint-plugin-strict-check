@@ -3,6 +3,6 @@ import type { HTMLInputTypeAttribute } from "react"
 type RiskyValues = HTMLInputTypeAttribute
 export type MessageIdList = "NoOption"
 
-export type Option = {
+export type Option = Partial<{
   riskyValues: RiskyValues[]
-}
+}>
