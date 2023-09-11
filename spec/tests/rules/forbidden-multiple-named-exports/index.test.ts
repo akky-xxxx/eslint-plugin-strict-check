@@ -12,11 +12,13 @@ tester.run<MessageIdList, Option[]>(
   {
     valid: [
       {
+        name: "It is valid, when named export is only one at one file.",
         code: "export const One = 1;",
       },
     ],
     invalid: [
       {
+        name: "It has two errors, when It exists three named exports.",
         code: "export const One = 1; export const Two = 2; export default 3; export const Four = 4;",
         filename: "relatedComponents/atoms/button/index.tsx",
         errors: [
@@ -25,6 +27,7 @@ tester.run<MessageIdList, Option[]>(
         ],
       },
       {
+        name: "It has one error, when It exists two named exports.",
         code: "export const One = 1; export const Two = 2;",
         filename: "relatedComponents/atoms/button/index.tsx",
         errors: ["Reduce the export to one time."],
