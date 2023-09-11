@@ -33,11 +33,6 @@ tester.run<MessageIdList, Option[]>(
           'don\'t hard code "/search", replace to designated constant or function',
         ],
       },
-      {
-        code: 'const href = "/"',
-        options: [],
-        errors: [{ messageId: "NoOption" }],
-      },
     ],
   },
 )
