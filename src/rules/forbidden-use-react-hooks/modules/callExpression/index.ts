@@ -15,41 +15,56 @@ type CallExpression = (
   context: Context,
 ) => RuleFunction<TSESTree.CallExpression>
 
-// eslint-disable-next-line complexity,max-statements
-export const callExpression: CallExpression = (context) => (node) => {
+export const callExpression: CallExpression = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
   const firstOption = options.at(FirstOption)
 
   if (!firstOption) {
-    report({
-      message: getNotHasOptionErrorMessage(),
-      node,
-    })
-    return
+    throw new Error(getNotHasOptionErrorMessage())
   }
 
   const { allowPatterns } = firstOption
 
   if (!allowPatterns) {
-    report({
-      message: getNotHasOptionErrorMessage("allowPatterns"),
-      node,
-    })
-    return
+    throw new Error(getNotHasOptionErrorMessage("allowPatterns"))
   }
 
-  const fileName = getFilename()
-  const isPartialMatched = allowPatterns.some((pattern) =>
-    pattern.test(fileName),
-  )
+  // eslint-disable-next-line complexity, max-statements
+  return (node) => {
+    const fileName = getFilename()
+    const isPartialMatched = allowPatterns.some((pattern) =>
+      pattern.test(fileName),
+    )
 
-  if (isPartialMatched) return
+    if (isPartialMatched) return
 
-  if (node.callee.type === "Identifier") {
+    if (node.callee.type === "Identifier") {
+      const {
+        callee: { name },
+      } = node
+
+      if (!PrefixRegExp.test(name)) return
+
+      report({
+        message: getErrorMessage("use", name),
+        node,
+      })
+      return
+    }
+
+    if (
+      node.callee.type !== "MemberExpression" ||
+      node.callee.property.type !== "Identifier"
+    ) {
+      return
+    }
+
     const {
-      callee: { name },
+      callee: {
+        property: { name },
+      },
     } = node
 
     if (!PrefixRegExp.test(name)) return
@@ -58,26 +73,5 @@ export const callExpression: CallExpression = (context) => (node) => {
       message: getErrorMessage("use", name),
       node,
     })
-    return
   }
-
-  if (
-    node.callee.type !== "MemberExpression" ||
-    node.callee.property.type !== "Identifier"
-  ) {
-    return
-  }
-
-  const {
-    callee: {
-      property: { name },
-    },
-  } = node
-
-  if (!PrefixRegExp.test(name)) return
-
-  report({
-    message: getErrorMessage("use", name),
-    node,
-  })
 }

@@ -17,46 +17,39 @@ type ImportSpecifier = (
   context: Context,
 ) => RuleFunction<TSESTree.ImportSpecifier>
 
-// eslint-disable-next-line max-statements
-export const importSpecifier: ImportSpecifier = (context) => (node) => {
+export const importSpecifier: ImportSpecifier = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
   const firstOption = options.at(FirstOption)
 
   if (!firstOption) {
-    report({
-      message: getNotHasOptionErrorMessage(),
-      node,
-    })
-    return
+    throw new Error(getNotHasOptionErrorMessage())
   }
 
   const { allowPatterns } = firstOption
 
   if (!allowPatterns) {
-    report({
-      message: getNotHasOptionErrorMessage("allowPatterns"),
-      node,
-    })
-    return
+    throw new Error(getNotHasOptionErrorMessage("allowPatterns"))
   }
 
-  const fileName = getFilename()
-  const isPartialMatched = allowPatterns.some((pattern) =>
-    pattern.test(fileName),
-  )
+  return (node) => {
+    const fileName = getFilename()
+    const isPartialMatched = allowPatterns.some((pattern) =>
+      pattern.test(fileName),
+    )
 
-  if (isPartialMatched) return
+    if (isPartialMatched) return
 
-  const {
-    imported: { name },
-  } = node
+    const {
+      imported: { name },
+    } = node
 
-  if (!PrefixRegExp.test(name)) return
+    if (!PrefixRegExp.test(name)) return
 
-  report({
-    message: getErrorMessage("import", name),
-    node,
-  })
+    report({
+      message: getErrorMessage("import", name),
+      node,
+    })
+  }
 }
