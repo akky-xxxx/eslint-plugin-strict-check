@@ -1,4 +1,5 @@
 import { FirstOption } from "../../../../const/FirstOption"
+import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
 import { getErrorMessage } from "../getErrorMessage"
 import { hasTarget } from "../hasTarget"
 
@@ -12,31 +13,44 @@ import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
 export type Context = Readonly<RuleContext<MessageIdList, readonly Option[]>>
 type Identifier = (context: Context) => RuleFunction<TSESTree.Identifier>
 
-export const identifier: Identifier = (context) => (node) => {
+export const identifier: Identifier = (context) => {
   const { options, report } = context
 
-  if (!options.length) {
-    report({
-      messageId: "NoOption",
-      node,
-    })
-    return
+  const firstOption = options.at(FirstOption)
+
+  if (!firstOption) {
+    throw new Error(getNotHasOptionErrorMessage())
   }
 
-  if (node.parent?.type !== "TSQualifiedName") return
+  const { targets } = firstOption
 
-  const {
-    parent: {
-      right: { name: propertyName },
-    },
-  } = node
-  const { name: moduleName } = node
+  if (!targets) {
+    throw new Error(getNotHasOptionErrorMessage("targets"))
+  }
 
-  if (!hasTarget(options[FirstOption].targets, moduleName) || !propertyName)
-    return
+  return (node) => {
+    if (!options.length) {
+      report({
+        messageId: "NoOption",
+        node,
+      })
+      return
+    }
 
-  report({
-    message: getErrorMessage(moduleName, propertyName),
-    node,
-  })
+    if (node.parent?.type !== "TSQualifiedName") return
+
+    const {
+      parent: {
+        right: { name: propertyName },
+      },
+    } = node
+    const { name: moduleName } = node
+
+    if (!hasTarget(targets, moduleName) || !propertyName) return
+
+    report({
+      message: getErrorMessage(moduleName, propertyName),
+      node,
+    })
+  }
 }
