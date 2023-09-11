@@ -32,10 +32,6 @@ tester.run<MessageIdList, Option[]>(
           '<input type="number" /> is risky. please rethink other type value',
         ],
       },
-      {
-        code: 'const Valid = () => <input type="text" />',
-        errors: [{ messageId: "NoOption" }],
-      },
     ],
   },
 )

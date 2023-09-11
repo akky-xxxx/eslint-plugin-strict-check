@@ -53,21 +53,5 @@ tester.run<MessageIdList, Option[]>("individual-import", individualImport, {
         'import "React.Fragment" as individually. example: import { Fragment } from "react"',
       ],
     },
-    {
-      code: "const [state, setState] = React.useState(1)",
-      options: [],
-      errors: [
-        { messageId: "NoOption" },
-        { messageId: "NoOption" },
-        { messageId: "NoOption" },
-        { messageId: "NoOption" },
-        { messageId: "NoOption" },
-      ],
-    },
-    {
-      code: "const Component = () => <React.Fragment>Component</React.Fragment>",
-      options: [],
-      errors: [{ messageId: "NoOption" }, { messageId: "NoOption" }],
-    },
   ],
 })

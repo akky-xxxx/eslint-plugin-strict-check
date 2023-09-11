@@ -1,5 +1,5 @@
 export type MessageIdList = "NoOption"
 
-export type Option = {
+export type Option = Partial<{
   targets: string[]
-}
+}>

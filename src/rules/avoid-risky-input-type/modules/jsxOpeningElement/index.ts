@@ -1,4 +1,5 @@
 import { FirstOption } from "../../../../const/FirstOption"
+import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
 
 import type { MessageIdList, Option } from "../../types"
 import type {
@@ -12,41 +13,46 @@ type JsxOpeningElement = (
   context: Context,
 ) => RuleFunction<TSESTree.JSXOpeningElement>
 
-// eslint-disable-next-line max-statements, complexity
-export const jsxOpeningElement: JsxOpeningElement = (context) => (node) => {
+export const jsxOpeningElement: JsxOpeningElement = (context) => {
   const { options, report } = context
+  const firstOption = options.at(FirstOption)
 
-  if (!options.length) {
+  if (!firstOption) {
+    throw new Error(getNotHasOptionErrorMessage())
+  }
+
+  const { riskyValues } = firstOption
+
+  if (!riskyValues) {
+    throw new Error(getNotHasOptionErrorMessage("riskyValues"))
+  }
+
+  // eslint-disable-next-line complexity
+  return (node) => {
+    if (node.name.type === "JSXIdentifier" && node.name.name !== "input") return
+
+    const targetAttribute = node.attributes.find((attribute) => {
+      if (attribute.type !== "JSXAttribute") return false
+      return attribute.name.name === "type"
+    })
+
+    if (!targetAttribute || targetAttribute.type !== "JSXAttribute") return
+
+    const { value: parentValue } = targetAttribute
+    if (
+      !parentValue ||
+      parentValue.type !== "Literal" ||
+      typeof parentValue.value !== "string"
+    ) {
+      return
+    }
+
+    const { value } = parentValue
+    if (!riskyValues.includes(value)) return
+
     report({
-      messageId: "NoOption",
+      message: `<input type="${value}" /> is risky. please rethink other type value`,
       node,
     })
-    return
   }
-
-  if (node.name.type === "JSXIdentifier" && node.name.name !== "input") return
-
-  const targetAttribute = node.attributes.find((attribute) => {
-    if (attribute.type !== "JSXAttribute") return false
-    return attribute.name.name === "type"
-  })
-
-  if (!targetAttribute || targetAttribute.type !== "JSXAttribute") return
-
-  const { value: parentValue } = targetAttribute
-  if (
-    !parentValue ||
-    parentValue.type !== "Literal" ||
-    typeof parentValue.value !== "string"
-  ) {
-    return
-  }
-
-  const { value } = parentValue
-  if (!options[FirstOption].riskyValues.includes(value)) return
-
-  report({
-    message: `<input type="${value}" /> is risky. please rethink other type value`,
-    node,
-  })
 }

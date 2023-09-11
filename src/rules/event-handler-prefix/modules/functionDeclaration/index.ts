@@ -1,4 +1,5 @@
 import { FirstOption } from "../../../../const/FirstOption"
+import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
 import { getMessage } from "../getMessage"
 
 import type { Context } from "../../types"
@@ -9,21 +10,33 @@ type FunctionDeclaration = (
   context: Context,
 ) => RuleFunction<TSESTree.FunctionDeclaration>
 
-export const functionDeclaration: FunctionDeclaration = (context) => (node) => {
+export const functionDeclaration: FunctionDeclaration = (context) => {
   const { options, report } = context
+  const firstOption = options.at(FirstOption)
 
-  if (!options.length) {
-    report({
-      messageId: "NoOption",
-      node,
-    })
-    return
+  if (!firstOption) {
+    throw new Error(getNotHasOptionErrorMessage())
   }
 
-  const { forbiddenPrefix } = options[FirstOption]
-  if (!node.id?.name.startsWith(forbiddenPrefix)) return
-  report({
-    message: getMessage(forbiddenPrefix),
-    node,
-  })
+  const { forbiddenPrefix } = firstOption
+
+  if (!forbiddenPrefix) {
+    throw new Error(getNotHasOptionErrorMessage("forbiddenPrefix"))
+  }
+
+  return (node) => {
+    if (!options.length) {
+      report({
+        messageId: "NoOption",
+        node,
+      })
+      return
+    }
+
+    if (!node.id?.name.startsWith(forbiddenPrefix)) return
+    report({
+      message: getMessage(forbiddenPrefix),
+      node,
+    })
+  }
 }
