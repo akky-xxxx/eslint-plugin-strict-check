@@ -49,16 +49,6 @@ tester.run<MessageIdList, Option[]>(
         options: [{ forbiddenPrefix: "on" }],
         errors: ['replace "on" to "handle" of handler prefix'],
       },
-      {
-        code: "const handleGet = () => {} // no option pattern",
-        options: [],
-        errors: [{ messageId: "NoOption" }],
-      },
-      {
-        code: "function handleGet() {} // no option pattern",
-        options: [],
-        errors: [{ messageId: "NoOption" }],
-      },
     ],
   },
 )

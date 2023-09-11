@@ -1,5 +1,6 @@
 import { isNotApplicable } from "./modules/isNotApplicable"
 import { FirstOption } from "../../../../const/FirstOption"
+import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
 import { getMessage } from "../getMessage"
 
 import type { Context } from "../../types"
@@ -10,22 +11,34 @@ type VariableDeclarator = (
   context: Context,
 ) => RuleFunction<TSESTree.VariableDeclarator>
 
-export const variableDeclarator: VariableDeclarator = (context) => (node) => {
+export const variableDeclarator: VariableDeclarator = (context) => {
   const { options, report } = context
+  const firstOption = options.at(FirstOption)
 
-  if (!options.length) {
-    report({
-      messageId: "NoOption",
-      node,
-    })
-    return
+  if (!firstOption) {
+    throw new Error(getNotHasOptionErrorMessage())
   }
 
-  const { forbiddenPrefix } = options[FirstOption]
-  if (isNotApplicable(forbiddenPrefix)(node)) return
+  const { forbiddenPrefix } = firstOption
 
-  report({
-    message: getMessage(forbiddenPrefix),
-    node,
-  })
+  if (!forbiddenPrefix) {
+    throw new Error(getNotHasOptionErrorMessage("forbiddenPrefix"))
+  }
+
+  return (node) => {
+    if (!options.length) {
+      report({
+        messageId: "NoOption",
+        node,
+      })
+      return
+    }
+
+    if (isNotApplicable(forbiddenPrefix)(node)) return
+
+    report({
+      message: getMessage(forbiddenPrefix),
+      node,
+    })
+  }
 }
