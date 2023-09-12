@@ -1,5 +1,6 @@
 import { Prefix } from "../../shared/const/Prefix"
 
+import type { Options } from "../../shared/types/Options"
 import type { RuleName } from "../../shared/types/RuleName"
 
 type GetConfigRules = UtilFunction<Record<RuleName, Options>>
