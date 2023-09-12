@@ -1,3 +1,4 @@
+import type { UtilFunction } from "../../shared/types"
 import type { RuleName } from "../../shared/types/RuleName"
 
 type GetRules = UtilFunction<Record<RuleName, EsLintRuleBase>>

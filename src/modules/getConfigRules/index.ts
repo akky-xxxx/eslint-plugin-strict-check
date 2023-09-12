@@ -1,5 +1,6 @@
 import { Prefix } from "../../shared/const/Prefix"
 
+import type { UtilFunction } from "../../shared/types"
 import type { Options } from "../../shared/types/Options"
 import type { RuleName } from "../../shared/types/RuleName"
 
