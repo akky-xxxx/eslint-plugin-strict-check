@@ -1,4 +1,4 @@
-import { Prefix } from "../../shared/const"
+import { Prefix } from "../../shared/const/Prefix"
 import { getConfigRules } from "../getConfigRules"
 
 import type { MasterRecord, Options, RuleName } from "../../shared/types"

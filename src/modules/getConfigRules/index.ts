@@ -1,4 +1,4 @@
-import { Prefix } from "../../shared/const"
+import { Prefix } from "../../shared/const/Prefix"
 
 import type { UtilFunction, Options, RuleName } from "../../shared/types"
 
