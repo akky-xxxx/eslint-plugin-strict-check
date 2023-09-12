@@ -32,6 +32,9 @@
     "test": "jest --coverage",
     "type-check": "tsc"
   },
+  "dependencies": {
+    "zod": "^3.22.2"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
