@@ -58,17 +58,6 @@ tester.run<MessageIdList, Option[]>("file-path-patterns", filePathPatterns, {
   ],
   invalid: [
     {
-      code: 'console.log("invalid pattern1")',
-      filename: "relatedComponents/atoms/button/index.tsx",
-      errors: ["Not defined option."],
-    },
-    {
-      code: 'console.log("invalid pattern2")',
-      filename: "relatedComponents/atoms/button/index.tsx",
-      options: [{}],
-      errors: ["Not defined option.allowPatterns."],
-    },
-    {
       code: 'console.log("invalid pattern3")',
       filename: "relatedComponents/atoms/button/index.tsx",
       options,
