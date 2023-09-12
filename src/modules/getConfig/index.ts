@@ -1,6 +1,7 @@
 import { Prefix } from "../../shared/const/Prefix"
 import { getConfigRules } from "../getConfigRules"
 
+import type { MasterRecord } from "../../shared/types"
 import type { Options } from "../../shared/types/Options"
 import type { RuleName } from "../../shared/types/RuleName"
 
