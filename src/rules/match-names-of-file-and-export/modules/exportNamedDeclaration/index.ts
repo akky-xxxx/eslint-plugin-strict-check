@@ -1,6 +1,6 @@
 import { ArrayFirstIndex } from "../../../../const/ArrayFirstIndex"
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
+import { optionsSchema } from "../../schema/optionSchema"
 
 import type { MessageIdList, Option } from "../../types"
 import type {
@@ -19,17 +19,7 @@ type ExportNamedDeclaration = (
 export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
   const { getFilename, options, report } = context
   const fileName = getFilename()
-  const firstOption = options.at(FirstOption)
-
-  if (!firstOption) {
-    throw new Error(getNotHasOptionErrorMessage())
-  }
-
-  const { captures } = firstOption
-
-  if (!captures) {
-    throw new Error(getNotHasOptionErrorMessage("captures"))
-  }
+  const [{ captures }] = parseOption(options, optionsSchema)
 
   const matchedCapture = captures.find((capture) => capture.test(fileName))
 
