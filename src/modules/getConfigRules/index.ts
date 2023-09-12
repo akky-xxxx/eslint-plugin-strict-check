@@ -1,6 +1,6 @@
 import { Prefix } from "../../shared/const/Prefix"
 
-import type { GetRulesBase } from "../../shared/types"
+import type { GetRulesBase } from "../../shared/types/GetRulesBase"
 import type { Options } from "../../shared/types/Options"
 import type { RuleName } from "../../shared/types/RuleName"
 
