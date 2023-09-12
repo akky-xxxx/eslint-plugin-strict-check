@@ -1,5 +1,5 @@
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
+import { optionsSchema } from "../../schema/optionSchema"
 import { getErrorMessage } from "../getErrorMessage"
 import { hasTarget } from "../hasTarget"
 
@@ -16,17 +16,7 @@ type Identifier = (context: Context) => RuleFunction<TSESTree.Identifier>
 export const identifier: Identifier = (context) => {
   const { options, report } = context
 
-  const firstOption = options.at(FirstOption)
-
-  if (!firstOption) {
-    throw new Error(getNotHasOptionErrorMessage())
-  }
-
-  const { targets } = firstOption
-
-  if (!targets) {
-    throw new Error(getNotHasOptionErrorMessage("targets"))
-  }
+  const [{ targets }] = parseOption(options, optionsSchema)
 
   return (node) => {
     if (!options.length) {

@@ -8,7 +8,7 @@ describe("individual-import.identifier", () => {
       identifier({
         options: [],
       }),
-    ).toThrow("Not defined option.")
+    ).toThrow("Invalid options, please check it.")
   })
 
   it("Not defined option.targets", () => {
@@ -18,6 +18,6 @@ describe("individual-import.identifier", () => {
       identifier({
         options: [{}],
       }),
-    ).toThrow("Not defined option.targets.")
+    ).toThrow("Invalid options, please check it.")
   })
 })
