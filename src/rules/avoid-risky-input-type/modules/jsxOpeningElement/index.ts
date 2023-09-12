@@ -1,5 +1,5 @@
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
+import { optionsSchema } from "../../schema/optionsSchema"
 
 import type { MessageIdList, Option } from "../../types"
 import type {
@@ -15,17 +15,9 @@ type JsxOpeningElement = (
 
 export const jsxOpeningElement: JsxOpeningElement = (context) => {
   const { options, report } = context
-  const firstOption = options.at(FirstOption)
 
-  if (!firstOption) {
-    throw new Error(getNotHasOptionErrorMessage())
-  }
-
-  const { riskyValues } = firstOption
-
-  if (!riskyValues) {
-    throw new Error(getNotHasOptionErrorMessage("riskyValues"))
-  }
+  const parsedOptions = parseOption(options, optionsSchema)
+  const [{ riskyValues }] = parsedOptions
 
   // eslint-disable-next-line complexity
   return (node) => {
