@@ -8,7 +8,7 @@ describe("event-handler-prefix.variableDeclarator", () => {
       variableDeclarator({
         options: [],
       }),
-    ).toThrow("Not defined option.")
+    ).toThrow("Invalid options, please check it.")
   })
 
   it("Not defined option.forbiddenPrefix", () => {
@@ -18,6 +18,6 @@ describe("event-handler-prefix.variableDeclarator", () => {
       variableDeclarator({
         options: [{}],
       }),
-    ).toThrow("Not defined option.forbiddenPrefix.")
+    ).toThrow("Invalid options, please check it.")
   })
 })

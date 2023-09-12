@@ -1,6 +1,6 @@
 import { isNotApplicable } from "./modules/isNotApplicable"
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
+import { optionsSchema } from "../../schema/optionsSchema"
 import { getMessage } from "../getMessage"
 
 import type { Context } from "../../types"
@@ -13,17 +13,7 @@ type VariableDeclarator = (
 
 export const variableDeclarator: VariableDeclarator = (context) => {
   const { options, report } = context
-  const firstOption = options.at(FirstOption)
-
-  if (!firstOption) {
-    throw new Error(getNotHasOptionErrorMessage())
-  }
-
-  const { forbiddenPrefix } = firstOption
-
-  if (!forbiddenPrefix) {
-    throw new Error(getNotHasOptionErrorMessage("forbiddenPrefix"))
-  }
+  const [{ forbiddenPrefix }] = parseOption(options, optionsSchema)
 
   return (node) => {
     if (!options.length) {
