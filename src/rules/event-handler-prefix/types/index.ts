@@ -1,4 +1,4 @@
-import type { OptionBase } from "../../../shared/types"
+import type { OptionBase } from "../../../shared/types/OptionBase"
 import type { RuleContext } from "@typescript-eslint/utils/dist/ts-eslint/Rule"
 
 export type Prefixes = "handle" | "on"

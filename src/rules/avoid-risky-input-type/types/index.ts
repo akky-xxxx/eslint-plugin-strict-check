@@ -1,4 +1,4 @@
-import type { OptionBase } from "../../../shared/types"
+import type { OptionBase } from "../../../shared/types/OptionBase"
 import type { HTMLInputTypeAttribute } from "react"
 
 type RiskyValues = HTMLInputTypeAttribute
