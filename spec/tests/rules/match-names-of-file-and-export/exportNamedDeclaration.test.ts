@@ -2,7 +2,7 @@ import { exportNamedDeclaration } from "../../../../src/rules/match-names-of-fil
 
 const getFilename = () => ""
 
-describe("exportNamedDeclaration", () => {
+describe("match-names-of-file-and-export.exportNamedDeclaration", () => {
   it("Not defined option", () => {
     expect(() =>
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -11,7 +11,7 @@ describe("exportNamedDeclaration", () => {
         getFilename,
         options: [],
       }),
-    ).toThrow("Not defined option.")
+    ).toThrow("Invalid options, please check it.")
   })
 
   it("Not defined option.captures", () => {
@@ -22,6 +22,6 @@ describe("exportNamedDeclaration", () => {
         getFilename,
         options: [{}],
       }),
-    ).toThrow("Not defined option.captures.")
+    ).toThrow("Invalid options, please check it.")
   })
 })

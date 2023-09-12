@@ -8,7 +8,7 @@ describe("forbidden-hard-coding-href.literal", () => {
       literal({
         options: [],
       }),
-    ).toThrow("Not defined option.")
+    ).toThrow("Invalid options, please check it.")
   })
 
   it("Not defined option.forbiddenValues", () => {
@@ -18,6 +18,6 @@ describe("forbidden-hard-coding-href.literal", () => {
       literal({
         options: [{}],
       }),
-    ).toThrow("Not defined option.forbiddenValues.")
+    ).toThrow("Invalid options, please check it.")
   })
 })

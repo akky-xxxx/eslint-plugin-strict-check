@@ -1,9 +1,10 @@
+import type { OptionBase } from "../../../shared/types"
 import type { RuleContext } from "@typescript-eslint/utils/dist/ts-eslint/Rule"
 
 export type Prefixes = "handle" | "on"
 export type MessageIdList = "NoOption"
 
-export type Option = Partial<{
+export type Option = OptionBase<{
   forbiddenPrefix: Prefixes
 }>
 

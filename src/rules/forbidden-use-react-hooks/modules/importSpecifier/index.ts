@@ -1,9 +1,7 @@
-// import { FirstOption } from "../../../../const/FirstOption"
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
 import { PrefixRegExp } from "../../const/PrefixRegExp"
+import { optionsSchema } from "../../schema/optionSchema"
 import { getErrorMessage } from "../getErrorMessage"
-// import { hasTarget } from "../hasTarget"
 
 import type { MessageIdList, Option } from "../../types"
 import type {
@@ -21,17 +19,7 @@ export const importSpecifier: ImportSpecifier = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
-  const firstOption = options.at(FirstOption)
-
-  if (!firstOption) {
-    throw new Error(getNotHasOptionErrorMessage())
-  }
-
-  const { allowPatterns } = firstOption
-
-  if (!allowPatterns) {
-    throw new Error(getNotHasOptionErrorMessage("allowPatterns"))
-  }
+  const [{ allowPatterns }] = parseOption(options, optionsSchema)
 
   return (node) => {
     const fileName = getFilename()

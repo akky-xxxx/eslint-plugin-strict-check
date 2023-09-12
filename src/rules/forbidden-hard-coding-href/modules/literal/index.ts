@@ -1,5 +1,5 @@
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
+import { optionsSchema } from "../../schema/optionSchema"
 
 import type { MessageIdList, Option } from "../../types"
 import type { RuleFunction } from "@typescript-eslint/utils/dist/ts-eslint"
@@ -13,17 +13,7 @@ type Literal = (context: Context) => RuleFunction<TSESTree.Literal>
 export const literal: Literal = (context) => {
   const { options, report } = context
 
-  const firstOption = options.at(FirstOption)
-
-  if (!firstOption) {
-    throw new Error(getNotHasOptionErrorMessage())
-  }
-
-  const { forbiddenValues } = firstOption
-
-  if (!forbiddenValues) {
-    throw new Error(getNotHasOptionErrorMessage("forbiddenValues"))
-  }
+  const [{ forbiddenValues }] = parseOption(options, optionsSchema)
 
   return (node) => {
     const { value } = node
