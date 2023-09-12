@@ -1,6 +1,6 @@
-import { Master } from "./const/Master"
-import { ReactMaster } from "./const/ReactMaster"
-import { VanillaMaster } from "./const/VanillaMaster"
+import { Master } from "./masters/Master"
+import { ReactMaster } from "./masters/ReactMaster"
+import { VanillaMaster } from "./masters/VanillaMaster"
 import { getConfig } from "./modules/getConfig"
 import { getRules } from "./modules/getRules"
 

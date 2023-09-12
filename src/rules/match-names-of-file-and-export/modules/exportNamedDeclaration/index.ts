@@ -1,4 +1,4 @@
-import { ArrayFirstIndex } from "../../../../const/ArrayFirstIndex"
+import { ArrayFirstIndex } from "../../../../shared/const/ArrayFirstIndex"
 import { parseOption } from "../../../../shared/utility/parseOption"
 import { optionsSchema } from "../../schema/optionSchema"
 
