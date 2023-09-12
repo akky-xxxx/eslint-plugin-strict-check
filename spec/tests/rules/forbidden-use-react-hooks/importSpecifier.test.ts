@@ -8,7 +8,7 @@ describe("forbidden-use-react-hooks.importSpecifier", () => {
       importSpecifier({
         options: [],
       }),
-    ).toThrow("Not defined option.")
+    ).toThrow("Invalid options, please check it.")
   })
 
   it("Not defined option.allowPatterns", () => {
@@ -18,6 +18,6 @@ describe("forbidden-use-react-hooks.importSpecifier", () => {
       importSpecifier({
         options: [{}],
       }),
-    ).toThrow("Not defined option.allowPatterns.")
+    ).toThrow("Invalid options, please check it.")
   })
 })

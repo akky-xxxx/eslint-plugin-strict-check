@@ -1,6 +1,6 @@
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
 import { PrefixRegExp } from "../../const/PrefixRegExp"
+import { optionsSchema } from "../../schema/optionSchema"
 import { getErrorMessage } from "../getErrorMessage"
 
 import type { MessageIdList, Option } from "../../types"
@@ -19,17 +19,7 @@ export const callExpression: CallExpression = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
-  const firstOption = options.at(FirstOption)
-
-  if (!firstOption) {
-    throw new Error(getNotHasOptionErrorMessage())
-  }
-
-  const { allowPatterns } = firstOption
-
-  if (!allowPatterns) {
-    throw new Error(getNotHasOptionErrorMessage("allowPatterns"))
-  }
+  const [{ allowPatterns }] = parseOption(options, optionsSchema)
 
   // eslint-disable-next-line complexity, max-statements
   return (node) => {
