@@ -1,12 +1,9 @@
 import { forbiddenMultipleNamedExports } from "../../../../src/rules/forbidden-multiple-named-exports"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/forbidden-multiple-named-exports/types"
+import type { Option } from "../../../../src/rules/forbidden-multiple-named-exports/types"
 
-tester.run<MessageIdList, Option[]>(
+tester.run<string, Option[]>(
   "forbidden-multiple-named-exports",
   forbiddenMultipleNamedExports,
   {

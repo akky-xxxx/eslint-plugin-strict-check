@@ -1,10 +1,7 @@
 import { matchNamesOfFileAndExport } from "../../../../src/rules/match-names-of-file-and-export"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/match-names-of-file-and-export/types"
+import type { Option } from "../../../../src/rules/match-names-of-file-and-export/types"
 
 const correctOptions: Option[] = [
   {
@@ -24,7 +21,7 @@ const incorrectOptions: Option[] = [
   },
 ]
 
-tester.run<MessageIdList, Option[]>(
+tester.run<string, Option[]>(
   "match-names-of-file-and-export",
   matchNamesOfFileAndExport,
   {

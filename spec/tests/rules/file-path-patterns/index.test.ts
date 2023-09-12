@@ -1,10 +1,7 @@
 import { filePathPatterns } from "../../../../src/rules/file-path-patterns"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/file-path-patterns/types"
+import type { Option } from "../../../../src/rules/file-path-patterns/types"
 
 const RegularExpressions = {
   ATOMIC_DESIGN:
@@ -18,7 +15,7 @@ const options = [
   },
 ]
 
-tester.run<MessageIdList, Option[]>("file-path-patterns", filePathPatterns, {
+tester.run<string, Option[]>("file-path-patterns", filePathPatterns, {
   valid: [
     {
       code: 'console.log("valid pattern1")',

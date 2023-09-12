@@ -2,7 +2,7 @@ import { ArrayFirstIndex } from "../../../../shared/const/ArrayFirstIndex"
 import { parseOption } from "../../../../shared/utility/parseOption"
 import { optionsSchema } from "../../schema/optionSchema"
 
-import type { MessageIdList, Option } from "../../types"
+import type { Option } from "../../types"
 import type {
   RuleContext,
   RuleFunction,
@@ -11,7 +11,7 @@ import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
 
 const CapturedIndex = 1
 
-export type Context = Readonly<RuleContext<MessageIdList, readonly Option[]>>
+export type Context = Readonly<RuleContext<string, readonly Option[]>>
 type ExportNamedDeclaration = (
   context: Context,
 ) => RuleFunction<TSESTree.ExportNamedDeclaration>

@@ -1,10 +1,7 @@
 import { forbiddenUseReactHooks } from "../../../../src/rules/forbidden-use-react-hooks"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/forbidden-use-react-hooks/types"
+import type { Option } from "../../../../src/rules/forbidden-use-react-hooks/types"
 
 const RegularExpression =
   /\/components\/(?:molecules|organisms|templates)\/[^/]+\/View.tsx/
@@ -15,7 +12,7 @@ const options = [
   },
 ]
 
-tester.run<MessageIdList, Option[]>(
+tester.run<string, Option[]>(
   "forbidden-use-react-hooks",
   forbiddenUseReactHooks,
   {

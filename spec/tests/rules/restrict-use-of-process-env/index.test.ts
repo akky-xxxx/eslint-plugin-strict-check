@@ -1,12 +1,9 @@
 import { restrictUseOfProcessEnv } from "../../../../src/rules/restrict-use-of-process-env"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/restrict-use-of-process-env/types"
+import type { Option } from "../../../../src/rules/restrict-use-of-process-env/types"
 
-tester.run<MessageIdList, Option[]>(
+tester.run<string, Option[]>(
   "restrict-use-of-process-env",
   restrictUseOfProcessEnv,
   {

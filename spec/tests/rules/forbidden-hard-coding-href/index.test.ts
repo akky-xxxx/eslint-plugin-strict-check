@@ -1,14 +1,11 @@
 import { forbiddenHardCodingHref } from "../../../../src/rules/forbidden-hard-coding-href"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/forbidden-hard-coding-href/types"
+import type { Option } from "../../../../src/rules/forbidden-hard-coding-href/types"
 
 const forbiddenValues = ["/", "/search"]
 
-tester.run<MessageIdList, Option[]>(
+tester.run<string, Option[]>(
   "forbidden-hard-coding-href",
   forbiddenHardCodingHref,
   {

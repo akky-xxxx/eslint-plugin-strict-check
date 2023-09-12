@@ -1,13 +1,10 @@
 import { callExpression } from "./modules/callExpression"
 import { importSpecifier } from "./modules/importSpecifier"
 
-import type { MessageIdList, Option } from "./types"
+import type { Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
-export const forbiddenUseReactHooks: TSESLint.RuleModule<
-  MessageIdList,
-  Option[]
-> = {
+export const forbiddenUseReactHooks: TSESLint.RuleModule<string, Option[]> = {
   create: (context) => {
     const callExpressionMain = callExpression(context)
     const identifierMain = importSpecifier(context)
