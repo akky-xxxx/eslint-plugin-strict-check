@@ -7,7 +7,7 @@ import { forbiddenUseReactHooks } from "../../rules/forbidden-use-react-hooks"
 import { individualImport } from "../../rules/individual-import"
 import { matchNamesOfFileAndExport } from "../../rules/match-names-of-file-and-export"
 import { restrictUseOfProcessEnv } from "../../rules/restrict-use-of-process-env"
-import { Warn } from "../../shared/const"
+import { Severity } from "../../shared/const/Severity"
 
 import type { MasterRecord } from "../../shared/types"
 
@@ -15,17 +15,17 @@ export const Master: MasterRecord[] = [
   [
     "event-handler-prefix",
     eventHandlerPrefix,
-    [Warn, { forbiddenPrefix: "on" }],
+    [Severity.WARN, { forbiddenPrefix: "on" }],
   ],
   [
     "avoid-risky-input-type",
     avoidRiskyInputType,
-    [Warn, { riskyValues: ["email", "number", "tel"] }],
+    [Severity.WARN, { riskyValues: ["email", "number", "tel"] }],
   ],
-  ["file-path-patterns", filePathPatterns, [Warn]],
+  ["file-path-patterns", filePathPatterns, [Severity.WARN]],
   ["forbidden-hard-coding-href", forbiddenHardCodingHref, []],
   ["forbidden-multiple-named-exports", forbiddenMultipleNamedExports, []],
-  ["forbidden-use-react-hooks", forbiddenUseReactHooks, [Warn]],
+  ["forbidden-use-react-hooks", forbiddenUseReactHooks, [Severity.WARN]],
   ["individual-import", individualImport, []],
   ["match-names-of-file-and-export", matchNamesOfFileAndExport, []],
   ["restrict-use-of-process-env", restrictUseOfProcessEnv, []],
