@@ -1,4 +1,5 @@
-import type { EsLintRuleBase, UtilFunction } from "../../shared/types"
+import type { UtilFunction } from "../../shared/types"
+import type { EsLintRuleBase } from "../../shared/types/EsLintRuleBase"
 import type { RuleName } from "../../shared/types/RuleName"
 
 type GetRules = UtilFunction<Record<RuleName, EsLintRuleBase>>
