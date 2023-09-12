@@ -1,14 +1,11 @@
 import { individualImport } from "../../../../src/rules/individual-import"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/individual-import/types"
+import type { Option } from "../../../../src/rules/individual-import/types"
 
 const targets = ["react"]
 
-tester.run<MessageIdList, Option[]>("individual-import", individualImport, {
+tester.run<string, Option[]>("individual-import", individualImport, {
   valid: [
     {
       name: "It is valid, when it is not property access from forbidden target.",

@@ -3,14 +3,14 @@ import { optionsSchema } from "../../schema/optionSchema"
 import { getErrorMessage } from "../getErrorMessage"
 import { hasTarget } from "../hasTarget"
 
-import type { MessageIdList, Option } from "../../types"
+import type { Option } from "../../types"
 import type {
   RuleContext,
   RuleFunction,
 } from "@typescript-eslint/utils/dist/ts-eslint/Rule"
 import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
 
-export type Context = Readonly<RuleContext<MessageIdList, readonly Option[]>>
+export type Context = Readonly<RuleContext<string, readonly Option[]>>
 type Identifier = (context: Context) => RuleFunction<TSESTree.Identifier>
 
 export const identifier: Identifier = (context) => {

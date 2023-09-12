@@ -1,13 +1,10 @@
 import { checkIdentifier } from "./modules/checkIdentifier"
 import { checkObjectPatten } from "./modules/checkObjectPattern"
 
-import type { MessageIdList, Option } from "./types"
+import type { Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
-export const restrictUseOfProcessEnv: TSESLint.RuleModule<
-  MessageIdList,
-  Option[]
-> = {
+export const restrictUseOfProcessEnv: TSESLint.RuleModule<string, Option[]> = {
   create: (context) => {
     const checkIdentifierMain = checkIdentifier(context)
     const checkObjectPattenMain = checkObjectPatten(context)

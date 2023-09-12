@@ -1,10 +1,10 @@
 import { exportNamedDeclaration } from "./modules/exportNamedDeclaration"
 
-import type { MessageIdList, Option } from "./types"
+import type { Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
 export const forbiddenMultipleNamedExports: TSESLint.RuleModule<
-  MessageIdList,
+  string,
   Option[]
 > = {
   create: (context) => {

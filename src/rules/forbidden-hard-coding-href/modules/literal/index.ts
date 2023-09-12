@@ -1,12 +1,12 @@
 import { parseOption } from "../../../../shared/utility/parseOption"
 import { optionsSchema } from "../../schema/optionSchema"
 
-import type { MessageIdList, Option } from "../../types"
+import type { Option } from "../../types"
 import type { RuleFunction } from "@typescript-eslint/utils/dist/ts-eslint"
 import type { RuleContext } from "@typescript-eslint/utils/dist/ts-eslint/Rule"
 import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
 
-export type Context = Readonly<RuleContext<MessageIdList, readonly Option[]>>
+export type Context = Readonly<RuleContext<string, readonly Option[]>>
 
 type Literal = (context: Context) => RuleFunction<TSESTree.Literal>
 
