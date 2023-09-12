@@ -9,7 +9,7 @@ import { matchNamesOfFileAndExport } from "../../rules/match-names-of-file-and-e
 import { restrictUseOfProcessEnv } from "../../rules/restrict-use-of-process-env"
 import { Severity } from "../../shared/const/Severity"
 
-import type { MasterRecord } from "../../shared/types"
+import type { MasterRecord } from "../../shared/types/MasterRecord"
 
 export const Master: MasterRecord[] = [
   [

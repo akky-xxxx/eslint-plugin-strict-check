@@ -5,7 +5,7 @@ import { individualImport } from "../../rules/individual-import"
 import { Severity } from "../../shared/const/Severity"
 import { VanillaMaster } from "../VanillaMaster"
 
-import type { MasterRecord } from "../../shared/types"
+import type { MasterRecord } from "../../shared/types/MasterRecord"
 
 export const ReactMaster: MasterRecord[] = [
   ...VanillaMaster,

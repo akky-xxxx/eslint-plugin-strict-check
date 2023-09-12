@@ -1,6 +1,3 @@
-import type { EsLintRuleBase } from "./EsLintRuleBase"
-import type { Options } from "./Options"
-import type { RuleName } from "./RuleName"
+import type { MasterRecord } from "./MasterRecord"
 
-export type MasterRecord = [RuleName, EsLintRuleBase, Options]
 export type UtilFunction<T> = (current: T, master: MasterRecord) => T
