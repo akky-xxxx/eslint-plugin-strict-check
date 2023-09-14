@@ -1,64 +1,55 @@
 import { eventHandlerPrefix } from "../../../../src/rules/event-handler-prefix"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/event-handler-prefix/types"
+import type { Option } from "../../../../src/rules/event-handler-prefix/types"
 
-tester.run<MessageIdList, Option[]>(
-  "event-handler-prefix",
-  eventHandlerPrefix,
-  {
-    valid: [
-      {
-        code: "const handleGet = () => {}",
-        options: [{ forbiddenPrefix: "on" }],
-      },
-      {
-        code: "const onGet = () => {}",
-        options: [{ forbiddenPrefix: "handle" }],
-      },
-      {
-        code: "function handleGet() {}",
-        options: [{ forbiddenPrefix: "on" }],
-      },
-      {
-        code: "function onGet() {}",
-        options: [{ forbiddenPrefix: "handle" }],
-      },
-    ],
-    invalid: [
-      {
-        code: "const handleGet = () => {}",
-        options: [{ forbiddenPrefix: "handle" }],
-        errors: ['replace "handle" to "on" of handler prefix'],
-      },
-      {
-        code: "const onGet = () => {}",
-        options: [{ forbiddenPrefix: "on" }],
-        errors: ['replace "on" to "handle" of handler prefix'],
-      },
-      {
-        code: "function handleGet() {}",
-        options: [{ forbiddenPrefix: "handle" }],
-        errors: ['replace "handle" to "on" of handler prefix'],
-      },
-      {
-        code: "function onGet() {}",
-        options: [{ forbiddenPrefix: "on" }],
-        errors: ['replace "on" to "handle" of handler prefix'],
-      },
-      {
-        code: "const handleGet = () => {} // no option pattern",
-        options: [],
-        errors: [{ messageId: "NoOption" }],
-      },
-      {
-        code: "function handleGet() {} // no option pattern",
-        options: [],
-        errors: [{ messageId: "NoOption" }],
-      },
-    ],
-  },
-)
+tester.run<string, Option[]>("event-handler-prefix", eventHandlerPrefix, {
+  valid: [
+    {
+      name: 'It is valid, when "on" specify to forbiddenPrefix, prefix of variable name is "handle".',
+      code: "const handleGet = () => {}",
+      options: [{ forbiddenPrefix: "on" }],
+    },
+    {
+      name: 'It is valid, when "handle" specify to forbiddenPrefix, prefix of variable name is "on".',
+      code: "const onGet = () => {}",
+      options: [{ forbiddenPrefix: "handle" }],
+    },
+    {
+      name: 'It is valid, when "on" specify to forbiddenPrefix, prefix of function name is "handle".',
+      code: "function handleGet() {}",
+      options: [{ forbiddenPrefix: "on" }],
+    },
+    {
+      name: 'It is valid, when "handle" specify to forbiddenPrefix, prefix of function name is "on".',
+      code: "function onGet() {}",
+      options: [{ forbiddenPrefix: "handle" }],
+    },
+  ],
+  invalid: [
+    {
+      name: 'It is invalid, when "handle" specify to forbiddenPrefix, prefix of variable name is "handle".',
+      code: "const handleGet = () => {}",
+      options: [{ forbiddenPrefix: "handle" }],
+      errors: ['replace "handle" to "on" of handler prefix'],
+    },
+    {
+      name: 'It is invalid, when "on" specify to forbiddenPrefix, prefix of variable name is "on".',
+      code: "const onGet = () => {}",
+      options: [{ forbiddenPrefix: "on" }],
+      errors: ['replace "on" to "handle" of handler prefix'],
+    },
+    {
+      name: 'It is invalid, when "handle" specify to forbiddenPrefix, prefix of function name is "handle".',
+      code: "function handleGet() {}",
+      options: [{ forbiddenPrefix: "handle" }],
+      errors: ['replace "handle" to "on" of handler prefix'],
+    },
+    {
+      name: 'It is invalid, when "on" specify to forbiddenPrefix, prefix of function name is "on".',
+      code: "function onGet() {}",
+      options: [{ forbiddenPrefix: "on" }],
+      errors: ['replace "on" to "handle" of handler prefix'],
+    },
+  ],
+})

@@ -1,8 +1,10 @@
-import { Prefix } from "../../shared/const"
+import { Prefix } from "../../shared/const/Prefix"
 
-import type { UtilFunction, Options, RuleName } from "../../shared/types"
+import type { GetRulesBase } from "../../shared/types/GetRulesBase"
+import type { Options } from "../../shared/types/Options"
+import type { RuleName } from "../../shared/types/RuleName"
 
-type GetConfigRules = UtilFunction<Record<RuleName, Options>>
+type GetConfigRules = GetRulesBase<Record<RuleName, Options>>
 export const getConfigRules: GetConfigRules = (current, master) => {
   const [ruleName, , options] = master
   return {

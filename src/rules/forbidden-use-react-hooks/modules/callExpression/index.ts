@@ -1,55 +1,60 @@
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
 import { PrefixRegExp } from "../../const/PrefixRegExp"
+import { optionsSchema } from "../../schema/optionSchema"
 import { getErrorMessage } from "../getErrorMessage"
 
-import type { MessageIdList, Option } from "../../types"
+import type { Option } from "../../types"
 import type {
   RuleContext,
   RuleFunction,
 } from "@typescript-eslint/utils/dist/ts-eslint/Rule"
 import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
 
-export type Context = Readonly<RuleContext<MessageIdList, readonly Option[]>>
+export type Context = Readonly<RuleContext<string, readonly Option[]>>
 type CallExpression = (
   context: Context,
 ) => RuleFunction<TSESTree.CallExpression>
 
-// eslint-disable-next-line complexity,max-statements
-export const callExpression: CallExpression = (context) => (node) => {
+export const callExpression: CallExpression = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
-  const firstOption = options.at(FirstOption)
+  const [{ allowPatterns }] = parseOption(options, optionsSchema)
 
-  if (!firstOption) {
-    report({
-      message: getNotHasOptionErrorMessage(),
-      node,
-    })
-    return
-  }
+  // eslint-disable-next-line complexity, max-statements
+  return (node) => {
+    const fileName = getFilename()
+    const isPartialMatched = allowPatterns.some((pattern) =>
+      pattern.test(fileName),
+    )
 
-  const { allowPatterns } = firstOption
+    if (isPartialMatched) return
 
-  if (!allowPatterns) {
-    report({
-      message: getNotHasOptionErrorMessage("allowPatterns"),
-      node,
-    })
-    return
-  }
+    if (node.callee.type === "Identifier") {
+      const {
+        callee: { name },
+      } = node
 
-  const fileName = getFilename()
-  const isPartialMatched = allowPatterns.some((pattern) =>
-    pattern.test(fileName),
-  )
+      if (!PrefixRegExp.test(name)) return
 
-  if (isPartialMatched) return
+      report({
+        message: getErrorMessage("use", name),
+        node,
+      })
+      return
+    }
 
-  if (node.callee.type === "Identifier") {
+    if (
+      node.callee.type !== "MemberExpression" ||
+      node.callee.property.type !== "Identifier"
+    ) {
+      return
+    }
+
     const {
-      callee: { name },
+      callee: {
+        property: { name },
+      },
     } = node
 
     if (!PrefixRegExp.test(name)) return
@@ -58,26 +63,5 @@ export const callExpression: CallExpression = (context) => (node) => {
       message: getErrorMessage("use", name),
       node,
     })
-    return
   }
-
-  if (
-    node.callee.type !== "MemberExpression" ||
-    node.callee.property.type !== "Identifier"
-  ) {
-    return
-  }
-
-  const {
-    callee: {
-      property: { name },
-    },
-  } = node
-
-  if (!PrefixRegExp.test(name)) return
-
-  report({
-    message: getErrorMessage("use", name),
-    node,
-  })
 }

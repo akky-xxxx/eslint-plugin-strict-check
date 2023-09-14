@@ -1,8 +1,8 @@
-import { ArrayFirstIndex } from "../../../../const/ArrayFirstIndex"
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { ArrayFirstIndex } from "../../../../shared/const/ArrayFirstIndex"
+import { parseOption } from "../../../../shared/utility/parseOption"
+import { optionsSchema } from "../../schema/optionSchema"
 
-import type { MessageIdList, Option } from "../../types"
+import type { Option } from "../../types"
 import type {
   RuleContext,
   RuleFunction,
@@ -11,7 +11,7 @@ import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
 
 const CapturedIndex = 1
 
-export type Context = Readonly<RuleContext<MessageIdList, readonly Option[]>>
+export type Context = Readonly<RuleContext<string, readonly Option[]>>
 type ExportNamedDeclaration = (
   context: Context,
 ) => RuleFunction<TSESTree.ExportNamedDeclaration>
@@ -19,17 +19,7 @@ type ExportNamedDeclaration = (
 export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
   const { getFilename, options, report } = context
   const fileName = getFilename()
-  const firstOption = options.at(FirstOption)
-
-  if (!firstOption) {
-    throw new Error(getNotHasOptionErrorMessage())
-  }
-
-  const { captures } = firstOption
-
-  if (!captures) {
-    throw new Error(getNotHasOptionErrorMessage("captures"))
-  }
+  const [{ captures }] = parseOption(options, optionsSchema)
 
   const matchedCapture = captures.find((capture) => capture.test(fileName))
 

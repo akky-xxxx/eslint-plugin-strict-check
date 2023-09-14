@@ -1,5 +1,5 @@
-export type MessageIdList = "FileAndExportAreDifferent"
+import type { OptionBase } from "../../../shared/types/OptionBase"
 
-export type Option = Partial<{
+export type Option = OptionBase<{
   captures: RegExp[]
 }>

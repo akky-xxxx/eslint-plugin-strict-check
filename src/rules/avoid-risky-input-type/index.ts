@@ -1,23 +1,22 @@
 import { jsxOpeningElement } from "./modules/jsxOpeningElement"
 
-import type { MessageIdList, Option } from "./types"
+import type { Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
-export const avoidRiskyInputType: TSESLint.RuleModule<MessageIdList, Option[]> =
-  {
-    create: (context) => {
-      const jsxOpeningElementMain = jsxOpeningElement(context)
+export const avoidRiskyInputType: TSESLint.RuleModule<string, Option[]> = {
+  create: (context) => {
+    const jsxOpeningElementMain = jsxOpeningElement(context)
 
-      return {
-        JSXOpeningElement: jsxOpeningElementMain,
-      }
+    return {
+      JSXOpeningElement: jsxOpeningElementMain,
+    }
+  },
+  defaultOptions: [],
+  meta: {
+    messages: {
+      NoOption: "not specified option",
     },
-    defaultOptions: [],
-    meta: {
-      messages: {
-        NoOption: "not specified option",
-      },
-      schema: {},
-      type: "suggestion",
-    },
-  }
+    schema: {},
+    type: "suggestion",
+  },
+}

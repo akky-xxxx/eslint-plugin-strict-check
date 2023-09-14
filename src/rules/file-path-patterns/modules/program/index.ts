@@ -1,50 +1,33 @@
-import { FirstOption } from "../../../../const/FirstOption"
-import { getNotHasOptionErrorMessage } from "../../../../shared/utility/getNotHasOptionErrorMessage"
+import { parseOption } from "../../../../shared/utility/parseOption"
+import { optionsSchema } from "../../schema/optionSchema"
 
-import type { MessageIdList, Option } from "../../types"
+import type { Option } from "../../types"
 import type {
   RuleContext,
   RuleFunction,
 } from "@typescript-eslint/utils/dist/ts-eslint/Rule"
 import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
 
-export type Context = Readonly<RuleContext<MessageIdList, readonly Option[]>>
+export type Context = Readonly<RuleContext<string, readonly Option[]>>
 type Program = (context: Context) => RuleFunction<TSESTree.Program>
 
-// eslint-disable-next-line max-statements
-export const program: Program = (context) => (node) => {
+export const program: Program = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
-  const firstOption = options.at(FirstOption)
-
-  if (!firstOption) {
-    report({
-      message: getNotHasOptionErrorMessage(),
-      node,
-    })
-    return
-  }
-
-  const { allowPatterns } = firstOption
-
-  if (!allowPatterns) {
-    report({
-      message: getNotHasOptionErrorMessage("allowPatterns"),
-      node,
-    })
-    return
-  }
+  const [{ allowPatterns }] = parseOption(options, optionsSchema)
 
   const fileName = getFilename()
   const isPartialMatched = allowPatterns.some((pattern) =>
     pattern.test(fileName),
   )
 
-  if (isPartialMatched) return
+  return (node) => {
+    if (isPartialMatched) return
 
-  report({
-    message: "Not matched filename to pattern.",
-    node,
-  })
+    report({
+      message: "Not matched filename to pattern.",
+      node,
+    })
+  }
 }

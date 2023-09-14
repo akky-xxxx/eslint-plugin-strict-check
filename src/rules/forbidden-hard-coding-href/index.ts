@@ -1,12 +1,9 @@
 import { literal } from "./modules/literal"
 
-import type { MessageIdList, Option } from "./types"
+import type { Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
-export const forbiddenHardCodingHref: TSESLint.RuleModule<
-  MessageIdList,
-  Option[]
-> = {
+export const forbiddenHardCodingHref: TSESLint.RuleModule<string, Option[]> = {
   create: (context) => {
     const literalMain = literal(context)
     return {

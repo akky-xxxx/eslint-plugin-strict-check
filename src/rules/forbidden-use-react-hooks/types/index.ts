@@ -1,5 +1,5 @@
-export type MessageIdList = "UsedReactHooks"
+import type { OptionBase } from "../../../shared/types/OptionBase"
 
-export type Option = Partial<{
+export type Option = OptionBase<{
   allowPatterns: RegExp[]
 }>

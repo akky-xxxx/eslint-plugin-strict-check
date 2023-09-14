@@ -1,10 +1,7 @@
 import { filePathPatterns } from "../../../../src/rules/file-path-patterns"
 import { tester } from "../utils/tester"
 
-import type {
-  MessageIdList,
-  Option,
-} from "../../../../src/rules/file-path-patterns/types"
+import type { Option } from "../../../../src/rules/file-path-patterns/types"
 
 const RegularExpressions = {
   ATOMIC_DESIGN:
@@ -18,7 +15,7 @@ const options = [
   },
 ]
 
-tester.run<MessageIdList, Option[]>("file-path-patterns", filePathPatterns, {
+tester.run<string, Option[]>("file-path-patterns", filePathPatterns, {
   valid: [
     {
       code: 'console.log("valid pattern1")',
@@ -57,17 +54,6 @@ tester.run<MessageIdList, Option[]>("file-path-patterns", filePathPatterns, {
     },
   ],
   invalid: [
-    {
-      code: 'console.log("invalid pattern1")',
-      filename: "relatedComponents/atoms/button/index.tsx",
-      errors: ["Not defined option."],
-    },
-    {
-      code: 'console.log("invalid pattern2")',
-      filename: "relatedComponents/atoms/button/index.tsx",
-      options: [{}],
-      errors: ["Not defined option.allowPatterns."],
-    },
     {
       code: 'console.log("invalid pattern3")',
       filename: "relatedComponents/atoms/button/index.tsx",
