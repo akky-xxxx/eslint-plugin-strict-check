@@ -8,25 +8,30 @@ import { individualImport } from "../../rules/individual-import"
 import { matchNamesOfFileAndExport } from "../../rules/match-names-of-file-and-export"
 import { restrictUseOfProcessEnv } from "../../rules/restrict-use-of-process-env"
 import { Severity } from "../../shared/const/Severity"
+import { convertBaseToMaster } from "../../shared/utility/convertBaseToMaster"
 
+import type { MasterBase } from "../../shared/types/MasterBase"
 import type { MasterRecord } from "../../shared/types/MasterRecord"
 
-export const Master: MasterRecord[] = [
-  [
-    "event-handler-prefix",
-    eventHandlerPrefix,
-    [Severity.WARN, { forbiddenPrefix: "on" }],
-  ],
-  [
-    "avoid-risky-input-type",
+export const masterBase = {
+  "avoid-risky-input-type": [
     avoidRiskyInputType,
     [Severity.WARN, { riskyValues: ["email", "number", "tel"] }],
   ],
-  ["file-path-patterns", filePathPatterns, [Severity.WARN]],
-  ["forbidden-hard-coding-href", forbiddenHardCodingHref, []],
-  ["forbidden-multiple-named-exports", forbiddenMultipleNamedExports, []],
-  ["forbidden-use-react-hooks", forbiddenUseReactHooks, [Severity.WARN]],
-  ["individual-import", individualImport, []],
-  ["match-names-of-file-and-export", matchNamesOfFileAndExport, []],
-  ["restrict-use-of-process-env", restrictUseOfProcessEnv, []],
-]
+  "event-handler-prefix": [
+    eventHandlerPrefix,
+    [Severity.WARN, { forbiddenPrefix: "on" }],
+  ],
+  "file-path-patterns": [filePathPatterns, [Severity.WARN]],
+  "forbidden-hard-coding-href": [forbiddenHardCodingHref, []],
+  "forbidden-multiple-named-exports": [forbiddenMultipleNamedExports, []],
+  "forbidden-use-react-hooks": [forbiddenUseReactHooks, [Severity.WARN]],
+  "individual-import": [
+    individualImport,
+    [Severity.WARN, { targets: ["react"] }],
+  ],
+  "match-names-of-file-and-export": [matchNamesOfFileAndExport, []],
+  "restrict-use-of-process-env": [restrictUseOfProcessEnv, [Severity.WARN]],
+} satisfies MasterBase
+
+export const Master: MasterRecord[] = convertBaseToMaster(masterBase)
