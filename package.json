@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-strict-check",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "repository": {
     "type": "git",
     "url": "https://github.com/akky-xxxx/eslint-plugin-strict-check.git"
