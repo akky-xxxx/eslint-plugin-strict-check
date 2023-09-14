@@ -5057,6 +5057,11 @@ regjsparser@^0.10.0:
   dependencies:
     jsesc "~0.5.0"
 
+remeda@^1.26.0:
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/remeda/-/remeda-1.26.0.tgz#61c9b7e5ec3832a5c588ea354552695594aed944"
+  integrity sha512-v+Qbi2krvXknCvG60gviLUSBJQPxXUVBAvi64m3Awoua3X+ygAmPYPrbFgqwPpiM1tBHNBVrHPBKtza7if+HyQ==
+
 repeat-string@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
