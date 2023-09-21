@@ -1,15 +1,13 @@
 import { parseOption } from "../../../../shared/utility/parseOption"
 import { optionsSchema } from "../../schema/optionSchema"
 
-import type { Option } from "../../types"
-import type {
-  RuleContext,
-  RuleFunction,
-} from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { MessageId, Option } from "../../types"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
-export type Context = Readonly<RuleContext<string, readonly Option[]>>
-type Program = (context: Context) => RuleFunction<TSESTree.Program>
+export type Context = Readonly<
+  TSESLint.RuleContext<MessageId, readonly Option[]>
+>
+type Program = (context: Context) => TSESLint.RuleFunction<TSESTree.Program>
 
 export const program: Program = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
@@ -26,7 +24,7 @@ export const program: Program = (context) => {
     if (isPartialMatched) return
 
     report({
-      message: "Not matched filename to pattern.",
+      messageId: "NotMatched",
       node,
     })
   }
