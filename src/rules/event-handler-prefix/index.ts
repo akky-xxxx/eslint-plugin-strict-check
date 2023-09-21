@@ -1,10 +1,10 @@
 import { functionDeclaration } from "./modules/functionDeclaration"
 import { variableDeclarator } from "./modules/variableDeclarator"
 
-import type { Option } from "./types"
+import type { MessageId, Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
-export const eventHandlerPrefix: TSESLint.RuleModule<string, Option[]> = {
+export const eventHandlerPrefix: TSESLint.RuleModule<MessageId, Option[]> = {
   create: (context) => {
     const functionDeclarationMain = functionDeclaration(context)
     const variableDeclaratorMain = variableDeclarator(context)
@@ -16,9 +16,12 @@ export const eventHandlerPrefix: TSESLint.RuleModule<string, Option[]> = {
   defaultOptions: [],
   meta: {
     messages: {
-      NoOption: "not specified option",
+      forbiddenHandlerPrefix:
+        'Replace "{{ forbiddenPrefix }}" to "{{ correctPrefix }}" of handler prefix.',
     },
-    schema: {},
+    schema: {
+      type: "array",
+    },
     type: "suggestion",
   },
 }
