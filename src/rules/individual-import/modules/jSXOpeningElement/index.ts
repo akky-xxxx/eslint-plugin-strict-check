@@ -1,19 +1,16 @@
 import { parseOption } from "../../../../shared/utility/parseOption"
 import { optionsSchema } from "../../schema/optionSchema"
-import { getErrorMessage } from "../getErrorMessage"
 import { hasTarget } from "../hasTarget"
 
-import type { Option } from "../../types"
-import type {
-  RuleContext,
-  RuleFunction,
-} from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { MessageId, Option } from "../../types"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
-export type Context = Readonly<RuleContext<string, readonly Option[]>>
+export type Context = Readonly<
+  TSESLint.RuleContext<MessageId, readonly Option[]>
+>
 type JSXOpeningElement = (
   context: Context,
-) => RuleFunction<TSESTree.JSXOpeningElement>
+) => TSESLint.RuleFunction<TSESTree.JSXOpeningElement>
 
 export const jsxOpeningElement: JSXOpeningElement = (context) => {
   const { options, report } = context
@@ -21,14 +18,6 @@ export const jsxOpeningElement: JSXOpeningElement = (context) => {
   const [{ targets }] = parseOption(options, optionsSchema)
 
   return (node) => {
-    if (!options.length) {
-      report({
-        messageId: "NoOption",
-        node,
-      })
-      return
-    }
-
     if (
       node.name.type !== "JSXMemberExpression" ||
       node.name.object.type !== "JSXIdentifier"
@@ -46,7 +35,12 @@ export const jsxOpeningElement: JSXOpeningElement = (context) => {
     if (!hasTarget(targets, moduleName)) return
 
     report({
-      message: getErrorMessage(moduleName, propertyName),
+      data: {
+        lowerModuleName: moduleName.toLowerCase(),
+        moduleName,
+        propertyName,
+      },
+      messageId: "NotIndividually",
       node,
     })
   }
