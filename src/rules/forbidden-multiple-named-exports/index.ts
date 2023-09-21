@@ -1,10 +1,10 @@
 import { exportNamedDeclaration } from "./modules/exportNamedDeclaration"
 
-import type { Option } from "./types"
+import type { MessageId, Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
 export const forbiddenMultipleNamedExports: TSESLint.RuleModule<
-  string,
+  MessageId,
   Option[]
 > = {
   create: (context) => {
@@ -16,9 +16,9 @@ export const forbiddenMultipleNamedExports: TSESLint.RuleModule<
   defaultOptions: [],
   meta: {
     messages: {
-      MultipleNamedExported: "",
+      MultipleNamedExported: "Reduce the export to one time.",
     },
-    schema: {},
+    schema: [],
     type: "problem",
   },
 }
