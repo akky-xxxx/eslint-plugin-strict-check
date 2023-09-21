@@ -1,17 +1,17 @@
-import type { Option } from "../../types"
-import type {
-  RuleContext,
-  RuleFunction,
-} from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { MessageId, Option } from "../../types"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
-export type Context = Readonly<RuleContext<string, readonly Option[]>>
-type CheckIdentifier = (context: Context) => RuleFunction<TSESTree.Identifier>
+export type Context = Readonly<
+  TSESLint.RuleContext<MessageId, readonly Option[]>
+>
+type CheckIdentifier = (
+  context: Context,
+) => TSESLint.RuleFunction<TSESTree.Identifier>
 
 export const checkIdentifier: CheckIdentifier = (context) => (node) => {
   if (
     node.name !== "process" ||
-    node.parent?.type !== "MemberExpression" ||
+    node.parent.type !== "MemberExpression" ||
     node.parent.property.type !== "Identifier" ||
     node.parent.property.name !== "env"
   ) {
