@@ -2,16 +2,12 @@ import { parseOption } from "../../../../shared/utility/parseOption"
 import { optionsSchema } from "../../schema/optionsSchema"
 
 import type { Option } from "../../types"
-import type {
-  RuleContext,
-  RuleFunction,
-} from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
-type Context = Readonly<RuleContext<string, readonly Option[]>>
+type Context = Readonly<TSESLint.RuleContext<string, readonly Option[]>>
 type JsxOpeningElement = (
   context: Context,
-) => RuleFunction<TSESTree.JSXOpeningElement>
+) => TSESLint.RuleFunction<TSESTree.JSXOpeningElement>
 
 export const jsxOpeningElement: JsxOpeningElement = (context) => {
   const { options, report } = context
@@ -43,7 +39,10 @@ export const jsxOpeningElement: JsxOpeningElement = (context) => {
     if (!riskyValues.includes(value)) return
 
     report({
-      message: `<input type="${value}" /> is risky. please rethink other type value`,
+      data: {
+        inputType: value,
+      },
+      messageId: "riskyValue",
       node,
     })
   }

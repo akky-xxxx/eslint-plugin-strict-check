@@ -1,9 +1,12 @@
 import { avoidRiskyInputType } from "../../../../src/rules/avoid-risky-input-type"
 import { tester } from "../utils/tester"
 
-import type { Option } from "../../../../src/rules/avoid-risky-input-type/types"
+import type {
+  MessageId,
+  Option,
+} from "../../../../src/rules/avoid-risky-input-type/types"
 
-tester.run<string, Option[]>("avoid-risky-input-type", avoidRiskyInputType, {
+tester.run<MessageId, Option[]>("avoid-risky-input-type", avoidRiskyInputType, {
   valid: [
     {
       name: 'It is valid, when "number" specify to riskyValue, "text" specify to input.type.',
@@ -27,7 +30,10 @@ tester.run<string, Option[]>("avoid-risky-input-type", avoidRiskyInputType, {
       code: 'const Valid = () => <input type="number" />',
       options: [{ riskyValues: ["number"] }],
       errors: [
-        '<input type="number" /> is risky. please rethink other type value',
+        {
+          messageId: "riskyValue",
+          data: { inputType: "number" },
+        },
       ],
     },
   ],
