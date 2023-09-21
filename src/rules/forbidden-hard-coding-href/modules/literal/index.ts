@@ -1,14 +1,14 @@
 import { parseOption } from "../../../../shared/utility/parseOption"
 import { optionsSchema } from "../../schema/optionSchema"
 
-import type { Option } from "../../types"
-import type { RuleFunction } from "@typescript-eslint/utils/dist/ts-eslint"
-import type { RuleContext } from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { MessageId, Option } from "../../types"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
-export type Context = Readonly<RuleContext<string, readonly Option[]>>
+export type Context = Readonly<
+  TSESLint.RuleContext<MessageId, readonly Option[]>
+>
 
-type Literal = (context: Context) => RuleFunction<TSESTree.Literal>
+type Literal = (context: Context) => TSESLint.RuleFunction<TSESTree.Literal>
 
 export const literal: Literal = (context) => {
   const { options, report } = context
@@ -18,20 +18,13 @@ export const literal: Literal = (context) => {
   return (node) => {
     const { value } = node
 
-    if (!options.length) {
-      report({
-        messageId: "NoOption",
-        node,
-      })
-      return
-    }
-
     if (!forbiddenValues.includes(String(value))) return
 
     report({
-      message: `don't hard code "${String(
-        value,
-      )}", replace to designated constant or function`,
+      data: {
+        href: value,
+      },
+      messageId: "HardCoded",
       node,
     })
   }

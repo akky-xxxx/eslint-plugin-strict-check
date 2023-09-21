@@ -1,21 +1,25 @@
 import { literal } from "./modules/literal"
 
-import type { Option } from "./types"
+import type { MessageId, Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
-export const forbiddenHardCodingHref: TSESLint.RuleModule<string, Option[]> = {
-  create: (context) => {
-    const literalMain = literal(context)
-    return {
-      Literal: literalMain,
-    }
-  },
-  defaultOptions: [],
-  meta: {
-    messages: {
-      NoOption: "not specified option",
+export const forbiddenHardCodingHref: TSESLint.RuleModule<MessageId, Option[]> =
+  {
+    create: (context) => {
+      const literalMain = literal(context)
+      return {
+        Literal: literalMain,
+      }
     },
-    schema: {},
-    type: "problem",
-  },
-}
+    defaultOptions: [],
+    meta: {
+      messages: {
+        HardCoded:
+          "Don't hard code {{ href }}, replace to designated constant or function.",
+      },
+      schema: {
+        type: "array",
+      },
+      type: "problem",
+    },
+  }

@@ -1,11 +1,14 @@
 import { forbiddenHardCodingHref } from "../../../../src/rules/forbidden-hard-coding-href"
 import { tester } from "../utils/tester"
 
-import type { Option } from "../../../../src/rules/forbidden-hard-coding-href/types"
+import type {
+  MessageId,
+  Option,
+} from "../../../../src/rules/forbidden-hard-coding-href/types"
 
 const forbiddenValues = ["/", "/search"]
 
-tester.run<string, Option[]>(
+tester.run<MessageId, Option[]>(
   "forbidden-hard-coding-href",
   forbiddenHardCodingHref,
   {
@@ -22,7 +25,12 @@ tester.run<string, Option[]>(
         code: 'const Component = () => <a href="/">top</a>',
         options: [{ forbiddenValues }],
         errors: [
-          'don\'t hard code "/", replace to designated constant or function',
+          {
+            data: {
+              href: "/",
+            },
+            messageId: "HardCoded",
+          },
         ],
       },
       {
@@ -30,7 +38,12 @@ tester.run<string, Option[]>(
         code: 'const searchHref = "/search"',
         options: [{ forbiddenValues }],
         errors: [
-          'don\'t hard code "/search", replace to designated constant or function',
+          {
+            data: {
+              href: "/search",
+            },
+            messageId: "HardCoded",
+          },
         ],
       },
     ],
