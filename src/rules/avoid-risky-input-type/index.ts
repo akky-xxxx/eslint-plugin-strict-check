@@ -1,9 +1,16 @@
+// FIXME: resolve to eslint
+// eslint-disable-next-line import/no-unresolved
+import { ESLintUtils } from "@typescript-eslint/utils"
+
 import { jsxOpeningElement } from "./modules/jsxOpeningElement"
 
-import type { Option } from "./types"
-import type { TSESLint } from "@typescript-eslint/utils"
+import type { MessageId, Option } from "./types"
 
-export const avoidRiskyInputType: TSESLint.RuleModule<string, Option[]> = {
+const createRule = ESLintUtils.RuleCreator((name) => name)
+
+export const avoidRiskyInputType = createRule<Option[], MessageId>({
+  name: "",
+
   create: (context) => {
     const jsxOpeningElementMain = jsxOpeningElement(context)
 
@@ -13,10 +20,16 @@ export const avoidRiskyInputType: TSESLint.RuleModule<string, Option[]> = {
   },
   defaultOptions: [],
   meta: {
-    messages: {
-      NoOption: "not specified option",
+    docs: {
+      description: "",
     },
-    schema: {},
+    messages: {
+      riskyValue:
+        '<input type="{{ inputType }}" /> is risky. please rethink other type value.',
+    },
+    schema: {
+      type: "array",
+    },
     type: "suggestion",
   },
-}
+})

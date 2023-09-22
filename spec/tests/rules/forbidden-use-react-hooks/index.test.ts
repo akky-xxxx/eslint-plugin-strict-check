@@ -1,7 +1,10 @@
 import { forbiddenUseReactHooks } from "../../../../src/rules/forbidden-use-react-hooks"
 import { tester } from "../utils/tester"
 
-import type { Option } from "../../../../src/rules/forbidden-use-react-hooks/types"
+import type {
+  MessageId,
+  Option,
+} from "../../../../src/rules/forbidden-use-react-hooks/types"
 
 const RegularExpression =
   /\/components\/(?:molecules|organisms|templates)\/[^/]+\/View.tsx/
@@ -12,7 +15,7 @@ const options = [
   },
 ]
 
-tester.run<string, Option[]>(
+tester.run<MessageId, Option[]>(
   "forbidden-use-react-hooks",
   forbiddenUseReactHooks,
   {
@@ -39,15 +42,12 @@ tester.run<string, Option[]>(
         filename: "/components/atoms/Button/View.tsx",
         options,
         errors: [
-          "Don't import the react hooks ( useState ) in the component that only viewing.",
-        ],
-      },
-      {
-        code: 'import { useState, memo } from "react"',
-        filename: "/components/atoms/Button/View.tsx",
-        options,
-        errors: [
-          "Don't import the react hooks ( useState ) in the component that only viewing.",
+          {
+            data: {
+              hooksName: "useState",
+            },
+            messageId: "ImportedReactHooks",
+          },
         ],
       },
       {
@@ -55,7 +55,12 @@ tester.run<string, Option[]>(
         filename: "/components/atoms/Button/View.tsx",
         options,
         errors: [
-          "Don't import the react hooks ( useState ) in the component that only viewing.",
+          {
+            data: {
+              hooksName: "useState",
+            },
+            messageId: "ImportedReactHooks",
+          },
         ],
       },
       {
@@ -63,7 +68,12 @@ tester.run<string, Option[]>(
         filename: "/components/atoms/Button/View.tsx",
         options,
         errors: [
-          "Don't import the react hooks ( useCustomHook ) in the component that only viewing.",
+          {
+            data: {
+              hooksName: "useCustomHook",
+            },
+            messageId: "ImportedReactHooks",
+          },
         ],
       },
       {
@@ -71,7 +81,12 @@ tester.run<string, Option[]>(
         filename: "/components/atoms/Button/View.tsx",
         options,
         errors: [
-          "Don't import the react hooks ( useCustomHook ) in the component that only viewing.",
+          {
+            data: {
+              hooksName: "useCustomHook",
+            },
+            messageId: "ImportedReactHooks",
+          },
         ],
       },
       {
@@ -79,7 +94,12 @@ tester.run<string, Option[]>(
         filename: "/components/atoms/Button/View.tsx",
         options,
         errors: [
-          "Don't use the react hooks ( useState ) in the component that only viewing.",
+          {
+            data: {
+              hooksName: "useState",
+            },
+            messageId: "UsedReactHooks",
+          },
         ],
       },
       {
@@ -87,7 +107,12 @@ tester.run<string, Option[]>(
         filename: "/components/atoms/Button/View.tsx",
         options,
         errors: [
-          "Don't use the react hooks ( useState ) in the component that only viewing.",
+          {
+            data: {
+              hooksName: "useState",
+            },
+            messageId: "UsedReactHooks",
+          },
         ],
       },
     ],

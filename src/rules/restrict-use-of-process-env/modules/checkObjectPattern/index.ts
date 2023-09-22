@@ -1,18 +1,16 @@
-import type { Option } from "../../types"
-import type {
-  RuleContext,
-  RuleFunction,
-} from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { MessageId, Option } from "../../types"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
-export type Context = Readonly<RuleContext<string, readonly Option[]>>
+export type Context = Readonly<
+  TSESLint.RuleContext<MessageId, readonly Option[]>
+>
 type CheckObjectPatten = (
   context: Context,
-) => RuleFunction<TSESTree.ObjectPattern>
+) => TSESLint.RuleFunction<TSESTree.ObjectPattern>
 
 export const checkObjectPatten: CheckObjectPatten = (context) => (node) => {
   if (
-    node.parent?.type !== "VariableDeclarator" ||
+    node.parent.type !== "VariableDeclarator" ||
     node.parent.init?.type !== "Identifier" ||
     node.parent.init.name !== "process"
   ) {

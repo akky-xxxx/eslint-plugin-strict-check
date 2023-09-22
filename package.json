@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-strict-check",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "repository": {
     "type": "git",
     "url": "https://github.com/akky-xxxx/eslint-plugin-strict-check.git"
@@ -33,7 +33,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "remeda": "^1.26.0",
+    "remeda": "1.27.0",
     "zod": "3.22.2"
   },
   "devDependencies": {
@@ -44,21 +44,22 @@
     "@swc/jest": "^0.2.22",
     "@types/jest": "^29.2.3",
     "@types/react": "^18.0.21",
-    "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "@typescript-eslint/parser": "^5.43.0",
-    "@typescript-eslint/utils": "^5.43.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "@typescript-eslint/rule-tester": "^6.7.2",
+    "@typescript-eslint/utils": "^6.7.2",
     "chokidar": "^3.5.3",
-    "cspell": "^6.10.1",
+    "cspell": "^7.0.0",
     "editorconfig-checker": "^5.0.0",
     "eslint": "^8.24.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-strict-check": "^0.0.17",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-strict-check": "^0.0.18",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^27.0.4",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-tsdoc": "^0.2.17",
-    "eslint-plugin-unicorn": "^47.0.0",
+    "eslint-plugin-unicorn": "^48.0.0",
     "fixpack": "^4.0.0",
     "husky": "^8.0.1",
     "jest": "^29.0.3",

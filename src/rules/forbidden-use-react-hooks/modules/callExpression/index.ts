@@ -1,19 +1,16 @@
 import { parseOption } from "../../../../shared/utility/parseOption"
 import { PrefixRegExp } from "../../const/PrefixRegExp"
 import { optionsSchema } from "../../schema/optionSchema"
-import { getErrorMessage } from "../getErrorMessage"
 
-import type { Option } from "../../types"
-import type {
-  RuleContext,
-  RuleFunction,
-} from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { MessageId, Option } from "../../types"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
-export type Context = Readonly<RuleContext<string, readonly Option[]>>
+export type Context = Readonly<
+  TSESLint.RuleContext<MessageId, readonly Option[]>
+>
 type CallExpression = (
   context: Context,
-) => RuleFunction<TSESTree.CallExpression>
+) => TSESLint.RuleFunction<TSESTree.CallExpression>
 
 export const callExpression: CallExpression = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
@@ -38,7 +35,10 @@ export const callExpression: CallExpression = (context) => {
       if (!PrefixRegExp.test(name)) return
 
       report({
-        message: getErrorMessage("use", name),
+        data: {
+          hooksName: name,
+        },
+        messageId: "UsedReactHooks",
         node,
       })
       return
@@ -60,7 +60,10 @@ export const callExpression: CallExpression = (context) => {
     if (!PrefixRegExp.test(name)) return
 
     report({
-      message: getErrorMessage("use", name),
+      data: {
+        hooksName: name,
+      },
+      messageId: "UsedReactHooks",
       node,
     })
   }

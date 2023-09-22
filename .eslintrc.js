@@ -10,4 +10,7 @@ module.exports = {
   extends: ["strict-check/typescript"],
   ignorePatterns: ["**/libs/**/*", "**/coverage/**", "**/out/**"],
   reportUnusedDisableDirectives: true,
+  rules: {
+    "@typescript-eslint/no-unsafe-enum-comparison": 0,
+  },
 }
