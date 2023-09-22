@@ -1,14 +1,12 @@
-import type { Option } from "../../types"
-import type {
-  RuleContext,
-  RuleFunction,
-} from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { MessageId, Option } from "../../types"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
-export type Context = Readonly<RuleContext<string, readonly Option[]>>
+export type Context = Readonly<
+  TSESLint.RuleContext<MessageId, readonly Option[]>
+>
 type ExportNamedDeclaration = (
   context: Context,
-) => RuleFunction<TSESTree.ExportNamedDeclaration>
+) => TSESLint.RuleFunction<TSESTree.ExportNamedDeclaration>
 
 const OneTime = 1
 
@@ -26,7 +24,7 @@ export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
     }
 
     report({
-      message: "Reduce the export to one time.",
+      messageId: "MultipleNamedExported",
       node,
     })
   }

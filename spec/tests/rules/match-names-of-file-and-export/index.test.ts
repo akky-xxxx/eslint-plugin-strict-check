@@ -1,7 +1,10 @@
 import { matchNamesOfFileAndExport } from "../../../../src/rules/match-names-of-file-and-export"
 import { tester } from "../utils/tester"
 
-import type { Option } from "../../../../src/rules/match-names-of-file-and-export/types"
+import type {
+  MessageId,
+  Option,
+} from "../../../../src/rules/match-names-of-file-and-export/types"
 
 const correctOptions: Option[] = [
   {
@@ -21,7 +24,7 @@ const incorrectOptions: Option[] = [
   },
 ]
 
-tester.run<string, Option[]>(
+tester.run<MessageId, Option[]>(
   "match-names-of-file-and-export",
   matchNamesOfFileAndExport,
   {
@@ -39,37 +42,45 @@ tester.run<string, Option[]>(
     ],
     invalid: [
       {
-        code: "export const Button = () => {}",
-        filename: "/components/atoms/Button.tsx",
-        options: correctOptions,
-        errors: ["Not exist matched filename by capture."],
-      },
-      {
         code: "export const button = () => {}",
         filename: "/components/atoms/Button/index.tsx",
         options: correctOptions,
         errors: [
-          'Not matched names of file and export. File name is "Button", variable name is "button".',
+          {
+            data: {
+              filepath: "/components/atoms/Button/index.tsx",
+              variableName: "button",
+            },
+            messageId: "FileAndExportAreDifferent",
+          },
         ],
-      },
-      {
-        code: "export const useButtonHooks = () => {}",
-        filename: "/components/atoms/Button/modules/useButton.ts",
-        options: correctOptions,
-        errors: ["Not exist matched filename by capture."],
       },
       {
         code: "export const useButtonHooks = () => {}",
         filename: "/components/atoms/Button/modules/useButton/index.ts",
         options: incorrectOptions,
-        errors: ["Not exist capture in the regular expressions."],
+        errors: [
+          {
+            data: {
+              filepath: "/components/atoms/Button/modules/useButton/index.ts",
+              variableName: "useButtonHooks",
+            },
+            messageId: "FileAndExportAreDifferent",
+          },
+        ],
       },
       {
         code: "export const useButtonHooks = () => {}",
         filename: "/components/atoms/Button/modules/useButton/index.ts",
         options: correctOptions,
         errors: [
-          'Not matched names of file and export. File name is "useButton", variable name is "useButtonHooks".',
+          {
+            data: {
+              filepath: "/components/atoms/Button/modules/useButton/index.ts",
+              variableName: "useButtonHooks",
+            },
+            messageId: "FileAndExportAreDifferent",
+          },
         ],
       },
     ],

@@ -1,9 +1,9 @@
 import { program } from "./modules/program"
 
-import type { Option } from "./types"
+import type { Option, MessageId } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
-export const filePathPatterns: TSESLint.RuleModule<string, Option[]> = {
+export const filePathPatterns: TSESLint.RuleModule<MessageId, Option[]> = {
   create: (context) => {
     const identifierMain = program(context)
     return {
@@ -12,8 +12,12 @@ export const filePathPatterns: TSESLint.RuleModule<string, Option[]> = {
   },
   defaultOptions: [],
   meta: {
-    messages: {},
-    schema: {},
+    messages: {
+      NotMatched: "Not matched filename to pattern.",
+    },
+    schema: {
+      type: "array",
+    },
     type: "problem",
   },
 }

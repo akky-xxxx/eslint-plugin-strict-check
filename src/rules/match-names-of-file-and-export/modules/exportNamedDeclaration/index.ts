@@ -2,19 +2,17 @@ import { ArrayFirstIndex } from "../../../../shared/const/ArrayFirstIndex"
 import { parseOption } from "../../../../shared/utility/parseOption"
 import { optionsSchema } from "../../schema/optionSchema"
 
-import type { Option } from "../../types"
-import type {
-  RuleContext,
-  RuleFunction,
-} from "@typescript-eslint/utils/dist/ts-eslint/Rule"
-import type { TSESTree } from "@typescript-eslint/utils/dist/ts-estree"
+import type { MessageId, Option } from "../../types"
+import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 
 const CapturedIndex = 1
 
-export type Context = Readonly<RuleContext<string, readonly Option[]>>
+export type Context = Readonly<
+  TSESLint.RuleContext<MessageId, readonly Option[]>
+>
 type ExportNamedDeclaration = (
   context: Context,
-) => RuleFunction<TSESTree.ExportNamedDeclaration>
+) => TSESLint.RuleFunction<TSESTree.ExportNamedDeclaration>
 
 export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
   const { getFilename, options, report } = context
@@ -23,7 +21,10 @@ export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
 
   const matchedCapture = captures.find((capture) => capture.test(fileName))
 
-  // eslint-disable-next-line complexity, max-statements
+  if (!matchedCapture) {
+    throw new Error("Filepath does not matched to regular expression.")
+  }
+
   return (node) => {
     const { declaration } = node
 
@@ -35,28 +36,16 @@ export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
       id: { name: variableName },
     } = firstDeclaration
 
-    if (!matchedCapture) {
-      report({
-        message: "Not exist matched filename by capture.",
-        node,
-      })
-      return
-    }
-
     const capturedString = fileName.match(matchedCapture)?.at(CapturedIndex)
-
-    if (!capturedString) {
-      report({
-        message: "Not exist capture in the regular expressions.",
-        node,
-      })
-      return
-    }
 
     if (variableName === capturedString) return
 
     report({
-      message: `Not matched names of file and export. File name is "${capturedString}", variable name is "${variableName}".`,
+      data: {
+        filepath: fileName,
+        variableName,
+      },
+      messageId: "FileAndExportAreDifferent",
       node,
     })
   }

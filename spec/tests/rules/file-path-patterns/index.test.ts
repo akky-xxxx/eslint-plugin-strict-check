@@ -1,7 +1,10 @@
 import { filePathPatterns } from "../../../../src/rules/file-path-patterns"
 import { tester } from "../utils/tester"
 
-import type { Option } from "../../../../src/rules/file-path-patterns/types"
+import type {
+  MessageId,
+  Option,
+} from "../../../../src/rules/file-path-patterns/types"
 
 const RegularExpressions = {
   ATOMIC_DESIGN:
@@ -15,7 +18,7 @@ const options = [
   },
 ]
 
-tester.run<string, Option[]>("file-path-patterns", filePathPatterns, {
+tester.run<MessageId, Option[]>("file-path-patterns", filePathPatterns, {
   valid: [
     {
       code: 'console.log("valid pattern1")',
@@ -58,31 +61,51 @@ tester.run<string, Option[]>("file-path-patterns", filePathPatterns, {
       code: 'console.log("invalid pattern3")',
       filename: "relatedComponents/atoms/button/index.tsx",
       options,
-      errors: ["Not matched filename to pattern."],
+      errors: [
+        {
+          messageId: "NotMatched",
+        },
+      ],
     },
     {
       code: 'console.log("invalid pattern4")',
       filename: "/components/atoms/button/index.tsx",
       options,
-      errors: ["Not matched filename to pattern."],
+      errors: [
+        {
+          messageId: "NotMatched",
+        },
+      ],
     },
     {
       code: 'console.log("invalid pattern5")',
       filename: "/components/Button/index.tsx",
       options,
-      errors: ["Not matched filename to pattern."],
+      errors: [
+        {
+          messageId: "NotMatched",
+        },
+      ],
     },
     {
       code: 'console.log("invalid pattern6")',
       filename: "/components/Button.tsx",
       options,
-      errors: ["Not matched filename to pattern."],
+      errors: [
+        {
+          messageId: "NotMatched",
+        },
+      ],
     },
     {
       code: 'console.log("invalid pattern7")',
       filename: "/components/types/Button.ts",
       options,
-      errors: ["Not matched filename to pattern."],
+      errors: [
+        {
+          messageId: "NotMatched",
+        },
+      ],
     },
   ],
 })
