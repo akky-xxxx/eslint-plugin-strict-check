@@ -9,6 +9,7 @@ const base = pick(masterBase, [
   "event-handler-prefix",
   "avoid-risky-input-type",
   "individual-import",
+  "restrict-use-of-process-env",
 ])
 
 export const ReactMaster: MasterRecord[] = convertBaseToMaster(base)

@@ -21,11 +21,9 @@ export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
 
   const matchedCapture = captures.find((capture) => capture.test(fileName))
 
-  if (!matchedCapture) {
-    throw new Error("Filepath does not matched to regular expression.")
-  }
-
   return (node) => {
+    if (!matchedCapture) return
+
     const { declaration } = node
 
     if (declaration?.type !== "VariableDeclaration") return

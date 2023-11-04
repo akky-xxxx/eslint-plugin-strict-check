@@ -33,7 +33,7 @@ module.exports = {
 | [forbidden-use-react-hooks](docs/rules/forbidden-use-react-hooks.md)               | Forbidden the use react hooks at specify path    |                                                                                                             |
 | [individual-import](docs/rules/individual-import.md)                               | Import them individual                           | ![react](https://img.shields.io/badge/-react-blue)                                                          |
 | [event-handler-prefix](docs/rules/event-handler-prefix.md)                         | Align prefix of event handler                    | ![react](https://img.shields.io/badge/-react-blue)                                                          |
-| [match-names-of-file-and-export](docs/rules/match-names-of-file-and-export.md)     | Match name of filename and export target         | ![vanilla](https://img.shields.io/badge/-vanilla-yellow) ![react](https://img.shields.io/badge/-react-blue) |
+| [match-names-of-file-and-export](docs/rules/match-names-of-file-and-export.md)     | Match name of filename and export target         |                                                                                                             |
 | [restrict-use-of-process-env](docs/rules/restrict-use-of-process-env.md)           | Restrict environment usage                       | ![vanilla](https://img.shields.io/badge/-vanilla-yellow) ![react](https://img.shields.io/badge/-react-blue) |
 
 ## License
