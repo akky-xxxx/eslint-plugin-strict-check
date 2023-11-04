@@ -7,7 +7,7 @@ import type {
 } from "../../../../src/rules/forbidden-use-react-hooks/types"
 
 const RegularExpression =
-  /\/components\/(?:molecules|organisms|templates)\/[^/]+\/View.tsx/
+  /\/components\/(?:molecules|organisms|templates)\/[^/]+\/index.tsx$/
 
 const options = [
   {
@@ -22,17 +22,27 @@ tester.run<MessageId, Option[]>(
     valid: [
       {
         code: 'import { memo } from "react"',
-        filename: "/components/molecules/Button/View.tsx",
+        filename: "/components/molecules/Button/index.tsx",
+        options,
+      },
+      {
+        code: 'import { useState } from "react"',
+        filename: "/components/molecules/Button/index.tsx",
         options,
       },
       {
         code: 'import { memo } from "./modules/useCustomHook"',
-        filename: "/components/organisms/Button/View.tsx",
+        filename: "/components/organisms/Button/index.tsx",
+        options,
+      },
+      {
+        code: 'import { useCustomHook } from "./modules/useCustomHook"',
+        filename: "/components/organisms/Button/index.tsx",
         options,
       },
       {
         code: 'import { memo } from "./modules/useCustomHook"',
-        filename: "/components/templates/Button/View.tsx",
+        filename: "/components/templates/Button/index.tsx",
         options,
       },
     ],
