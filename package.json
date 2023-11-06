@@ -1,6 +1,7 @@
 {
   "name": "eslint-plugin-strict-check",
   "version": "0.0.16",
+  "packageManager": "yarn@4.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/akky-xxxx/eslint-plugin-strict-check.git"
@@ -13,13 +14,13 @@
     "check-all": "npm-run-all fix check-code test",
     "check-code": "run-p spell-check lint type-check",
     "dev": "run-s build build:watch",
-    "fix": "run-p fix:* -c",
+    "fix": "run-p \"fix:*\" -c",
     "fix-ts-by-eslint": "eslint \"./{src,spec}/**/*.ts\" --fix --max-warnings 0",
     "fix-ts-by-prettier": "prettier \"./{src,spec}/**/*.ts\" --write",
     "fix:config": "prettier \"./*.{js,json}\" \"./**/*.js\" \"!**/.next\" --write",
     "fix:pack": "fixpack",
     "fix:ts": "run-s fix-ts-by-prettier fix-ts-by-eslint",
-    "lint": "run-p lint:* -c",
+    "lint": "run-p \"lint:*\" -c",
     "lint-ts-by-eslint": "eslint \"./{src,spec}/**/*.ts\" --max-warnings 0",
     "lint-ts-by-prettier": "prettier \"./{src,spec}/**/*.ts\" --check",
     "lint:configs": "prettier \"./*.{js,json}\" \"./**/*.js\" \"!**/.next\" --check",

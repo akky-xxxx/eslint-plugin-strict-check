@@ -2,6 +2,7 @@
   "sortToTop": [
     "name",
     "version",
+    "packageManager",
     "description",
     "author",
     "repository",
