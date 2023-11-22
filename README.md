@@ -5,10 +5,10 @@
 
 ```shell
 # by yarn
-$ yarn add -D eslint-plugin-strick-check
+$ yarn add -D eslint-plugin-strict-check
 
 # by npm
-$ npm i --save-dev eslint-plugin-strick-check
+$ npm i --save-dev eslint-plugin-strict-check
 ```
 
 Enable plugin at `.eslintrc.js`
