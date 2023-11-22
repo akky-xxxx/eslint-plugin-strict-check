@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-strict-check",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "packageManager": "yarn@4.0.2",
   "repository": {
     "type": "git",
