@@ -1593,68 +1593,66 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-js@npm:1.5.0, @stylistic/eslint-plugin-js@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "@stylistic/eslint-plugin-js@npm:1.5.0"
+"@stylistic/eslint-plugin-js@npm:1.5.1, @stylistic/eslint-plugin-js@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "@stylistic/eslint-plugin-js@npm:1.5.1"
   dependencies:
     acorn: "npm:^8.11.2"
     escape-string-regexp: "npm:^4.0.0"
     eslint-visitor-keys: "npm:^3.4.3"
     espree: "npm:^9.6.1"
-    graphemer: "npm:^1.4.0"
   peerDependencies:
     eslint: ">=8.40.0"
-  checksum: f61cf373fea5ccfc29ffd83f70ccc9eb53bd51de2d8897d9c5194ec93b59083f213eb3b79c2dc026467b2c7b736e95f730af4f453fe88b329afa593009dbc9ba
+  checksum: 35ec09633bf8df232cb6516b96ede29c7653220119b6b8fc1b84b104325355a7e2f498b8358facf6126c2bbf25bbf08a6486aeeb67527742afd47eb2d8cae36c
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-jsx@npm:1.5.0":
-  version: 1.5.0
-  resolution: "@stylistic/eslint-plugin-jsx@npm:1.5.0"
+"@stylistic/eslint-plugin-jsx@npm:1.5.1":
+  version: 1.5.1
+  resolution: "@stylistic/eslint-plugin-jsx@npm:1.5.1"
   dependencies:
-    "@stylistic/eslint-plugin-js": "npm:^1.5.0"
+    "@stylistic/eslint-plugin-js": "npm:^1.5.1"
     estraverse: "npm:^5.3.0"
   peerDependencies:
     eslint: ">=8.40.0"
-  checksum: 45ab84c4bdfb64d973f0f2ceee60c480bbaa71c3d5e29e02bdd23ea7fcc30df0dc45120698518eb6585f1880547c17037b4d8e0008057e340974f7f3b2624331
+  checksum: 09b0a1fa2d47eb1e846fc066461461a1ba70b8005eeed1e462ec18885a919829ee7852b259a10afe24b2efba037b52deb2da6d63a56d31d43d0496b43af5b6ca
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-plus@npm:1.5.0":
-  version: 1.5.0
-  resolution: "@stylistic/eslint-plugin-plus@npm:1.5.0"
+"@stylistic/eslint-plugin-plus@npm:1.5.1":
+  version: 1.5.1
+  resolution: "@stylistic/eslint-plugin-plus@npm:1.5.1"
   dependencies:
     "@typescript-eslint/utils": "npm:^6.13.2"
   peerDependencies:
     eslint: "*"
-  checksum: bed925ffb39d8e43eb78d22f7c772dfbffcca854f98ce78b4ddbd2a06345d721e7069145d4c6cdcd3ec43bec5fbf83518b6b126555b01bc24a777578e160859b
+  checksum: e374c10b039fca8c17f89831d5467f3e6ff825080f4688033791d232c0577fbe4712a2541ba7f7e2c09c48403d82705901fe04b85b149842488a943a4538d6f4
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-ts@npm:1.5.0":
-  version: 1.5.0
-  resolution: "@stylistic/eslint-plugin-ts@npm:1.5.0"
+"@stylistic/eslint-plugin-ts@npm:1.5.1":
+  version: 1.5.1
+  resolution: "@stylistic/eslint-plugin-ts@npm:1.5.1"
   dependencies:
-    "@stylistic/eslint-plugin-js": "npm:1.5.0"
+    "@stylistic/eslint-plugin-js": "npm:1.5.1"
     "@typescript-eslint/utils": "npm:^6.13.2"
-    graphemer: "npm:^1.4.0"
   peerDependencies:
     eslint: ">=8.40.0"
-  checksum: 4415db69ce68157dba7ed4919acb8833cef63f0a624bedba90f6514ebc59237c0732746b90fc58a385f1706c4784c00dab4318bad4b3f01050cbcfe0763898bf
+  checksum: 178da4aad1992ee8807c13a01b7bb8e4649a899522ac8d829a4cd911ffc85007fe37605f90758297830540f553716552b8a31acef2a93cd736d65a4fafedcb35
   languageName: node
   linkType: hard
 
 "@stylistic/eslint-plugin@npm:^1.4.0":
-  version: 1.5.0
-  resolution: "@stylistic/eslint-plugin@npm:1.5.0"
+  version: 1.5.1
+  resolution: "@stylistic/eslint-plugin@npm:1.5.1"
   dependencies:
-    "@stylistic/eslint-plugin-js": "npm:1.5.0"
-    "@stylistic/eslint-plugin-jsx": "npm:1.5.0"
-    "@stylistic/eslint-plugin-plus": "npm:1.5.0"
-    "@stylistic/eslint-plugin-ts": "npm:1.5.0"
+    "@stylistic/eslint-plugin-js": "npm:1.5.1"
+    "@stylistic/eslint-plugin-jsx": "npm:1.5.1"
+    "@stylistic/eslint-plugin-plus": "npm:1.5.1"
+    "@stylistic/eslint-plugin-ts": "npm:1.5.1"
   peerDependencies:
     eslint: ">=8.40.0"
-  checksum: 9183d1b4b1a58fec86f8b04225f5c8ceea53dffb7d2b5e6783b12f4d1b698019fc6869a3f5c9d61928635e4cdf2fe8a9c62d53dae25223d866f2ae63a6fba30f
+  checksum: fc9ac56c517a07a2b88cc4f0a07e8cdf4ac18bdb4de057280a23e35e7ed045be08144d32983711ee20d99a76efc5678712efc7c94aa9e2ec314f742d0cf314aa
   languageName: node
   linkType: hard
 
