@@ -16,16 +16,36 @@ export const callExpression: CallExpression = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
-  const [{ allowPatterns }] = parseOption(options, optionsSchema)
+  const [{ allowPatterns, disallowPatterns }] = parseOption(
+    options,
+    optionsSchema,
+  )
+
+  const isBothDefined = allowPatterns && disallowPatterns
+  const isNotDefined = !allowPatterns && !disallowPatterns
+  if (isBothDefined || isNotDefined) {
+    throw new Error(
+      "Define the only one property, from allowPatterns or disallowPatterns.",
+    )
+  }
 
   // eslint-disable-next-line complexity, max-statements
   return (node) => {
     const fileName = getFilename()
-    const isPartialMatched = allowPatterns.some((pattern) =>
-      pattern.test(fileName),
-    )
 
-    if (isPartialMatched) return
+    if (allowPatterns) {
+      const isPartialMatched = allowPatterns.some((pattern) =>
+        pattern.test(fileName),
+      )
+      if (isPartialMatched) return
+    }
+
+    if (disallowPatterns) {
+      const isPartialMatched = disallowPatterns.some((pattern) =>
+        pattern.test(fileName),
+      )
+      if (!isPartialMatched) return
+    }
 
     if (node.callee.type === "Identifier") {
       const {
