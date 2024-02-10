@@ -1,11 +1,11 @@
-import { importSpecifier } from "../../../../src/rules/forbidden-use-react-hooks/modules/importSpecifier"
+import { callExpression } from "../../../../src/rules/forbidden-use-method/modules/callExpression"
 
-describe("forbidden-use-react-hooks.importSpecifier", () => {
+describe("forbidden-use-method.callExpression", () => {
   it("Not defined option", () => {
     expect(() =>
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      importSpecifier({
+      callExpression({
         options: [],
       }),
     ).toThrow("Invalid options, please check it.")
@@ -15,7 +15,7 @@ describe("forbidden-use-react-hooks.importSpecifier", () => {
     expect(() =>
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      importSpecifier({
+      callExpression({
         options: [{}],
       }),
     ).toThrow("Invalid options, please check it.")

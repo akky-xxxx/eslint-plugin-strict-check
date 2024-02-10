@@ -8,17 +8,16 @@ import type { TSESLint, TSESTree } from "@typescript-eslint/utils"
 export type Context = Readonly<
   TSESLint.RuleContext<MessageId, readonly Option[]>
 >
-type CallExpression = (
+type ImportSpecifier = (
   context: Context,
-) => TSESLint.RuleFunction<TSESTree.CallExpression>
+) => TSESLint.RuleFunction<TSESTree.ImportSpecifier>
 
-export const callExpression: CallExpression = (context) => {
+export const importSpecifier: ImportSpecifier = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
   const [{ allowPatterns }] = parseOption(options, optionsSchema)
 
-  // eslint-disable-next-line complexity, max-statements
   return (node) => {
     const fileName = getFilename()
     const isPartialMatched = allowPatterns.some((pattern) =>
@@ -27,34 +26,8 @@ export const callExpression: CallExpression = (context) => {
 
     if (isPartialMatched) return
 
-    if (node.callee.type === "Identifier") {
-      const {
-        callee: { name },
-      } = node
-
-      if (!PrefixRegExp.test(name)) return
-
-      report({
-        data: {
-          hooksName: name,
-        },
-        messageId: "UsedReactHooks",
-        node,
-      })
-      return
-    }
-
-    if (
-      node.callee.type !== "MemberExpression" ||
-      node.callee.property.type !== "Identifier"
-    ) {
-      return
-    }
-
     const {
-      callee: {
-        property: { name },
-      },
+      imported: { name },
     } = node
 
     if (!PrefixRegExp.test(name)) return
@@ -63,7 +36,7 @@ export const callExpression: CallExpression = (context) => {
       data: {
         hooksName: name,
       },
-      messageId: "UsedReactHooks",
+      messageId: "ImportedForbiddenMethod",
       node,
     })
   }

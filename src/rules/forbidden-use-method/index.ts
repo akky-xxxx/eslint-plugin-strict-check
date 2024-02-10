@@ -4,7 +4,7 @@ import { importSpecifier } from "./modules/importSpecifier"
 import type { MessageId, Option } from "./types"
 import type { TSESLint } from "@typescript-eslint/utils"
 
-export const forbiddenUseReactHooks: TSESLint.RuleModule<MessageId, Option[]> =
+export const forbiddenUseMethod: TSESLint.RuleModule<MessageId, Option[]> =
   {
     create: (context) => {
       const callExpressionMain = callExpression(context)
@@ -17,10 +17,10 @@ export const forbiddenUseReactHooks: TSESLint.RuleModule<MessageId, Option[]> =
     defaultOptions: [],
     meta: {
       messages: {
-        ImportedReactHooks:
-          "Don't import the react hooks ( {{ hooksName }} ) in the component that only viewing.",
-        UsedReactHooks:
-          "Don't use the react hooks ( {{ hooksName }} ) in the component that only viewing.",
+        ImportedForbiddenMethod:
+          "Don't import the method ( {{ hooksName }} ) in this file.",
+        UsedForbiddenMethod:
+          "Don't use the method ( {{ hooksName }} ) in this file.",
       },
       schema: {
         type: "array",

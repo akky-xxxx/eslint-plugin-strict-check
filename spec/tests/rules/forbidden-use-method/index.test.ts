@@ -1,10 +1,10 @@
-import { forbiddenUseReactHooks } from "../../../../src/rules/forbidden-use-react-hooks"
+import { forbiddenUseMethod } from "../../../../src/rules/forbidden-use-method"
 import { tester } from "../utils/tester"
 
 import type {
   MessageId,
   Option,
-} from "../../../../src/rules/forbidden-use-react-hooks/types"
+} from "../../../../src/rules/forbidden-use-method/types"
 
 const RegularExpression =
   /\/components\/(?:molecules|organisms|templates)\/[^/]+\/index.tsx$/
@@ -16,8 +16,8 @@ const options = [
 ]
 
 tester.run<MessageId, Option[]>(
-  "forbidden-use-react-hooks",
-  forbiddenUseReactHooks,
+  "forbidden-use-method",
+  forbiddenUseMethod,
   {
     valid: [
       {
@@ -56,7 +56,7 @@ tester.run<MessageId, Option[]>(
             data: {
               hooksName: "useState",
             },
-            messageId: "ImportedReactHooks",
+            messageId: "ImportedForbiddenMethod",
           },
         ],
       },
@@ -69,7 +69,7 @@ tester.run<MessageId, Option[]>(
             data: {
               hooksName: "useState",
             },
-            messageId: "ImportedReactHooks",
+            messageId: "ImportedForbiddenMethod",
           },
         ],
       },
@@ -82,7 +82,7 @@ tester.run<MessageId, Option[]>(
             data: {
               hooksName: "useCustomHook",
             },
-            messageId: "ImportedReactHooks",
+            messageId: "ImportedForbiddenMethod",
           },
         ],
       },
@@ -95,7 +95,7 @@ tester.run<MessageId, Option[]>(
             data: {
               hooksName: "useCustomHook",
             },
-            messageId: "ImportedReactHooks",
+            messageId: "ImportedForbiddenMethod",
           },
         ],
       },
@@ -108,7 +108,7 @@ tester.run<MessageId, Option[]>(
             data: {
               hooksName: "useState",
             },
-            messageId: "UsedReactHooks",
+            messageId: "UsedForbiddenMethod",
           },
         ],
       },
@@ -121,7 +121,7 @@ tester.run<MessageId, Option[]>(
             data: {
               hooksName: "useState",
             },
-            messageId: "UsedReactHooks",
+            messageId: "UsedForbiddenMethod",
           },
         ],
       },

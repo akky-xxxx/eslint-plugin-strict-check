@@ -5,7 +5,7 @@
 
 ```js
 ...
-"strict-check/forbidden-use-react-hooks": [<enabled>, {
+"strict-check/forbidden-use-method": [<enabled>, {
     "allowPatterns": <RegExp>[]
 }]
 ...
@@ -19,19 +19,19 @@
 Example of **invalid** :x: code when option value `[/View.tsx/]`:
 
 ```tsx
-// "strict-check/forbidden-use-react-hooks": ["error", { "allowPatterns": [/View.tsx/] }]
+// "strict-check/forbidden-use-method": ["error", { "allowPatterns": [/View.tsx/] }]
 // index.tsx
 import { useState } from "react"
 ```
 
 ```tsx
-// "strict-check/forbidden-use-react-hooks": ["error", { "allowPatterns": [/View.tsx/] }]
+// "strict-check/forbidden-use-method": ["error", { "allowPatterns": [/View.tsx/] }]
 // index.tsx
 import { useCustomHook } from "./modules/useCustomHook"
 ```
 
 ```tsx
-// "strict-check/forbidden-use-react-hooks": ["error", { "allowPatterns": [/View.tsx/] }]
+// "strict-check/forbidden-use-method": ["error", { "allowPatterns": [/View.tsx/] }]
 // index.tsx
 const [state, setState] = useState("")
 ```
@@ -39,19 +39,19 @@ const [state, setState] = useState("")
 Example of **valid** :o: code when option value `[/View.tsx/]`:
 
 ```tsx
-// "strict-check/forbidden-use-react-hooks": ["error", { "allowPatterns": [/View.tsx/]] }]
+// "strict-check/forbidden-use-method": ["error", { "allowPatterns": [/View.tsx/]] }]
 // Button/View.tsx
 import { useState } from "react"
 ```
 
 ```tsx
-// "strict-check/forbidden-use-react-hooks": ["error", { "allowPatterns": [/View.tsx/]] }]
+// "strict-check/forbidden-use-method": ["error", { "allowPatterns": [/View.tsx/]] }]
 // Button/View.tsx
 import { useCustomHook } from "./modules/useCustomHook"
 ```
 
 ```tsx
-// "strict-check/forbidden-use-react-hooks": ["error", { "allowPatterns": [/View.tsx/]] }]
+// "strict-check/forbidden-use-method": ["error", { "allowPatterns": [/View.tsx/]] }]
 // Button/View.tsx
 const [state, setState] = useState("")
 ```
