@@ -15,116 +15,112 @@ const options = [
   },
 ]
 
-tester.run<MessageId, Option[]>(
-  "forbidden-use-method",
-  forbiddenUseMethod,
-  {
-    valid: [
-      {
-        code: 'import { memo } from "react"',
-        filename: "/components/molecules/Button/index.tsx",
-        options,
-      },
-      {
-        code: 'import { useState } from "react"',
-        filename: "/components/molecules/Button/index.tsx",
-        options,
-      },
-      {
-        code: 'import { memo } from "./modules/useCustomHook"',
-        filename: "/components/organisms/Button/index.tsx",
-        options,
-      },
-      {
-        code: 'import { useCustomHook } from "./modules/useCustomHook"',
-        filename: "/components/organisms/Button/index.tsx",
-        options,
-      },
-      {
-        code: 'import { memo } from "./modules/useCustomHook"',
-        filename: "/components/templates/Button/index.tsx",
-        options,
-      },
-    ],
-    invalid: [
-      {
-        code: 'import { useState, memo } from "react"',
-        filename: "/components/atoms/Button/View.tsx",
-        options,
-        errors: [
-          {
-            data: {
-              hooksName: "useState",
-            },
-            messageId: "ImportedForbiddenMethod",
+tester.run<MessageId, Option[]>("forbidden-use-method", forbiddenUseMethod, {
+  valid: [
+    {
+      code: 'import { memo } from "react"',
+      filename: "/components/molecules/Button/index.tsx",
+      options,
+    },
+    {
+      code: 'import { useState } from "react"',
+      filename: "/components/molecules/Button/index.tsx",
+      options,
+    },
+    {
+      code: 'import { memo } from "./modules/useCustomHook"',
+      filename: "/components/organisms/Button/index.tsx",
+      options,
+    },
+    {
+      code: 'import { useCustomHook } from "./modules/useCustomHook"',
+      filename: "/components/organisms/Button/index.tsx",
+      options,
+    },
+    {
+      code: 'import { memo } from "./modules/useCustomHook"',
+      filename: "/components/templates/Button/index.tsx",
+      options,
+    },
+  ],
+  invalid: [
+    {
+      code: 'import { useState, memo } from "react"',
+      filename: "/components/atoms/Button/View.tsx",
+      options,
+      errors: [
+        {
+          data: {
+            hooksName: "useState",
           },
-        ],
-      },
-      {
-        code: 'import { useState } from "react"',
-        filename: "/components/atoms/Button/View.tsx",
-        options,
-        errors: [
-          {
-            data: {
-              hooksName: "useState",
-            },
-            messageId: "ImportedForbiddenMethod",
+          messageId: "ImportedForbiddenMethod",
+        },
+      ],
+    },
+    {
+      code: 'import { useState } from "react"',
+      filename: "/components/atoms/Button/View.tsx",
+      options,
+      errors: [
+        {
+          data: {
+            hooksName: "useState",
           },
-        ],
-      },
-      {
-        code: 'import { useCustomHook, memo } from "./modules/useCustomHook"',
-        filename: "/components/atoms/Button/View.tsx",
-        options,
-        errors: [
-          {
-            data: {
-              hooksName: "useCustomHook",
-            },
-            messageId: "ImportedForbiddenMethod",
+          messageId: "ImportedForbiddenMethod",
+        },
+      ],
+    },
+    {
+      code: 'import { useCustomHook, memo } from "./modules/useCustomHook"',
+      filename: "/components/atoms/Button/View.tsx",
+      options,
+      errors: [
+        {
+          data: {
+            hooksName: "useCustomHook",
           },
-        ],
-      },
-      {
-        code: 'import { useCustomHook } from "./modules/useCustomHook"',
-        filename: "/components/atoms/Button/View.tsx",
-        options,
-        errors: [
-          {
-            data: {
-              hooksName: "useCustomHook",
-            },
-            messageId: "ImportedForbiddenMethod",
+          messageId: "ImportedForbiddenMethod",
+        },
+      ],
+    },
+    {
+      code: 'import { useCustomHook } from "./modules/useCustomHook"',
+      filename: "/components/atoms/Button/View.tsx",
+      options,
+      errors: [
+        {
+          data: {
+            hooksName: "useCustomHook",
           },
-        ],
-      },
-      {
-        code: 'const state = React.useState("")',
-        filename: "/components/atoms/Button/View.tsx",
-        options,
-        errors: [
-          {
-            data: {
-              hooksName: "useState",
-            },
-            messageId: "UsedForbiddenMethod",
+          messageId: "ImportedForbiddenMethod",
+        },
+      ],
+    },
+    {
+      code: 'const state = React.useState("")',
+      filename: "/components/atoms/Button/View.tsx",
+      options,
+      errors: [
+        {
+          data: {
+            hooksName: "useState",
           },
-        ],
-      },
-      {
-        code: 'const state = useState("")',
-        filename: "/components/atoms/Button/View.tsx",
-        options,
-        errors: [
-          {
-            data: {
-              hooksName: "useState",
-            },
-            messageId: "UsedForbiddenMethod",
+          messageId: "UsedForbiddenMethod",
+        },
+      ],
+    },
+    {
+      code: 'const state = useState("")',
+      filename: "/components/atoms/Button/View.tsx",
+      options,
+      errors: [
+        {
+          data: {
+            hooksName: "useState",
           },
-        ],
-      },
-    ],
-  },
-)
+          messageId: "UsedForbiddenMethod",
+        },
+      ],
+    },
+  ],
+})
