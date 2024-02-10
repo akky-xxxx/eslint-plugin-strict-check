@@ -70,6 +70,6 @@
     "typescript": "5.3.3"
   },
   "resolutions": {
-    "@swc/cli": "0.1.65"
+    "@swc/cli": "0.3.9"
   }
 }
