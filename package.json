@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-strict-check",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "packageManager": "yarn@4.1.0",
   "repository": {
     "type": "git",
@@ -68,5 +68,8 @@
     "npm-run-all2": "^6.0.0",
     "prettier": "^3.1.0",
     "typescript": "5.3.3"
+  },
+  "resolutions": {
+    "@swc/cli": "0.1.65"
   }
 }
