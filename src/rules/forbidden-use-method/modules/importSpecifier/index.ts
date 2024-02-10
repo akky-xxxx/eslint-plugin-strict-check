@@ -1,5 +1,4 @@
 import { parseOption } from "../../../../shared/utility/parseOption"
-import { PrefixRegExp } from "../../const/PrefixRegExp"
 import { optionsSchema } from "../../schema/optionSchema"
 
 import type { MessageId, Option } from "../../types"
@@ -16,21 +15,43 @@ export const importSpecifier: ImportSpecifier = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
   const { getFilename, options, report } = context
 
-  const [{ allowPatterns }] = parseOption(options, optionsSchema)
+  const [{ allowPatterns, disallowPatterns, methods }] = parseOption(options, optionsSchema)
 
+  const isDefinedAllowDisallow = allowPatterns && disallowPatterns
+  const isNotDefinedPatterns = !allowPatterns && !disallowPatterns
+
+  if (isDefinedAllowDisallow || isNotDefinedPatterns) {
+    throw new Error("Define one property from allowPatterns or disallowPatterns.")
+  }
+
+  // eslint-disable-next-line complexity
   return (node) => {
     const fileName = getFilename()
-    const isPartialMatched = allowPatterns.some((pattern) =>
-      pattern.test(fileName),
-    )
 
-    if (isPartialMatched) return
+    if (allowPatterns) {
+      const isPartialMatched = allowPatterns.some((pattern) =>
+        pattern.test(fileName),
+      )
+
+      if (isPartialMatched) return
+    }
+
+    if (disallowPatterns) {
+      const isPartialMatched = disallowPatterns.some((pattern) =>
+        pattern.test(fileName),
+      )
+
+      if (!isPartialMatched) return
+    }
 
     const {
       imported: { name },
     } = node
 
-    if (!PrefixRegExp.test(name)) return
+    console.log({ name })
+    if (methods.find((method) => {
+      const regExp
+    })) return
 
     report({
       data: {

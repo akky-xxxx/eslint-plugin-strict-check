@@ -12,8 +12,9 @@ const RegularExpression =
 const options = [
   {
     allowPatterns: [RegularExpression],
+    methods: ["useState"],
   },
-]
+] as const satisfies Option[]
 
 tester.run<MessageId, Option[]>("forbidden-use-method", forbiddenUseMethod, {
   valid: [
