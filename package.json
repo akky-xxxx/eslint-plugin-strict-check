@@ -68,5 +68,8 @@
     "npm-run-all2": "^6.0.0",
     "prettier": "^3.1.0",
     "typescript": "5.3.3"
+  },
+  "resolutions": {
+    "@swc/cli": "0.1.65"
   }
 }
