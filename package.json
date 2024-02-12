@@ -34,7 +34,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "remeda": "1.40.1",
+    "remeda": "1.40.2",
     "zod": "3.22.4"
   },
   "devDependencies": {
@@ -70,6 +70,6 @@
     "typescript": "5.3.3"
   },
   "resolutions": {
-    "@swc/cli": "0.1.65"
+    "@swc/cli": "0.3.9"
   }
 }
