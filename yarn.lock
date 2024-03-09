@@ -3671,12 +3671,12 @@ __metadata:
   linkType: hard
 
 "editorconfig-checker@npm:^5.1.2":
-  version: 5.1.4
-  resolution: "editorconfig-checker@npm:5.1.4"
+  version: 5.1.5
+  resolution: "editorconfig-checker@npm:5.1.5"
   bin:
     ec: dist/index.js
     editorconfig-checker: dist/index.js
-  checksum: 10c0/b196fd3702b2e39edef4a6a3fadc9ba39cb7b88f7cb2e1fb2879e44ff17ef306b46e1cff9facea68c359959e1e005c2c1313f19b03f62a4c5ff4b7ed7a4656bd
+  checksum: 10c0/e964acb34183311d31c2bc0081ff9066d5a3af5bc9daa5072e45773810c3bd39b8f6a93c797e7e51841c9d38d9a01a847f8d53e22f90cf25231305dc05196c2c
   languageName: node
   linkType: hard
 
