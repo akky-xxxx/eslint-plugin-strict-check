@@ -34,7 +34,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "remeda": "1.58.1",
+    "remeda": "1.58.2",
     "zod": "3.22.4"
   },
   "devDependencies": {
