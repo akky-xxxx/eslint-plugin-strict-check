@@ -4092,7 +4092,7 @@ __metadata:
     jest: "npm:^29.7.0"
     npm-run-all2: "npm:^6.1.2"
     prettier: "npm:^3.2.5"
-    remeda: "npm:1.59.0"
+    remeda: "npm:1.60.1"
     typescript: "npm:5.4.5"
     zod: "npm:3.22.4"
   languageName: unknown
@@ -7452,10 +7452,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remeda@npm:1.59.0":
-  version: 1.59.0
-  resolution: "remeda@npm:1.59.0"
-  checksum: 10c0/37bc569b1ab32bc1d14029cdeb044354d640e314df0d199028132a33d72d21eed446736f7c149617f3ed980ed2592e985a024062abebf3e4416aacd5499f9b47
+"remeda@npm:1.60.1":
+  version: 1.60.1
+  resolution: "remeda@npm:1.60.1"
+  checksum: 10c0/792f35a1ee0ab2512dcf15eea36696284d299790dae5b5242857a0fb5354fcf49c5869365d0f310990b4f139a87d49fdfb5ba44d4160fb2a539ad4b8d5acfac9
   languageName: node
   linkType: hard
 
