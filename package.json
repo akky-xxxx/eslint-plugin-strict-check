@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "remeda": "1.60.1",
-    "zod": "3.22.4"
+    "zod": "3.22.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
