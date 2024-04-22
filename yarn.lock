@@ -4092,9 +4092,9 @@ __metadata:
     jest: "npm:^29.7.0"
     npm-run-all2: "npm:^6.1.2"
     prettier: "npm:^3.2.5"
-    remeda: "npm:1.60.1"
+    remeda: "npm:1.61.0"
     typescript: "npm:5.4.5"
-    zod: "npm:3.22.5"
+    zod: "npm:3.23.0"
   languageName: unknown
   linkType: soft
 
@@ -7452,10 +7452,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remeda@npm:1.60.1":
-  version: 1.60.1
-  resolution: "remeda@npm:1.60.1"
-  checksum: 10c0/792f35a1ee0ab2512dcf15eea36696284d299790dae5b5242857a0fb5354fcf49c5869365d0f310990b4f139a87d49fdfb5ba44d4160fb2a539ad4b8d5acfac9
+"remeda@npm:1.61.0":
+  version: 1.61.0
+  resolution: "remeda@npm:1.61.0"
+  checksum: 10c0/dc9995e740adc93cddc31f814d9293f3fe327114fdab7fe9e4ac83d5607d63d05645662dec3280a6d9260105a848acfbc763c37ad8b0636f40805aab0cb4bf7e
   languageName: node
   linkType: hard
 
@@ -8728,9 +8728,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:3.22.5":
-  version: 3.22.5
-  resolution: "zod@npm:3.22.5"
-  checksum: 10c0/efa969e9c0a836e4c299ff86f6db7ccf5e14c5349586694e999b7beb53fcc797b9292bc3179b0b5f43e42bcc4ae184bf202fde3f28694bf9fb8b567779c2e12b
+"zod@npm:3.23.0":
+  version: 3.23.0
+  resolution: "zod@npm:3.23.0"
+  checksum: 10c0/9678cc8bb4943b05145015430d730cae31564489816854cac23718344ffc26855b33e6744c948dd7906acb337108d9881298de4851ceaa290425222827492568
   languageName: node
   linkType: hard
