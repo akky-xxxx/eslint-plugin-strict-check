@@ -22,15 +22,27 @@ export default typescriptEslint.config(
   ...typescriptEslint.configs.stylistic,
   stylistic.configs["recommended-flat"],
   {
+    ignores: [
+      "**/coverage/**",
+      "**/dry-run/**",
+      "**/out/**",
+      "*eslintrc*",
+      ".yarn",
+      "node_modules/**",
+    ],
+  },
+  {
     linterOptions: {
       reportUnusedDisableDirectives: 2,
     },
   },
   {
-    files: ["src/**/*.ts"],
     rules: {
       ...baseRules,
     },
+  },
+  {
+    files: ["src/**/*.ts"],
     settings: {
       ...settings.importSettings,
     },
@@ -38,7 +50,6 @@ export default typescriptEslint.config(
   {
     files: ["spec/**/*.ts"],
     rules: {
-      ...baseRules,
       ...testRules,
     },
     settings: {
@@ -48,14 +59,12 @@ export default typescriptEslint.config(
   {
     files: ["scripts/**/*.js"],
     rules: {
-      ...baseRules,
       ...scriptRules,
     },
   },
   {
     files: ["*.{js,mjs}", "config/**/*.{js,mjs}"],
     rules: {
-      ...baseRules,
       ...configRules,
     },
   },
