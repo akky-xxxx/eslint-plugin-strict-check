@@ -11,11 +11,32 @@ $ yarn add -D eslint-plugin-strict-check
 $ npm i --save-dev eslint-plugin-strict-check
 ```
 
-Enable plugin at `.eslintrc.js`
+## Usage
+
+### for `eslint.config.mjs`
+```js
+import eslintPluginStrictCheck from "eslint-plugin-strict-check"
+
+export default [
+    {
+        plugins: {
+            "strict-check": eslintPluginStrictCheck, // It is not necessary when use the recommended config
+        },
+    },
+    eslintPluginStrictCheck.configs.react, // Specify when use recommended config for react
+    eslintPluginStrictCheck.configs.vanilla, // Specify when use recommended config for vanilla
+]
+```
+
+### for `.eslintrc.js`
 
 ```js
 module.exports = {
-    plugins: ["strict-check"],
+    plugins: ["strict-check"], // It is not necessary when use the recommended config
+    extends: [
+        "strict-check/legacy/react", // Specify when use recommended config for react
+        "strict-check/legacy/vanilla", // Specify when use recommended config for vanilla
+    ],
     rules: {
         ...
     },
