@@ -17,7 +17,7 @@ export const eventHandlerPrefix: TSESLint.RuleModule<MessageId, Option[]> = {
   meta: {
     messages: {
       forbiddenHandlerPrefix:
-        'Replace "{{ forbiddenPrefix }}" to "{{ correctPrefix }}" of handler prefix.',
+        "Replace \"{{ forbiddenPrefix }}\" to \"{{ correctPrefix }}\" of handler prefix.",
     },
     schema: {
       type: "array",

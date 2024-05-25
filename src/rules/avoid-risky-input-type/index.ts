@@ -25,7 +25,7 @@ export const avoidRiskyInputType = createRule<Option[], MessageId>({
     },
     messages: {
       riskyValue:
-        '<input type="{{ inputType }}" /> is risky. please rethink other type value.',
+        "<input type=\"{{ inputType }}\" /> is risky. please rethink other type value.",
     },
     schema: {
       type: "array",

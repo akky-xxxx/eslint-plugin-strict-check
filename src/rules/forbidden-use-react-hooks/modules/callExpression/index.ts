@@ -29,21 +29,18 @@ export const callExpression: CallExpression = (context) => {
     )
   }
 
-  // eslint-disable-next-line complexity, max-statements
   return (node) => {
     const fileName = getFilename()
 
     if (allowPatterns) {
       const isPartialMatched = allowPatterns.some((pattern) =>
-        pattern.test(fileName),
-      )
+        pattern.test(fileName))
       if (isPartialMatched) return
     }
 
     if (disallowPatterns) {
       const isPartialMatched = disallowPatterns.some((pattern) =>
-        pattern.test(fileName),
-      )
+        pattern.test(fileName))
       if (!isPartialMatched) return
     }
 
