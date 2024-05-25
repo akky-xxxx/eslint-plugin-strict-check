@@ -39,3 +39,9 @@ jobs:
 
       - name: Run test
         run: yarn test
+
+      - name: Run build
+        run: yarn build
+
+      - name: Run check-out-file
+        run: yarn check-out-file

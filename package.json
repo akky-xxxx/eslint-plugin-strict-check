@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-strict-check",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "packageManager": "yarn@4.2.2",
   "repository": {
     "type": "git",
@@ -10,9 +10,14 @@
   "license": "MIT",
   "main": "out/index.js",
   "scripts": {
-    "build": "swc \"./src\" -d \"./out\" --config-file .swcrc",
+    "build": "run-s \"build:*\"",
+    "build:1": "rm -rf ./out",
+    "build:2": "swc \"./src\" -d \"./out\" --config-file .swcrc",
+    "build:3": "mv ./out/src/* ./out",
+    "build:4": "rm -rf ./out/src",
     "check-all": "npm-run-all fix check-code test",
     "check-code": "run-p spell-check lint type-check",
+    "check-out-file": "node ./scripts/check-out-file/index.js",
     "dev": "run-s build build:watch",
     "fix": "run-p \"fix:*\" -c",
     "fix-ts-by-eslint": "eslint \"./{src,spec}/**/*.ts\" --fix --max-warnings 0",
