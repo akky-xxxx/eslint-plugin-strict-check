@@ -20,6 +20,7 @@ export const individualImport: TSESLint.RuleModule<MessageId, Option[]> = {
   meta: {
     messages: {
       NotIndividually:
+      // eslint-disable-next-line @stylistic/max-len
         "Import \"{{ moduleName }}.{{ propertyName }}\" as individually. example: import { {{propertyName}} } from \"{{ lowerModuleName }}\".",
     },
     schema: {

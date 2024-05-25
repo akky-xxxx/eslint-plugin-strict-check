@@ -18,6 +18,7 @@ export const matchNamesOfFileAndExport: TSESLint.RuleModule<
   meta: {
     messages: {
       FileAndExportAreDifferent:
+        // eslint-disable-next-line @stylistic/max-len
         "Not matched names of file and export. File name is {{ capturedString }}, variable name is \"{{ variableName }}\".",
     },
     schema: {
