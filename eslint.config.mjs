@@ -22,6 +22,16 @@ export default typescriptEslint.config(
   ...typescriptEslint.configs.stylistic,
   stylistic.configs["recommended-flat"],
   {
+    ignores: [
+      "**/coverage/**",
+      "**/dry-run/**",
+      "**/out/**",
+      "*eslintrc*",
+      ".yarn",
+      "node_modules/**",
+    ],
+  },
+  {
     linterOptions: {
       reportUnusedDisableDirectives: 2,
     },
