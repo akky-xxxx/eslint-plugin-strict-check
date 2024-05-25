@@ -43,6 +43,9 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Run check-out-file
+        run: yarn check-out-file
+
       - name: Publish
         run: yarn npm publish
         env:
