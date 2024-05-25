@@ -48,6 +48,7 @@ tester.run<MessageId, Option[]>(
         errors: [
           {
             data: {
+              capturedString: "Button",
               filepath: "/components/atoms/Button/index.tsx",
               variableName: "button",
             },
@@ -62,6 +63,7 @@ tester.run<MessageId, Option[]>(
         errors: [
           {
             data: {
+              capturedString: "undefined",
               filepath: "/components/atoms/Button/modules/useButton/index.ts",
               variableName: "useButtonHooks",
             },
@@ -76,6 +78,7 @@ tester.run<MessageId, Option[]>(
         errors: [
           {
             data: {
+              capturedString: "useButton",
               filepath: "/components/atoms/Button/modules/useButton/index.ts",
               variableName: "useButtonHooks",
             },
