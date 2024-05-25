@@ -15,7 +15,6 @@ export const jsxOpeningElement: JsxOpeningElement = (context) => {
   const parsedOptions = parseOption(options, optionsSchema)
   const [{ riskyValues }] = parsedOptions
 
-  // eslint-disable-next-line complexity
   return (node) => {
     if (node.name.type === "JSXIdentifier" && node.name.name !== "input") return
 

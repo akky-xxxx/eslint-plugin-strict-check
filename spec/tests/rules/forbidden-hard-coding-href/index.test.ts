@@ -15,14 +15,14 @@ tester.run<MessageId, Option[]>(
     valid: [
       {
         name: "It is valid, when defined string does not include in forbiddenValues.",
-        code: 'const href = "age"',
+        code: "const href = \"age\"",
         options: [{ forbiddenValues }],
       },
     ],
     invalid: [
       {
         name: "It is invalid, when used string includes in forbidden Values, on JSX syntax.",
-        code: 'const Component = () => <a href="/">top</a>',
+        code: "const Component = () => <a href=\"/\">top</a>",
         options: [{ forbiddenValues }],
         errors: [
           {
@@ -35,7 +35,7 @@ tester.run<MessageId, Option[]>(
       },
       {
         name: "It is invalid, when defined string includes in forbiddenValues.",
-        code: 'const searchHref = "/search"',
+        code: "const searchHref = \"/search\"",
         options: [{ forbiddenValues }],
         errors: [
           {

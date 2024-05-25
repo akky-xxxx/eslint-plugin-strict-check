@@ -7,8 +7,7 @@ describe("avoid-risky-input-type.jsxOpeningElement", () => {
       // @ts-ignore
       jsxOpeningElement({
         options: [],
-      }),
-    ).toThrow("Invalid options, please check it.")
+      })).toThrow("Invalid options, please check it.")
   })
 
   it("Not defined option.riskyValues", () => {
@@ -17,7 +16,6 @@ describe("avoid-risky-input-type.jsxOpeningElement", () => {
       // @ts-ignore
       jsxOpeningElement({
         options: [{}],
-      }),
-    ).toThrow("Invalid options, please check it.")
+      })).toThrow("Invalid options, please check it.")
   })
 })

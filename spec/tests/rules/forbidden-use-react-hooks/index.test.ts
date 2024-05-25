@@ -29,53 +29,53 @@ tester.run<MessageId, Option[]>(
     valid: [
       // allow patterns
       {
-        code: 'import { memo } from "react" // on allowPatterns',
+        code: "import { memo } from \"react\" // on allowPatterns",
         filename: "/components/molecules/Button/index.tsx",
         options: allowPatternOptions,
       },
       {
-        code: 'import { useState } from "react" // on allowPatterns',
+        code: "import { useState } from \"react\" // on allowPatterns",
         filename: "/components/molecules/Button/index.tsx",
         options: allowPatternOptions,
       },
       {
-        code: 'import { memo } from "./modules/useCustomHook" // on allowPatterns',
+        code: "import { memo } from \"./modules/useCustomHook\" // on allowPatterns",
         filename: "/components/organisms/Button/index.tsx",
         options: allowPatternOptions,
       },
       {
-        code: 'import { useCustomHook } from "./modules/useCustomHook" // on allowPatterns',
+        code: "import { useCustomHook } from \"./modules/useCustomHook\" // on allowPatterns",
         filename: "/components/organisms/Button/index.tsx",
         options: allowPatternOptions,
       },
       {
-        code: 'import { memo } from "./modules/useCustomHook" // on allowPatterns',
+        code: "import { memo } from \"./modules/useCustomHook\" // on allowPatterns",
         filename: "/components/templates/Button/index.tsx",
         options: allowPatternOptions,
       },
       // disallow patterns
       {
-        code: 'import { memo } from "react" // on disallowPatterns',
+        code: "import { memo } from \"react\" // on disallowPatterns",
         filename: "/components/molecules/Button/index.tsx",
         options: disallowPatternOptions,
       },
       {
-        code: 'import { useState } from "react" // on disallowPatterns',
+        code: "import { useState } from \"react\" // on disallowPatterns",
         filename: "/components/molecules/Button/index.tsx",
         options: disallowPatternOptions,
       },
       {
-        code: 'import { memo } from "./modules/useCustomHook" // on disallowPatterns',
+        code: "import { memo } from \"./modules/useCustomHook\" // on disallowPatterns",
         filename: "/components/organisms/Button/index.tsx",
         options: disallowPatternOptions,
       },
       {
-        code: 'import { useCustomHook } from "./modules/useCustomHook" // on disallowPatterns',
+        code: "import { useCustomHook } from \"./modules/useCustomHook\" // on disallowPatterns",
         filename: "/components/organisms/Button/index.tsx",
         options: disallowPatternOptions,
       },
       {
-        code: 'import { memo } from "./modules/useCustomHook" // on disallowPatterns',
+        code: "import { memo } from \"./modules/useCustomHook\" // on disallowPatterns",
         filename: "/components/templates/Button/index.tsx",
         options: disallowPatternOptions,
       },
@@ -83,7 +83,7 @@ tester.run<MessageId, Option[]>(
     invalid: [
       // allow pattern
       {
-        code: 'import { useState, memo } from "react" // on allowPatterns',
+        code: "import { useState, memo } from \"react\" // on allowPatterns",
         filename: "/components/atoms/Button/index.tsx",
         options: allowPatternOptions,
         errors: [
@@ -96,7 +96,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'import { useState } from "react" // on allowPatterns',
+        code: "import { useState } from \"react\" // on allowPatterns",
         filename: "/components/atoms/Button/index.tsx",
         options: allowPatternOptions,
         errors: [
@@ -109,7 +109,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'import { useCustomHook, memo } from "./modules/useCustomHook" // on allowPatterns',
+        code: "import { useCustomHook, memo } from \"./modules/useCustomHook\" // on allowPatterns",
         filename: "/components/atoms/Button/index.tsx",
         options: allowPatternOptions,
         errors: [
@@ -122,7 +122,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'import { useCustomHook } from "./modules/useCustomHook" // on allowPatterns',
+        code: "import { useCustomHook } from \"./modules/useCustomHook\" // on allowPatterns",
         filename: "/components/atoms/Button/index.tsx",
         options: allowPatternOptions,
         errors: [
@@ -135,7 +135,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'const state = React.useState("") // on allowPatterns',
+        code: "const state = React.useState(\"\") // on allowPatterns",
         filename: "/components/atoms/Button/index.tsx",
         options: allowPatternOptions,
         errors: [
@@ -148,7 +148,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'const state = useState("") // on allowPatterns',
+        code: "const state = useState(\"\") // on allowPatterns",
         filename: "/components/atoms/Button/index.tsx",
         options: allowPatternOptions,
         errors: [
@@ -162,7 +162,7 @@ tester.run<MessageId, Option[]>(
       },
       // disallow patterns
       {
-        code: 'import { useState, memo } from "react" // on disallowPatterns',
+        code: "import { useState, memo } from \"react\" // on disallowPatterns",
         filename: "/components/molecules/Button/View.tsx",
         options: disallowPatternOptions,
         errors: [
@@ -175,7 +175,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'import { useState } from "react" // on disallowPatterns',
+        code: "import { useState } from \"react\" // on disallowPatterns",
         filename: "/components/molecules/Button/View.tsx",
         options: disallowPatternOptions,
         errors: [
@@ -188,7 +188,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'import { useCustomHook, memo } from "./modules/useCustomHook" // on disallowPatterns',
+        code: "import { useCustomHook, memo } from \"./modules/useCustomHook\" // on disallowPatterns",
         filename: "/components/molecules/Button/View.tsx",
         options: disallowPatternOptions,
         errors: [
@@ -201,7 +201,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'import { useCustomHook } from "./modules/useCustomHook" // on disallowPatterns',
+        code: "import { useCustomHook } from \"./modules/useCustomHook\" // on disallowPatterns",
         filename: "/components/molecules/Button/View.tsx",
         options: disallowPatternOptions,
         errors: [
@@ -214,7 +214,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'const state = React.useState("") // on disallowPatterns',
+        code: "const state = React.useState(\"\") // on disallowPatterns",
         filename: "/components/molecules/Button/View.tsx",
         options: disallowPatternOptions,
         errors: [
@@ -227,7 +227,7 @@ tester.run<MessageId, Option[]>(
         ],
       },
       {
-        code: 'const state = useState("") // on disallowPatterns',
+        code: "const state = useState(\"\") // on disallowPatterns",
         filename: "/components/molecules/Button/View.tsx",
         options: disallowPatternOptions,
         errors: [

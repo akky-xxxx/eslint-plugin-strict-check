@@ -8,8 +8,7 @@ describe("forbidden-use-react-hooks.callExpression", () => {
       // @ts-ignore
       callExpression({
         options: [],
-      }),
-    ).toThrow("Invalid options, please check it.")
+      })).toThrow("Invalid options, please check it.")
   })
 
   it("Not defined option.allowPatterns", () => {
@@ -18,8 +17,7 @@ describe("forbidden-use-react-hooks.callExpression", () => {
       // @ts-ignore
       callExpression({
         options: [{}],
-      }),
-    ).toThrow(
+      })).toThrow(
       "Define the only one property, from allowPatterns or disallowPatterns.",
     )
   })
@@ -35,8 +33,7 @@ describe("forbidden-use-react-hooks.callExpression", () => {
             disallowPatterns: [],
           },
         ],
-      }),
-    ).toThrow(
+      })).toThrow(
       "Define the only one property, from allowPatterns or disallowPatterns.",
     )
   })
