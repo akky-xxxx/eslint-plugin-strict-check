@@ -3,9 +3,9 @@ const order = [
   {
     "newlines-between": "always",
 
-    alphabetize: { order: "asc" },
+    "alphabetize": { order: "asc" },
 
-    groups: [
+    "groups": [
       ["builtin", "external"],
       "internal",
       ["parent", "sibling", "index"],
@@ -15,13 +15,9 @@ const order = [
   },
 ]
 
-const importRules = {
+export const importRules = {
   "import/extensions": [2, { js: "never", ts: "never" }],
   "import/no-default-export": 2,
   "import/order": order,
   "import/prefer-default-export": 0,
-}
-
-module.exports = {
-  importRules,
 }

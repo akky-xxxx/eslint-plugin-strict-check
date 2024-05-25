@@ -20,7 +20,7 @@ const operatorLinebreak = [
   },
 ]
 
-const stylisticRules = {
+export const stylisticRules = {
   "@stylistic/arrow-parens": [2, "always"],
   "@stylistic/brace-style": [2, "1tbs"],
   "@stylistic/max-len": [1, { code: 100 }],
@@ -28,8 +28,4 @@ const stylisticRules = {
   "@stylistic/operator-linebreak": operatorLinebreak,
   "@stylistic/quotes": [2, "double"],
   "@stylistic/semi": [2, "never"],
-}
-
-module.exports = {
-  stylisticRules,
 }
