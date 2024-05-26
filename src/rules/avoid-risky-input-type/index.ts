@@ -1,16 +1,9 @@
-// FIXME: resolve to eslint
-// eslint-disable-next-line import/no-unresolved
-import { ESLintUtils } from "@typescript-eslint/utils"
-
 import { jsxOpeningElement } from "./modules/jsxOpeningElement"
 
 import type { MessageId, Option } from "./types"
+import type { TSESLint } from "@typescript-eslint/utils"
 
-const createRule = ESLintUtils.RuleCreator((name) => name)
-
-export const avoidRiskyInputType = createRule<Option[], MessageId>({
-  name: "",
-
+export const avoidRiskyInputType: TSESLint.RuleModule<MessageId, Option[]> = {
   create: (context) => {
     const jsxOpeningElementMain = jsxOpeningElement(context)
 
@@ -25,11 +18,11 @@ export const avoidRiskyInputType = createRule<Option[], MessageId>({
     },
     messages: {
       riskyValue:
-        '<input type="{{ inputType }}" /> is risky. please rethink other type value.',
+        "<input type=\"{{ inputType }}\" /> is risky. please rethink other type value.",
     },
     schema: {
       type: "array",
     },
     type: "suggestion",
   },
-})
+}

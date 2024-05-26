@@ -1,8 +1,8 @@
-const fs = require("fs")
 const childProcess = require("child_process")
+const fs = require("fs")
 
 const currentBranch = childProcess
-  .execSync('git branch -l | sed -e "/^[^*] /d"')
+  .execSync("git branch -l | sed -e \"/^[^*] /d\"")
   .toString()
   .replace("*", "")
   .trim()

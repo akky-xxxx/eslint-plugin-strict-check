@@ -9,25 +9,25 @@ import type {
 tester.run<MessageId, Option[]>("avoid-risky-input-type", avoidRiskyInputType, {
   valid: [
     {
-      name: 'It is valid, when "number" specify to riskyValue, "text" specify to input.type.',
-      code: 'const Valid = () => <input type="text" />',
+      name: "It is valid, when \"number\" specify to riskyValue, \"text\" specify to input.type.",
+      code: "const Valid = () => <input type=\"text\" />",
       options: [{ riskyValues: ["number"] }],
     },
     {
-      name: 'It is valid, when "number" specify to riskyValue, not specify input.type.',
+      name: "It is valid, when \"number\" specify to riskyValue, not specify input.type.",
       code: "const Valid = () => <input />",
       options: [{ riskyValues: ["number"] }],
     },
     {
-      name: 'It is valid, when "text" specify to riskyValue, "text" specify to other than input.',
+      name: "It is valid, when \"text\" specify to riskyValue, \"text\" specify to other than input.",
       code: "const Valid = () => <div type='text' />",
       options: [{ riskyValues: ["text"] }],
     },
   ],
   invalid: [
     {
-      name: 'It is invalid, when "number" specify to both riskyValues, input.type.',
-      code: 'const Valid = () => <input type="number" />',
+      name: "It is invalid, when \"number\" specify to both riskyValues, input.type.",
+      code: "const Valid = () => <input type=\"number\" />",
       options: [{ riskyValues: ["number"] }],
       errors: [
         {

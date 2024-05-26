@@ -7,8 +7,7 @@ describe("event-handler-prefix.variableDeclarator", () => {
       // @ts-ignore
       variableDeclarator({
         options: [],
-      }),
-    ).toThrow("Invalid options, please check it.")
+      })).toThrow("Invalid options, please check it.")
   })
 
   it("Not defined option.forbiddenPrefix", () => {
@@ -17,7 +16,6 @@ describe("event-handler-prefix.variableDeclarator", () => {
       // @ts-ignore
       variableDeclarator({
         options: [{}],
-      }),
-    ).toThrow("Invalid options, please check it.")
+      })).toThrow("Invalid options, please check it.")
   })
 })

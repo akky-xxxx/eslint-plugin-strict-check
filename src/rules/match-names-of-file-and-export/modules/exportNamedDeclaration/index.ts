@@ -40,6 +40,7 @@ export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
 
     report({
       data: {
+        capturedString,
         filepath: fileName,
         variableName,
       },
