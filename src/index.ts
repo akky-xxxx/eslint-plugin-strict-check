@@ -13,8 +13,8 @@ const plugin = {
 }
 
 plugin.configs = {
-  "legacy/react": getLegacyConfig(ReactMaster),
-  "legacy/vanilla": getLegacyConfig(VanillaMaster),
+  "legacy-react": getLegacyConfig(ReactMaster),
+  "legacy-vanilla": getLegacyConfig(VanillaMaster),
   "react": getFlatConfig(plugin, ReactMaster),
   "vanilla": getFlatConfig(plugin, VanillaMaster),
 }
