@@ -12,14 +12,14 @@ const OneTime = 1
 
 export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
   const { getFilename, report } = context
-  const fileName = getFilename()
+  const filename = getFilename()
   const counts = {
-    [fileName]: 0,
+    [filename]: 0,
   }
 
   return (node) => {
-    counts[fileName] += 1
-    if (counts[fileName] <= OneTime) {
+    counts[filename] += 1
+    if (counts[filename] <= OneTime) {
       return
     }
 

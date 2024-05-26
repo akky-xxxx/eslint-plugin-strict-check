@@ -15,9 +15,9 @@ export const program: Program = (context) => {
 
   const [{ allowPatterns }] = parseOption(options, optionsSchema)
 
-  const fileName = getFilename()
+  const filename = getFilename()
   const isPartialMatched = allowPatterns.some((pattern) =>
-    pattern.test(fileName))
+    pattern.test(filename))
 
   return (node) => {
     if (isPartialMatched) return

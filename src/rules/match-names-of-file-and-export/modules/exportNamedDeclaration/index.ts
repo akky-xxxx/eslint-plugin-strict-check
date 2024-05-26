@@ -16,10 +16,10 @@ type ExportNamedDeclaration = (
 
 export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
   const { getFilename, options, report } = context
-  const fileName = getFilename()
+  const filename = getFilename()
   const [{ captures }] = parseOption(options, optionsSchema)
 
-  const matchedCapture = captures.find((capture) => capture.test(fileName))
+  const matchedCapture = captures.find((capture) => capture.test(filename))
 
   return (node) => {
     if (!matchedCapture) return
@@ -34,14 +34,14 @@ export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
       id: { name: variableName },
     } = firstDeclaration
 
-    const capturedString = fileName.match(matchedCapture)?.at(CapturedIndex)
+    const capturedString = filename.match(matchedCapture)?.at(CapturedIndex)
 
     if (variableName === capturedString) return
 
     report({
       data: {
         capturedString,
-        filepath: fileName,
+        filepath: filename,
         variableName,
       },
       messageId: "FileAndExportAreDifferent",
