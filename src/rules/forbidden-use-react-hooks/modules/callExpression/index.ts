@@ -14,7 +14,7 @@ type CallExpression = (
 
 export const callExpression: CallExpression = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
-  const { getFilename, options, report } = context
+  const { filename, options, report } = context
 
   const [{ allowPatterns, disallowPatterns }] = parseOption(
     options,
@@ -30,17 +30,15 @@ export const callExpression: CallExpression = (context) => {
   }
 
   return (node) => {
-    const fileName = getFilename()
-
     if (allowPatterns) {
       const isPartialMatched = allowPatterns.some((pattern) =>
-        pattern.test(fileName))
+        pattern.test(filename))
       if (isPartialMatched) return
     }
 
     if (disallowPatterns) {
       const isPartialMatched = disallowPatterns.some((pattern) =>
-        pattern.test(fileName))
+        pattern.test(filename))
       if (!isPartialMatched) return
     }
 
