@@ -14,7 +14,7 @@ type ImportSpecifier = (
 
 export const importSpecifier: ImportSpecifier = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
-  const { getFilename, options, report } = context
+  const { filename, options, report } = context
 
   const [{ allowPatterns, disallowPatterns }] = parseOption(
     options,
@@ -30,8 +30,6 @@ export const importSpecifier: ImportSpecifier = (context) => {
   }
 
   return (node) => {
-    const filename = getFilename()
-
     if (allowPatterns) {
       const isPartialMatched = allowPatterns.some((pattern) =>
         pattern.test(filename))

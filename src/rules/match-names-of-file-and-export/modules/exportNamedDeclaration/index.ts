@@ -15,8 +15,7 @@ type ExportNamedDeclaration = (
 ) => TSESLint.RuleFunction<TSESTree.ExportNamedDeclaration>
 
 export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
-  const { getFilename, options, report } = context
-  const filename = getFilename()
+  const { filename, options, report } = context
   const [{ captures }] = parseOption(options, optionsSchema)
 
   const matchedCapture = captures.find((capture) => capture.test(filename))

@@ -11,8 +11,7 @@ type ExportNamedDeclaration = (
 const OneTime = 1
 
 export const exportNamedDeclaration: ExportNamedDeclaration = (context) => {
-  const { getFilename, report } = context
-  const filename = getFilename()
+  const { filename, report } = context
   const counts = {
     [filename]: 0,
   }

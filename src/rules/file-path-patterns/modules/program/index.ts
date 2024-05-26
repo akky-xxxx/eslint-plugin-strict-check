@@ -11,11 +11,10 @@ type Program = (context: Context) => TSESLint.RuleFunction<TSESTree.Program>
 
 export const program: Program = (context) => {
   // TODO: filename と正規表現をマッチングさせる処理を共通化できないか検討
-  const { getFilename, options, report } = context
+  const { filename, options, report } = context
 
   const [{ allowPatterns }] = parseOption(options, optionsSchema)
 
-  const filename = getFilename()
   const isPartialMatched = allowPatterns.some((pattern) =>
     pattern.test(filename))
 
