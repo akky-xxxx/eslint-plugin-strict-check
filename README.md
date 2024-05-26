@@ -34,8 +34,8 @@ export default [
 module.exports = {
     plugins: ["strict-check"], // It is not necessary when use the recommended config
     extends: [
-        "strict-check/legacy/react", // Specify when use recommended config for react
-        "strict-check/legacy/vanilla", // Specify when use recommended config for vanilla
+        "strict-check/legacy-react", // Specify when use recommended config for react
+        "strict-check/legacy-vanilla", // Specify when use recommended config for vanilla
     ],
     rules: {
         ...
