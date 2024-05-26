@@ -408,7 +408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^19.2.1":
+"@commitlint/cli@npm:^19.3.0":
   version: 19.3.0
   resolution: "@commitlint/cli@npm:19.3.0"
   dependencies:
@@ -425,7 +425,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^19.1.0":
+"@commitlint/config-conventional@npm:^19.2.2":
   version: 19.2.2
   resolution: "@commitlint/config-conventional@npm:19.2.2"
   dependencies:
@@ -1763,7 +1763,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.4.12":
+"@swc/core@npm:^1.5.7":
   version: 1.5.7
   resolution: "@swc/core@npm:1.5.7"
   dependencies:
@@ -2023,7 +2023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.74":
+"@types/react@npm:^18.3.3":
   version: 18.3.3
   resolution: "@types/react@npm:18.3.3"
   dependencies:
@@ -2106,7 +2106,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/rule-tester@npm:^7.5.0":
+"@typescript-eslint/rule-tester@npm:^7.10.0":
   version: 7.10.0
   resolution: "@typescript-eslint/rule-tester@npm:7.10.0"
   dependencies:
@@ -2175,7 +2175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:7.10.0, @typescript-eslint/utils@npm:^7.5.0, @typescript-eslint/utils@npm:^7.8.0":
+"@typescript-eslint/utils@npm:7.10.0, @typescript-eslint/utils@npm:^7.10.0, @typescript-eslint/utils@npm:^7.8.0":
   version: 7.10.0
   resolution: "@typescript-eslint/utils@npm:7.10.0"
   dependencies:
@@ -3213,7 +3213,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cspell@npm:^8.6.1":
+"cspell@npm:^8.8.3":
   version: 8.8.3
   resolution: "cspell@npm:8.8.3"
   dependencies:
@@ -3745,20 +3745,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "eslint-plugin-strict-check@workspace:."
   dependencies:
-    "@commitlint/cli": "npm:^19.2.1"
-    "@commitlint/config-conventional": "npm:^19.1.0"
+    "@commitlint/cli": "npm:^19.3.0"
+    "@commitlint/config-conventional": "npm:^19.2.2"
     "@eslint/eslintrc": "npm:^3.1.0"
     "@eslint/js": "npm:^9.3.0"
     "@stylistic/eslint-plugin": "npm:^2.1.0"
     "@swc/cli": "npm:^0.3.12"
-    "@swc/core": "npm:^1.4.12"
+    "@swc/core": "npm:^1.5.7"
     "@swc/jest": "npm:^0.2.36"
     "@types/jest": "npm:^29.5.12"
-    "@types/react": "npm:^18.2.74"
-    "@typescript-eslint/rule-tester": "npm:^7.5.0"
-    "@typescript-eslint/utils": "npm:^7.5.0"
+    "@types/react": "npm:^18.3.3"
+    "@typescript-eslint/rule-tester": "npm:^7.10.0"
+    "@typescript-eslint/utils": "npm:^7.10.0"
     chokidar: "npm:^3.6.0"
-    cspell: "npm:^8.6.1"
+    cspell: "npm:^8.8.3"
     editorconfig-checker: "npm:^5.1.5"
     eslint: "npm:^8.57.0"
     eslint-config-airbnb-base: "npm:^15.0.0"
@@ -3766,7 +3766,7 @@ __metadata:
     fixpack: "npm:^4.0.0"
     husky: "npm:^9.0.11"
     jest: "npm:^29.7.0"
-    npm-run-all2: "npm:^6.1.2"
+    npm-run-all2: "npm:^6.2.0"
     prettier: "npm:^3.2.5"
     remeda: "npm:1.61.0"
     typescript: "npm:5.4.5"
@@ -6266,7 +6266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-run-all2@npm:^6.1.2":
+"npm-run-all2@npm:^6.2.0":
   version: 6.2.0
   resolution: "npm-run-all2@npm:6.2.0"
   dependencies:
