@@ -721,16 +721,16 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-companies@npm:^3.1.0":
-  version: 3.1.1
-  resolution: "@cspell/dict-companies@npm:3.1.1"
-  checksum: 10c0/07411e7f99db6e9de5a235dfbdc00134f508f3a0ed0e95a0d5568e7fdeb46a183f3c643851ffc2a15d11ec4a18f4f3a95382a9ecba8bc7d720e8e1938befb35b
+  version: 3.1.2
+  resolution: "@cspell/dict-companies@npm:3.1.2"
+  checksum: 10c0/ac5ad39fa808e53a0dc1fb19836cb9c04e21dffffb5a8e05a84104f10a7c60c932dc6efa8897b7bcf5b01671e25a418095328b3625436077772f0b6b2d09f019
   languageName: node
   linkType: hard
 
 "@cspell/dict-cpp@npm:^5.1.6":
-  version: 5.1.7
-  resolution: "@cspell/dict-cpp@npm:5.1.7"
-  checksum: 10c0/d42a9ecef57139dabe62cd45e4e4d53771a866fb753bc3ad0abb1227c6f704aa30dbb43478b13f36e37fea0d49ac665c315f989afe0f7f71f55b38fb0bf12a8e
+  version: 5.1.8
+  resolution: "@cspell/dict-cpp@npm:5.1.8"
+  checksum: 10c0/cfc8729904a508995da90e469fee4e490f85663ec7a3842eb16e573b079d37a928d59a210b7fcd23e8f1bd984a6e86867f83773eccaa921ab1c5f549618546db
   languageName: node
   linkType: hard
 
@@ -812,9 +812,9 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-en_us@npm:^4.3.20":
-  version: 4.3.20
-  resolution: "@cspell/dict-en_us@npm:4.3.20"
-  checksum: 10c0/84da881273cfecce2d06acc869e7dd6c64d0fe89f45c542fa0978f44da73bdc70ad0ef5dc48fecc558901c252212f9f4ce8fcf1d6471c7f65409c1b904d42bc2
+  version: 4.3.21
+  resolution: "@cspell/dict-en_us@npm:4.3.21"
+  checksum: 10c0/f45ef1d3eda7aef5e4d62520e8af099204bb9bbf7c3d8170bac9a58846d5eef91b3c1aac20cc2a9072c018b6acaf5e959266ebbe4c8c25e4201b745b77b10603
   languageName: node
   linkType: hard
 
@@ -910,9 +910,9 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-k8s@npm:^1.0.3":
-  version: 1.0.4
-  resolution: "@cspell/dict-k8s@npm:1.0.4"
-  checksum: 10c0/890162399db245bf591a945d8f67dc060ae2097f7269947ac97219e197eab165b7a94996dbbff6b102d42f95a251f89c3529ca29b27e056d3784e9ea8287cb8b
+  version: 1.0.5
+  resolution: "@cspell/dict-k8s@npm:1.0.5"
+  checksum: 10c0/d9765b76bf80ef40de12dead2c14c17e0ba0e64decc58244ee8599e9b4c5adcb528c854a49addb4bc01309b904b44a479c87dc3772308e053fcba40b6a094bcd
   languageName: node
   linkType: hard
 
@@ -1024,9 +1024,9 @@ __metadata:
   linkType: hard
 
 "@cspell/dict-software-terms@npm:^3.3.23":
-  version: 3.3.24
-  resolution: "@cspell/dict-software-terms@npm:3.3.24"
-  checksum: 10c0/d965dfc76d0b576db18046fba39779a87c3b196bca914590afd64f4cf726ba0c6a134234e6823c04c5cde5ab38450a08fc87eab6b93a2fe4cc0b77be176c927b
+  version: 3.4.0
+  resolution: "@cspell/dict-software-terms@npm:3.4.0"
+  checksum: 10c0/9d84b8cf6f1384eba73e91051021137c4dc7d242461b7c1cb6270ee8c9330403b803b61dcdfefa0dd9371e5d6c062f47b789d6b92cbe6aa87804c2ce5d0faeb8
   languageName: node
   linkType: hard
 
@@ -2008,11 +2008,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.12.12
-  resolution: "@types/node@npm:20.12.12"
+  version: 20.14.0
+  resolution: "@types/node@npm:20.14.0"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/f374b763c744e8f16e4f38cf6e2c0eef31781ec9228c9e43a6f267880fea420fab0a238b59f10a7cb3444e49547c5e3785787e371fc242307310995b21988812
+  checksum: 10c0/29ccc7592e9ca6b81d00f3a6673241d08e9042d801b10adfd9ebcbbf326208e0a0133a8d146158db18d02a68b85d9ce1fd94e6e1e5be0da263129bf6e42eb22d
   languageName: node
   linkType: hard
 
@@ -2748,9 +2748,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001587":
-  version: 1.0.30001621
-  resolution: "caniuse-lite@npm:1.0.30001621"
-  checksum: 10c0/c7e7fb021ca32b26394ddf0d62faa8a7919c2e50f8a0dcc51f02a96b7b46fff69a81d6b7ead711367fcaf9dfbc6c795320553b6f84dcb393806a10efeb756ce7
+  version: 1.0.30001626
+  resolution: "caniuse-lite@npm:1.0.30001626"
+  checksum: 10c0/112c7219fbfefb5f1d8c05194712ea08093daee7f245896bba9750c7512443178ac1e8de581b4e7868415c4cef28d7577c0078ed170e8d2deff948eb16aa761a
   languageName: node
   linkType: hard
 
@@ -3290,14 +3290,14 @@ __metadata:
   linkType: hard
 
 "debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4":
-  version: 4.3.4
-  resolution: "debug@npm:4.3.4"
+  version: 4.3.5
+  resolution: "debug@npm:4.3.5"
   dependencies:
     ms: "npm:2.1.2"
   peerDependenciesMeta:
     supports-color:
       optional: true
-  checksum: 10c0/cedbec45298dd5c501d01b92b119cd3faebe5438c3917ff11ae1bff86a6c722930ac9c8659792824013168ba6db7c4668225d845c633fbdafbbf902a6389f736
+  checksum: 10c0/082c375a2bdc4f4469c99f325ff458adad62a3fc2c482d59923c260cb08152f34e2659f72b3767db8bb2f21ca81a60a42d1019605a412132d7b9f59363a005cc
   languageName: node
   linkType: hard
 
@@ -3456,9 +3456,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.783
-  resolution: "electron-to-chromium@npm:1.4.783"
-  checksum: 10c0/d112e5602e2ee7516ead648e2d2449027f1106147858442781ac475f9a3861a783cb6c8f4638316800f5eff2c4a1f046cd412704678c90479c5417bf204de572
+  version: 1.4.788
+  resolution: "electron-to-chromium@npm:1.4.788"
+  checksum: 10c0/62ad89f153a68b3d231f4e4e681ac0fc130b2f6ff4538fe835d712acdf253a46c8282919396177ddb028246d5f91fbc60b6b23d74d214e729345c585995e476d
   languageName: node
   linkType: hard
 
@@ -7968,11 +7968,11 @@ __metadata:
   linkType: hard
 
 "yaml@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "yaml@npm:2.4.2"
+  version: 2.4.3
+  resolution: "yaml@npm:2.4.3"
   bin:
     yaml: bin.mjs
-  checksum: 10c0/280ddb2e43ffa7d91a95738e80c8f33e860749cdc25aa6d9e4d350a28e174fd7e494e4aa023108aaee41388e451e3dc1292261d8f022aabcf90df9c63d647549
+  checksum: 10c0/b4a9dea34265f000402c909144ac310be42c4526dfd16dff1aee2b04a0d94051713651c0cd2b0a3d8109266997422120f16a7934629d12f22dc215839ebbeccf
   languageName: node
   linkType: hard
 
