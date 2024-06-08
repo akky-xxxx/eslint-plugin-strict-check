@@ -3769,7 +3769,7 @@ __metadata:
     jest: "npm:^29.7.0"
     npm-run-all2: "npm:^6.2.0"
     prettier: "npm:^3.2.5"
-    remeda: "npm:2.0.5"
+    remeda: "npm:2.0.6"
     typescript: "npm:5.4.5"
     typescript-eslint: "npm:^7.10.0"
     zod: "npm:3.23.8"
@@ -6872,12 +6872,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remeda@npm:2.0.5":
-  version: 2.0.5
-  resolution: "remeda@npm:2.0.5"
+"remeda@npm:2.0.6":
+  version: 2.0.6
+  resolution: "remeda@npm:2.0.6"
   dependencies:
     type-fest: "npm:^4.18.2"
-  checksum: 10c0/6edb1a0fb12fdc7283a68dc49544d0f0b4906015961bc90e25f4a4079b12e3c20bfeabc0093fae3ad7c8b65bd6abd2c8d54069207fe843a59dd77fdd1a3b5ce2
+  checksum: 10c0/7b210ee99445c46ff2393b62090e52d497f7fa7d7b4158c73d68bc1bfe1e63ad4edf184383ee8cd60b4b0a2b74dbd572acf5486c686bf7866eb6285e35da2b54
   languageName: node
   linkType: hard
 
