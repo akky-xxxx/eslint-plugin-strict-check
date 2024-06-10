@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-strict-check",
   "version": "0.0.23",
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/akky-xxxx/eslint-plugin-strict-check.git"
@@ -35,7 +35,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "remeda": "2.0.7",
+    "remeda": "2.0.9",
     "zod": "3.23.8"
   },
   "devDependencies": {
