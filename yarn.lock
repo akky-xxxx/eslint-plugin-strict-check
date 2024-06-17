@@ -1602,9 +1602,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-js@npm:2.2.0, @stylistic/eslint-plugin-js@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "@stylistic/eslint-plugin-js@npm:2.2.0"
+"@stylistic/eslint-plugin-js@npm:2.2.1, @stylistic/eslint-plugin-js@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@stylistic/eslint-plugin-js@npm:2.2.1"
   dependencies:
     "@types/eslint": "npm:^8.56.10"
     acorn: "npm:^8.11.3"
@@ -1612,61 +1612,61 @@ __metadata:
     espree: "npm:^10.0.1"
   peerDependencies:
     eslint: ">=8.40.0"
-  checksum: 10c0/befb923d2a1eaeb90ffa6c3d5d23c7d3af55107e1c8ca1f15a3f5f80cea64d699ad2f13379ceaaf0fef8a06915eb56fa06cc4e7a249bf8376f4e9b03b173ffd0
+  checksum: 10c0/aec3abbb0d5c5442af06c567bd8c2ecdfeb4a8cc4c91193a8430af6084f2478f7e19403f12b9a4b40b91a2120cc62f35c378abc8e368f1ef78ddcf9e5786ccf2
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-jsx@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@stylistic/eslint-plugin-jsx@npm:2.2.0"
+"@stylistic/eslint-plugin-jsx@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@stylistic/eslint-plugin-jsx@npm:2.2.1"
   dependencies:
-    "@stylistic/eslint-plugin-js": "npm:^2.2.0"
+    "@stylistic/eslint-plugin-js": "npm:^2.2.1"
     "@types/eslint": "npm:^8.56.10"
     estraverse: "npm:^5.3.0"
     picomatch: "npm:^4.0.2"
   peerDependencies:
     eslint: ">=8.40.0"
-  checksum: 10c0/059fecec4acfe60c448231a775fabec57c2db838bdcffe073de7d023259c15ea52fb2174d8c6b3f0854cedd66ff03edbc373b4c14566e0f3fde1c8a61262bcc3
+  checksum: 10c0/653f6b22fc04324afee8d37ce82179db9e5b66dee22809e259030dec23c6ed5bd4fc0f8e9e5979495d30f0ffabe729f489b081b416e53e09a5e854234ebae91b
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-plus@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@stylistic/eslint-plugin-plus@npm:2.2.0"
+"@stylistic/eslint-plugin-plus@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@stylistic/eslint-plugin-plus@npm:2.2.1"
   dependencies:
     "@types/eslint": "npm:^8.56.10"
     "@typescript-eslint/utils": "npm:^7.12.0"
   peerDependencies:
     eslint: "*"
-  checksum: 10c0/4e40289832f1ce7bad81333c8b6b9553e31deff90aef298bcea486a33f9db3c2d5ca285e1fad16ae7681a1994709bbc88720b8c8cff472d39007ddf276497a20
+  checksum: 10c0/2115e92b2dca9598ca1b4c484fb60e7b5bbc082f7fb02b24e29cd88337e9fd6a69154c975878ca6ff468e91d0b8ab00abb7224127d0772e53ca2ee254c160f02
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin-ts@npm:2.2.0":
-  version: 2.2.0
-  resolution: "@stylistic/eslint-plugin-ts@npm:2.2.0"
+"@stylistic/eslint-plugin-ts@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@stylistic/eslint-plugin-ts@npm:2.2.1"
   dependencies:
-    "@stylistic/eslint-plugin-js": "npm:2.2.0"
+    "@stylistic/eslint-plugin-js": "npm:2.2.1"
     "@types/eslint": "npm:^8.56.10"
     "@typescript-eslint/utils": "npm:^7.12.0"
   peerDependencies:
     eslint: ">=8.40.0"
-  checksum: 10c0/ad65fc688b62de1ce4c999dffba4f87b3ed51bc881964110924935738d0c8f436c44576416f582870cbcd177abcda22382408f831621266a319ff6b51a5d39b1
+  checksum: 10c0/8d7610ec69602daf309e774a442ec6a52efdacc41d50de088b28fd5520ef104d4c98e9cf56372baab314659bd5b592ab4efd9364f18696ab7e0081cc5192b3cb
   languageName: node
   linkType: hard
 
 "@stylistic/eslint-plugin@npm:^2.1.0":
-  version: 2.2.0
-  resolution: "@stylistic/eslint-plugin@npm:2.2.0"
+  version: 2.2.1
+  resolution: "@stylistic/eslint-plugin@npm:2.2.1"
   dependencies:
-    "@stylistic/eslint-plugin-js": "npm:2.2.0"
-    "@stylistic/eslint-plugin-jsx": "npm:2.2.0"
-    "@stylistic/eslint-plugin-plus": "npm:2.2.0"
-    "@stylistic/eslint-plugin-ts": "npm:2.2.0"
+    "@stylistic/eslint-plugin-js": "npm:2.2.1"
+    "@stylistic/eslint-plugin-jsx": "npm:2.2.1"
+    "@stylistic/eslint-plugin-plus": "npm:2.2.1"
+    "@stylistic/eslint-plugin-ts": "npm:2.2.1"
     "@types/eslint": "npm:^8.56.10"
   peerDependencies:
     eslint: ">=8.40.0"
-  checksum: 10c0/bf0f60d0ac06bb035dbe81a1b845e6e755265edb9cac1d69e791e405fa2ae4dbc9a8f3a63ce6f72871e872a03f8a4cfc9708ca92312ed3ab7a3fce2242435dc1
+  checksum: 10c0/c4da02773951f9fcfc33e533e9c7aa23294fc07e70e15199ab3ecedc410261d25b68d49e86dc6a9d7ea6b769d16dfac5ca30034c7b70700405c9eb0eda073f29
   languageName: node
   linkType: hard
 
