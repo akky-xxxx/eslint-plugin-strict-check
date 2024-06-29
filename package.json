@@ -44,7 +44,7 @@
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.3.0",
     "@stylistic/eslint-plugin": "^2.1.0",
-    "@swc/cli": "^0.3.12",
+    "@swc/cli": "^0.4.0",
     "@swc/core": "^1.5.7",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.12",
