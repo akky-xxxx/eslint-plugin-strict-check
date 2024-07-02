@@ -54,7 +54,7 @@
     "chokidar": "^3.6.0",
     "cspell": "^8.8.3",
     "editorconfig-checker": "^5.1.5",
-    "eslint": "^8.57.0",
+    "eslint": "^9.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
     "fixpack": "^4.0.0",
